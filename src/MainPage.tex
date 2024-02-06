@@ -1,0 +1,39 @@
+
+
+
+\begin{landscape}
+
+    size=fbox,sharp corners,
+
+    \begin{minipage}[t][0.4\textheight]{0.6\textwidth}
+        \entry{name=Strike,
+            action=\A{a},
+            page=231,
+            tags=\Attack,
+            uses=,
+            usesDetail=,
+            desc=Attack with a weapon or unarmed attack,
+            detail=\CS{deal double damage}}
+        \entry{name=Feint,
+            action=\A{a},
+            page=231,
+            tags=\Attack,
+            uses={Deception},
+            usesDetail=(Trained),
+            desc=Target is flat footed against your next melee attack this turn. \Mental,
+            detailsec=\hfill\CS{target is flat footed against all your melee attack until end of your next turn}\CF{CS effect, but with inverted targets}}
+        \entry{name=Strike,
+            action=\A{a},
+            page=231,
+            tags=\Attack,
+            desc=description.,
+            detail=\CS{deal double damage}}
+
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t][0.4\textheight]{0.6\textwidth}
+         line of text
+    \end{minipage}
+    \hspace{0.05\textwidth}
+\end{landscape}
+

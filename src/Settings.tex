@@ -1,0 +1,130 @@
+\usepackage[a4paper,margin=0pt]{geometry}
+% Packages
+\usepackage{xcolor,colortbl}
+\usepackage{moresize}
+\usepackage{lipsum,lmodern}
+\usepackage{paracol}
+\usepackage{tcolorbox}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{tikz}
+\usepackage{framed}
+\usepackage{xparse}
+\usepackage{pdfrender}
+\usepackage{setspace}
+\usepackage{adjustbox}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\usepackage{ifthen}
+\usepackage{scalefnt}
+\usepackage{tokcycle}
+\usepackage{tabularx} % in the preamble
+% Document
+
+
+\newfontfamily\pathfinder[Path=./Fonts/, Extension = .ttf]{Pathfinder2eActions.ttf}[Scale=1.6]
+\setmainfont{CrimsonPro}[
+    Path=./Fonts/CrimsonPro/,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic,
+]
+
+\setsansfont{PTSans}[
+    Path=./Fonts/PTSans/,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic
+]
+
+\newcommand{\A}[1]{ \raisebox{-.3ex}{\pathfinder #1}}
+\newcommand{\B}[1]{ \ifthenelse{
+    \equal{#1}{a} \OR
+    \equal{#1}{d} \OR
+    \equal{#1}{t} \OR
+    \equal{#1}{r} \OR
+    \equal{#1}{f}
+}{\raisebox{-.3ex}{\pathfinder #1}}{#1}}
+
+
+\newcommand\IfMatches[3]{%
+    \ifthenelse{\equal{#1}{#2}}{#3}{}}%
+\newcommand\IfBlank[2]{%
+    \ifthenelse{\equal{#1}{}}{#2}{}%
+}
+\newcommand\IfNotBlank[2]{%
+    \ifthenelse{\equal{#1}{}}{}{#2}%
+}
+
+
+
+\makeatletter
+\define@key{entryKey}{name}{\def\entry@name{#1}}
+\define@key{entryKey}{action}{\def\entry@action{#1}}
+\define@key{entryKey}{page}{\def\entry@page{#1}}
+\define@key{entryKey}{uses}{\def\entry@uses{#1}}
+\define@key{entryKey}{usesDetail}{\def\entry@usesDetail{#1}}
+
+\define@key{entryKey}{tags}{\def\entry@tags{#1}}
+\define@key{entryKey}{detail}{\def\entry@detail{#1}}
+\define@key{entryKey}{detailsec}{\def\entry@detailsec{#1}}
+\define@key{entryKey}{desc}{\def\entry@desc{#1}}
+
+\setkeys{entryKey}{name=,action=,uses=,usesDetail=,page=,tags=,desc=,detail=,detailsec=}
+
+
+\newcommand{\pg}[1]{\raisebox{0.35ex}{\scalefont{0.5}\color{blue}#1}}
+\newcommand{\nameV}[1]{{\textbf{\MakeUppercase{#1}}}}
+\newcommand{\Uses}[1]{{\color{cyan}\MakeUppercase{#1}}}
+\newcommand{\UsesDetail}[1]{{\color{cyan}#1}}
+
+\makeatletter
+\global\def\entry@Odd{False}
+\newcommand{\entry}[1]{
+    \setkeys{entryKey}{name=,action=,uses=,usesDetail=,page=,tags=,desc=,detail=,detailsec=, #1}
+
+    \ifthenelse{\equal{\entry@Odd}{True}}{
+        \global\def\entry@Odd{False}
+        \def\entry@color{oddColor}
+    }{
+        \global\def\entry@Odd{True}%
+        \def\entry@color{evenColor}%
+    }
+    %\StrSubstitute{\entry@skill}{,}{)(}[\entry@skill]
+    %\StrSubstitute{\entry@skill}{(feat)}{{\color{orange}(feat)}}[\entry@skill]
+    \sffamily
+    \begin{tcolorbox}[sharp corners, size=fbox, colback=\entry@color, colframe=\entry@color, text width=\linewidth, after skip=0pt, before skip=0pt, boxrule=0pt]%
+        \parbox{0.2 \linewidth}{%
+            \scriptsize\scalefont{0.8}
+            \entry@name\entry@action \hfill \pg{\entry@page}\hspace{0.2ex}\entry@tags\hspace{0.01ex}
+        }
+        \parbox{0.8\linewidth}{%
+            \scriptsize\scalefont{0.7}%
+            \IfNotBlank{\entry@uses}{%
+                \Uses{\entry@uses}\,}%
+            \IfNotBlank{\entry@usesDetail}{%
+                \UsesDetail{\entry@usesDetail}\,}%
+            \IfNotBlank{\entry@desc}{%
+                \entry@desc}%
+            \hfill\entry@detail%
+        }%
+        \IfNotBlank{\entry@detailsec}{\\
+        \pbox{\linewidth}{}{%
+            \scriptsize\scalefont{0.7}
+        \entry@detailsec
+        }
+        }
+    \end{tcolorbox}
+}
+
+\newcommand{\tagBox}[2]{%
+    \tcbox[colframe=#2, colback=#2, on line, right skip=0pt, left skip=0pt, size=fbox,sharp corners,
+        boxrule=0.5pt, boxsep=0.3ex, box align=bottom]{\scalefont{0.4}\textcolor{white}{\MakeUppercase{#1}}}%
+}
+
+
+\input{TagSetup}
