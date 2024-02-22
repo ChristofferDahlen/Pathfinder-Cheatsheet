@@ -1,14 +1,14 @@
-\usepackage[a4paper,margin=0pt]{geometry}
+\usepackage[a4paper,margin=6pt]{geometry}
 % Packages
+\usepackage{tikz}
 \usepackage{xcolor,colortbl}
 \usepackage{moresize}
 \usepackage{lipsum,lmodern}
 \usepackage{paracol}
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{pdflscape}
-\usepackage{tikz}
 \usepackage{framed}
 \usepackage{xparse}
 \usepackage{pdfrender}
@@ -18,18 +18,54 @@
 \usepackage{ifthen}
 \usepackage{scalefnt}
 \usepackage{tokcycle}
+\usepackage{soulutf8}
+\usepackage{xspace}
 \usepackage{tabularx} % in the preamble
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{plain}
+\usepackage{textcomp}
+\usepackage{etoolbox}
+\usepackage{xstring}
+\usepackage{pbox}
+\usepackage{siunitx}
+\usepackage{colonequals}
+\usepackage{ragged2e}
+\usepackage[outline]{contour}
+
+\usetikzlibrary{backgrounds}
 % Document
 
+\xspaceaddexceptions{)()}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\applytoeveryword}{mm}%
+{%
+    \group_begin:%
+    \seq_set_split:Nnn \l_tmpa_seq { ~ } { #1 }%
+    \cs_set_protected:Nn \__masum_apply:n { #2 }%
+    \seq_set_map:NNn \l_tmpb_seq \l_tmpa_seq { \__masum_apply:n { ##1 } }%
+    \seq_use:Nn \l_tmpb_seq { ~ }%
+    \group_end:%
+}%
+\cs_new:Nn \__masum_apply:n {} % initialize
+
+\ExplSyntaxOff
 
 \newfontfamily\pathfinder[Path=./Fonts/, Extension = .ttf]{Pathfinder2eActions.ttf}[Scale=1.6]
+%\newfontfamily\TitleFont[Path=./Fonts/Ultra/, Extension = .ttf]{Ultra-Regular.ttf}
+%\newfontfamily\TitleFont[Path=./Fonts/Source_Serif_4/, Extension = .ttf]{SourceSerif4-VariableFont_opsz,wght.ttf}
+%\newfontfamily\TitleFont[Path=./Fonts/Rye/, Extension = .ttf]{Rye-Regular.ttf}
+%\newfontfamily\TitleFont[Path=./Fonts/Rozha_One/, Extension = .ttf]{RozhaOne-Regular.ttf}
+\newfontfamily\TitleFont[Path=./Fonts/Stoke/, Extension = .ttf]{Stoke-Regular.ttf}
+
 \setmainfont{CrimsonPro}[
     Path=./Fonts/CrimsonPro/,
     Extension = .ttf,
     UprightFont=*-Regular,
     BoldFont=*-Bold,
     ItalicFont=*-Italic,
-    BoldItalicFont=*-BoldItalic,
+    BoldItalicFont=*-BoldItalic
 ]
 
 \setsansfont{PTSans}[
@@ -40,6 +76,13 @@
     ItalicFont=*-Italic,
     BoldItalicFont=*-BoldItalic
 ]
+\newfontfamily\kirsty{kristy}[Path=./Fonts/kirsty/, Extension=.otf,
+    UprightFont=kirsty-rg,
+    BoldFont=kirsty-bd,
+    ItalicFont=kirsty-rg-it,
+    BoldItalicFont=kirsty-bd-it
+]
+
 
 \newcommand{\A}[1]{ \raisebox{-.3ex}{\pathfinder #1}}
 \newcommand{\B}[1]{ \ifthenelse{
@@ -59,72 +102,425 @@
 \newcommand\IfNotBlank[2]{%
     \ifthenelse{\equal{#1}{}}{}{#2}%
 }
+\newcommand\IfBlankElse[3]{%
+    \ifthenelse{\equal{#1}{}}{#1}{#2}%
+}
 
+\NewDocumentCommand{\TitleFillText}{m}{
+    \def\innersep{3pt}
+    \def\miterlim{100}
+    \begin{tikzpicture}
+        \draw (0,0) node[inner sep=\innersep, anchor=south, align=center] {%
+            \textpdfrender{%
+                TextRenderingMode=FillStrokeClip,%
+                LineCapStyle=ProjectingSquare,
+                LineJoinStyle=Bevel,%
+                LineWidth=3pt,%
+                StrokeColor=TitleOuterOutlineColor,%
+                FillColor=TitleOuterOutlineColor%
+            }{#1\par}%
+        };
+        \draw (0,0) node[inner sep=\innersep, anchor=south, align=center] {%
+            \textpdfrender{%
+                TextRenderingMode=FillStrokeClip,%
+                LineCapStyle=ProjectingSquare,
+                LineJoinStyle=Bevel,%
+                LineWidth=2pt,%
+                StrokeColor=TitleOutlineColor,%
+                FillColor=TitleOutlineColor%
+            }{#1\par}%
+        };
+        \draw (0, 0) node[inner sep=\innersep, rectangle, outer sep=0, anchor=south, align=center, text=TitleFillColor] {%
+            #1\par%
+        };
 
+    \end{tikzpicture}
+}
+\newcommand{\dash}{{\kirsty\scalefont{0.6}\textbf{-}}}
+\newcommand{\ddash}{{\kirsty\scalefont{0.6}\textbf{--}}}
+\newcommand{\edash}{\hspace{0.4ex}\dash\hspace{0.4ex}}
 
 \makeatletter
-\define@key{entryKey}{name}{\def\entry@name{#1}}
 \define@key{entryKey}{action}{\def\entry@action{#1}}
 \define@key{entryKey}{page}{\def\entry@page{#1}}
 \define@key{entryKey}{uses}{\def\entry@uses{#1}}
-\define@key{entryKey}{usesDetail}{\def\entry@usesDetail{#1}}
-
 \define@key{entryKey}{tags}{\def\entry@tags{#1}}
-\define@key{entryKey}{detail}{\def\entry@detail{#1}}
-\define@key{entryKey}{detailsec}{\def\entry@detailsec{#1}}
 \define@key{entryKey}{desc}{\def\entry@desc{#1}}
+\define@key{entryKey}{pageRotate}{\def\entry@pageRotate{#1}}
+\define@key{entryKey}{namescale}{\def\entry@namescale{#1}}
+\define@key{entryKey}{nameWidth}{\def\entry@namewidth{#1}}
+\define@key{entryKey}{bodyWidth}{\def\entry@bodywidth{#1}}
 
-\setkeys{entryKey}{name=,action=,uses=,usesDetail=,page=,tags=,desc=,detail=,detailsec=}
+\setkeys{entryKey}{action=,uses=,page=,tags=,desc=,namescale=1,nameWidth=0.2,bodyWidth=0.8,pageRotate=}
 
-
-\newcommand{\pg}[1]{\raisebox{0.35ex}{\scalefont{0.5}\color{blue}#1}}
+\newcommand{\pgc}[1]{\textcolor{PGColor}{#1}}
+\newcommand{\pg}[1]{{\scalefont{0.5}\textcolor{PGColor}{#1}}}
+\newcommand{\pgRotate}[1]{\rotatebox[origin=t]{90}{\centering\scalefont{0.5}\textcolor{PGColor}{#1}}}
 \newcommand{\nameV}[1]{{\textbf{\MakeUppercase{#1}}}}
-\newcommand{\Uses}[1]{{\color{cyan}\MakeUppercase{#1}}}
-\newcommand{\UsesDetail}[1]{{\color{cyan}#1}}
+\newcommand{\Uses}[1]{\textcolor{UColor}{\MakeUppercase{#1}}}
+\newcommand{\UsesDetail}[1]{\textcolor{UColor}{#1}}
 
+
+\NewDocumentCommand{\MSC}{O{0.7} m}{%
+    \applytoeveryword{#2}{%
+        \ifthenelse{
+            \equal{##1}{the} \OR
+            \equal{##1}{a} \OR
+            \equal{##1}{an} \OR
+            \equal{##1}{or} \OR
+            \equal{##1}{to} \OR
+            \equal{##1}{and}}{%
+                {\scalefont{0.7}\MakeUppercase{##1}}}{%
+            \StrLeft{##1}{1}[\FirstLetter]%
+            \StrGobbleLeft{##1}{1}[\Remaining]%
+            \MakeUppercase{\FirstLetter}{\scalefont{#1}\MakeUppercase{\Remaining}}}%
+    }%
+}
+
+\NewDocumentCommand{\MSCB}{O{0.7} m}{\textbf{\MSC[#1]{#2}}}
+
+\newcommand{\StyleEntry}[1]{{\scalefont{1.12}\textbf{\MSC{#1}}}}
+\newcommand{\StyleHeader}[1]{{\textcolor{HeaderTextColor}{#1}}}
+\newcommand{\StyleBreak}[1]{{\scriptsize\scalefont{0.65} \textcolor{HeaderTextColor}{#1}}}
+\newcommand{\BodySize}{\scriptsize\scalefont{0.8}}
+\newcommand{\ActionSize}{\scriptsize\scalefont{0.8}}
+
+
+\newcommand{\Numb}[1]{{\kirsty\scalefont{0.7}#1}\xspace}
+\newcommand{\DCNumb}[1]{{\kirsty\scalefont{0.7}#1}\xspace}
+
+
+\NewDocumentCommand{\Type}{m O{0.7}}{{\kirsty\scalefont{#2}\MSC{#1}}\xspace}
+\NewDocumentCommand{\Typet}{m O{0.7}}{{\kirsty\scalefont{#2}#1}\xspace}
+\NewDocumentCommand{\Typetv}{m O{0.7}}{{\kirsty\scalefont{#2}#1}}
+
+
+\newcommand{\Condition}[1]{{\kirsty\scalefont{0.8}\MSC{#1}}\xspace}
+
+
+\newcommand{\T}{\IBox{T}}
+\newcommand{\Ts}{\IBox[0.9]{T}}
+\newcommand{\E}{\IBox[0.9]{E}}
+\newcommand{\M}{\IBox[0.9]{M}}
+\newcommand{\Le}{\IBox[0.9]{L}}
+\newcommand{\Se}{\IBox{S}}
+\newcommand{\Reck}{\IBox{R}}
+\newcommand{\Ac}{\Typet{AC}}
+
+
+\newcommand\Feet{\Type{Feet}}
+\newcommand\Min{\Type{Min}}
+\newcommand\Hardness{\Type{Hardness}}
+
+\newcommand\WillT{\Type{Will}}
+\newcommand\PerceptionT{\Type{Perception}}
+\newcommand\AcrobaticsT{\Type{Acrobatics}}
+\newcommand\AthleticsT{\Type{Athletics}}
+\newcommand\ReflexT{\Type{Reflex}}
+
+
+\newcommand\ArcanaT{\Type{Arcana}}
+\newcommand\NatureT{\Type{Nature}}
+\newcommand\OccultismT{\Type{Occultism}}
+\newcommand\ReligionT{\Type{Religion}}
+
+
+\newcommand\Grab{\Type{grab}}
+\newcommand\Grabbed{\Type{grabbed}}
+\newcommand\Immobilized{\Type{Immobilized}}
+\newcommand\Restrained{\Type{Restrained}}
+\newcommand\Prone{\Type{Prone}}
+\newcommand\Hidden{\Type{Hidden}}
+\newcommand\Observed{\Type{Observed}}
+\newcommand\Undetected{\Type{Undetected}}
+\newcommand\Fatigued{\Type{Fatigued}}
+\newcommand\GM{\Type{GM}}
+
+
+\newcommand\Bleeding{\Type{Bleeding}}
+\newcommand\Bleed{\Type{Bleed}}
+\newcommand\Wounded{\Type{Wounded}}
+
+\newcommand\Cover{\Type{Cover}}
+\newcommand\GCover{\Type{Greater Cover}}
+
+
+
+\newcommand\Bulk{\Type{Bulk}}
+\newcommand\LightBulk{\Type{Light Bulk}}
+
+
+\newcommand\Dying{\Type{Dying}}
+
+
+\newcommand\OffGuard{\Type{Off-Guard}}
+
+
+\NewDocumentCommand{\DC}{O{}}{%
+    \ifthenelse{\equal{#1}{}}{\Typetv{DC}}{\DCBox{#1}}%
+}
+
+
+\setul{1pt}{.4pt}%
+\NewDocumentCommand{\Refer}{m}{\underline{\MSC{#1}}}
+\NewDocumentCommand{\ReferT}{m}{\underline{{\MSC{#1}}}}
+
+\NewDocumentCommand{\HPs}{}{\Typet{HP}}
+
+
+
+
+\newcommand\Cirm{\Type{circ.}}
+\newcommand\Status{\Type{Status}}
+\newcommand\Item{\Type{Item}}
+
+\newcommand\Frightened{\Condition{Frightened}}
+\newcommand\Sickened{\Condition{Sickened}}
+
+
+\newcommand{\phant}{\hphantom{}XA}
 \makeatletter
 \global\def\entry@Odd{False}
-\newcommand{\entry}[1]{
-    \setkeys{entryKey}{name=,action=,uses=,usesDetail=,page=,tags=,desc=,detail=,detailsec=, #1}
-
-    \ifthenelse{\equal{\entry@Odd}{True}}{
-        \global\def\entry@Odd{False}
-        \def\entry@color{oddColor}
-    }{
+\NewDocumentCommand{\entry}{m m O{}}{%
+    \setkeys{entryKey}{action=,uses=,page=,tags=,desc=,namescale=1,nameWidth=0.21,pageRotate=,bodyWidth=0.789, #2}%
+    %
+    \ifthenelse{\equal{\entry@Odd}{True}}{%
+        \global\def\entry@Odd{False}%
+        \def\entry@color{EntryOddColor}%
+    }{%
         \global\def\entry@Odd{True}%
-        \def\entry@color{evenColor}%
+        \def\entry@color{EntryEvenColor}%
     }
-    %\StrSubstitute{\entry@skill}{,}{)(}[\entry@skill]
-    %\StrSubstitute{\entry@skill}{(feat)}{{\color{orange}(feat)}}[\entry@skill]
-    \sffamily
-    \begin{tcolorbox}[sharp corners, size=fbox, colback=\entry@color, colframe=\entry@color, text width=\linewidth, after skip=0pt, before skip=0pt, boxrule=0pt]%
-        \parbox{0.2 \linewidth}{%
-            \scriptsize\scalefont{0.8}
-            \entry@name\entry@action \hfill \pg{\entry@page}\hspace{0.2ex}\entry@tags\hspace{0.01ex}
-        }
-        \parbox{0.8\linewidth}{%
-            \scriptsize\scalefont{0.7}%
-            \IfNotBlank{\entry@uses}{%
-                \Uses{\entry@uses}\,}%
-            \IfNotBlank{\entry@usesDetail}{%
-                \UsesDetail{\entry@usesDetail}\,}%
-            \IfNotBlank{\entry@desc}{%
-                \entry@desc}%
-            \hfill\entry@detail%
-        }%
-        \IfNotBlank{\entry@detailsec}{\\
-        \pbox{\linewidth}{}{%
-            \scriptsize\scalefont{0.7}
-        \entry@detailsec
-        }
-        }
+    \begin{tcolorbox}[enhanced,sharp corners,
+        size=fbox,
+        colback=\entry@color,
+        colframe=EntryColorBorder,
+        width=\linewidth,
+        after skip=0pt,
+        before skip=0pt,
+        boxsep=0.4ex,
+        frame hidden,
+        borderline south={0.1pt}{0pt}{color=EntryColorBorder},
+        top=0pt,
+        bottom = 0pt,
+        boxrule=0pt]%
+        \begin{minipage}[c][][c]{\entry@namewidth\linewidth}%
+            \ActionSize%
+            {\scalefont{\entry@namescale}%
+            \StyleEntry{#1}}\entry@action\hfill%
+            \ifthenelse{\equal{\entry@pageRotate}{}}{\raisebox{0.6pt}{\pg{\entry@page}}}{\pgRotate{\entry@page}}\,%
+            \entry@tags
+        \end{minipage}\hspace{0.001\linewidth}
+        \begin{minipage}[c][][c]{\entry@bodywidth\linewidth}%
+            \BodySize%
+            \raggedright%
+            \renewcommand{\phant}{\hphantom{%
+                \entry@uses%
+                \IfNotBlank{\entry@uses}{\hspace{0.4ex}\dash}%
+            }}%
+            \entry@uses%
+            \IfNotBlank{\entry@uses}{\edash}%
+            \entry@desc%
+        \end{minipage}
     \end{tcolorbox}
 }
 
-\newcommand{\tagBox}[2]{%
-    \tcbox[colframe=#2, colback=#2, on line, right skip=0pt, left skip=0pt, size=fbox,sharp corners,
-        boxrule=0.5pt, boxsep=0.3ex, box align=bottom]{\scalefont{0.4}\textcolor{white}{\MakeUppercase{#1}}}%
+
+\NewDocumentCommand{\activity}{m m}{\entry{#1}{#2, nameWidth=0.26,bodyWidth=0.739}}
+
+\newcommand{\breakLine}[1][none]{
+    \ifthenelse{\equal{#1}{none}}{
+        \begin{tcolorbox}[sharp corners,
+            colback=HeaderColor,
+            colframe=HeaderColorBorder,
+            width=\linewidth,
+            after skip=0pt,
+            before skip=0pt,
+            boxsep=0.1ex,
+            top=0pt,
+            bottom = 0pt,
+            boxrule=0pt]
+        \end{tcolorbox}
+    }{
+        \begin{tcolorbox}[sharp corners,
+            colback=HeaderColor,
+            colframe=HeaderColorBorder,
+            width=\linewidth,
+            after skip=0pt,
+            before skip=0pt,
+            boxsep=0.0pt,
+            left*=0pt,
+            top=0.2ex,
+            bottom = 0pt,
+            boxrule=0pt, valign=bottom]%
+            \begin{center}%
+            {\centering\StyleBreak{#1}}%
+            \end{center}%
+        \end{tcolorbox}
+    }
+}
+
+
+
+\NewDocumentCommand{\Header}{m O{} O{}}{%
+    \global\def\entry@Odd{False}%
+    \begin{tcolorbox}[sharp corners,
+        colback=HeaderColor,
+        colframe=HeaderColor,
+        width=\linewidth,
+        after skip=0pt,
+        before skip=0pt,
+        boxsep=0.3ex,
+        left=0pt,
+        top=0pt,
+        bottom = 0pt,
+        boxrule=0pt]%
+        \raggedright{\:\StyleHeader{\textbf{\MSC{#1}}#2}\:\StyleBreak{#3}}%
+    \end{tcolorbox}%
+}
+
+
+
+\gdef\tableHorizontalSpace{}
+\NewDocumentEnvironment{Tables}{m}{%
+    \gdef\tableFill{}%
+    \tableHorizontalSpace%
+    \gdef\tableHorizontalSpace{\hspace{0.015\linewidth}}%
+    \begin{minipage}[b][#1][t]{0.48\linewidth}%
+    }{%
+    \end{minipage}%
+}%
+
+\NewDocumentEnvironment{Table}{m O{} O{}}{%%
+    \tableFill%
+    \begin{minipage}[t]{\linewidth}%
+        \Header{#1}[#2][#3]%
+        }{
+    \end{minipage}%
+}
+
+\NewDocumentCommand{\CoinBox}{m}{%
+    \begin{minipage}[t][][c]{\linewidth}%
+        \begin{tcolorbox}[sharp corners,
+            colback=HeaderColor,
+            colframe=HeaderColor,
+            width=\linewidth,
+            after skip=0pt,
+            before skip=0pt,
+            boxsep=1.5ex,
+            left=0pt,
+            top=0pt,
+            bottom = 0pt,
+            boxrule=0pt]
+            #1%
+        \end{tcolorbox}%
+    \end{minipage}%
+}
+
+%\hspace{0.2\linewidth}\pageText\parbox{0.2\linewidth}{\;\A{a} \A{a} \A{a} \A{r}}\\%
+\NewDocumentCommand\circled{O{0} m}{\tikz[baseline=(char.base)]{
+    \node[shape=circle,rotate=#1,fill=iconbackColor,draw,minimum size=1.4cm,inner sep=2pt] (char) {\textcolor{
+        iconColor}{#2}};}}
+
+\NewDocumentCommand{\CoinScale}{}{\Huge\scalefont{0.95}}
+\NewDocumentCommand{\SingleReactionCoin}{O{0}}{{\CoinScale\circled[#1]{\A{r}}}}
+\NewDocumentCommand{\SingleCoin}{O{0}}{{\CoinScale\circled[#1]{\A{a}}}}
+
+\NewDocumentCommand{\Coin}{O{0}}{%
+        {\CoinScale\;%
+    \circled[#1]{\A{r}}\;%
+    \circled[#1]{\A{a}}\;%
+    \circled[#1]{\A{a}}\;%
+    \circled[#1]{\A{a}}}%
+}%
+
+
+\NewDocumentCommand{\PageBottom}{}{%
+    \begin{minipage}[t][0.015\pageheight][t]{0.48\linewidth}%
+        \tiny%
+        \A{a} \MSC{Single Action} \hfill \A{d} \MSC{Two}\dash\MSC{Action Activity} \hfill \A{t} \MSC{Three}\dash\MSC{
+            Action Activity} \hfill \A{f} \MSC{Free Action} \hfill \A{r} \MSC{Reaction} \hfill \D{(\!\A{a})} \MSC{
+            Usable in encounter mode}\\
+        \Numb{+2\CSC{(+4}/\FC{+1)}/\CFC{-1}} - bonus for \MSC{Success} (\CSC{\MSC{Critcal Success}} / \FC{\MSC{
+            Failure}} / \CFC{\MSC{Ciritcal Failure}})\hfill
+        \CSC{\textbf{CS} \edash Critical Success}\;\;
+        \SC{\textbf{S} \edash Success}\;\;
+        \FC{\textbf{F} \edash Failure}\;\;
+        \CFC{\textbf{CF} \edash Critical Failure}\\
+        \pgc{777 = Page reference for Player Core
+        \hfill APG = Advanced Players Guide
+        \hfill GMC = GM Core\\
+        \hfill KCG = Kingmaker Companion Guide
+        \hfill SoM = Secrets of Magic
+        \hfill TV = Treasure Vault}%
+    \end{minipage}\tableHorizontalSpace%
+    \begin{minipage}[t][0.015\pageheight][t]{0.48\linewidth}%
+        \tiny
+        \Attack\,\dash\,Interacts with \MSC{MAP}\hfill
+        \Move,\Manipulate, \Concentrate\,\dash\,Triggers for reactions conditions and more. \hfill
+        \Se\,\dash\,GM rolls \hfill
+        \T\,\dash\,Requires skill training \hfill
+        \Feat\,\dash\,Requires Feat\\
+        \Mental, \Emotion \& \Fear \,\dash\,Tags for immunities \hfill
+        \Auditory/\Visual\,\dash\,Doesn't affect targets that can't see/hear\hfill
+        \Linguistic\,\dash\,Target needs to understand the language
+        \MSC{MAP}\hfill\\
+        \T \edash Trained\:\E \edash Expert\: \M \edash Master\:\Le \edash Legendary \hfill
+        \VariousKnowledge\,\dash\,Relevant Knowledge Skills \hfill \MagicalSkill\,\dash\,Relevant Magic skill \ArcanaT, \NatureT, \OccultismT, \ReligionT\hfill\\
+        \D{All of this material is lisenced under either OGL or ORC lisence.}                \hfill\D{\MSC{Voidhawk
+        Cheatsheet} \Numb{v0.1}\quad By Voidhawk based on \Numb{v1.6} clean rulebook by Iannick Daniel}%
+    \end{minipage}
+}
+
+\NewDocumentEnvironment{PageFront}{}{%
+    \def\HeightBody{0.892\textheight}
+    \begin{landscape}%
+        \begin{center}%
+            \begin{minipage}[c][0.05\textheight][c]{\linewidth}%
+                \begin{center}%
+                {\Huge%
+                \TitleFont%
+                \TitleFillText{\MSC[0.8]{P\kern-3ptA\kern-1.5ptTHFINDER 2E CHEA\kern-1.5ptTSHEET}}}%
+                \end{center}%
+            \end{minipage}
+            \begin{minipage}[c][\HeightBody][c]{\linewidth}%
+                \begin{center}
+                }{
+                \end{center}
+            \end{minipage}
+            \begin{minipage}[t][0.04\textheight][t]{\linewidth}%
+                \begin{center}
+                    \PageBottom%
+                \end{center}
+            \end{minipage}
+            \vspace{0.001\pageheight}
+        \end{center}
+    \end{landscape}%
+    \gdef\tableHorizontalSpace{}%
+}
+
+
+\NewDocumentEnvironment{PageBack}{}{%
+    \def\HeightBody{0.944\textheight}
+    \begin{landscape}%
+        \begin{center}%
+            \begin{minipage}[c][\HeightBody][c]{\linewidth}%
+                \begin{center}
+                }{
+                \end{center}
+            \end{minipage}
+            \begin{minipage}[t][0.04\textheight][t]{\linewidth}%
+                \begin{center}
+                    \PageBottom%
+                \end{center}
+            \end{minipage}
+            \vspace{0.001\pageheight}
+        \end{center}
+    \end{landscape}%
+    \gdef\tableHorizontalSpace{}%
 }
 
 
 \input{TagSetup}
+
+\input{SkillSetup}

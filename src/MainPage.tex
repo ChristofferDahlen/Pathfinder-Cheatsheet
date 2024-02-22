@@ -1,39 +1,582 @@
+\setlength{\parindent}{0mm}%
+\newcommand\backTableHeight{\HeightBody}%
+\begin{PageBack}%
+    \begin{Tables}{\backTableHeight}%
+        \begin{Table}{Attack Action}
+            \entry{Strike}{%
+                action=\A{a},
+                page=418,
+                tags=\Attack,
+                desc=Attack with a weapon or unarmed attack. \hfill\CS{Deal double damage}}
+            \entry{Reactive Strike}{%
+                action=\A{r},
+                page=138,
+                uses=\Feat,
+                desc={\Refer{Strike} against a creature that uses a \Manipulate or \Move action or a Ranged Attack.\hfill\CS{Disrupt \Manipulate actions.}}}
+            \entry{Feint}{action=\A{a},
+                page=239,
+                uses=\Deception[T],
+                tags=\Mental,
+                desc={Target is \OffGuard against your next melee attack this turn. \\\raggedleft\phant\CS{
+                    Target is \OffGuard against all your melee attack until end of your next turn.}\hfill\CF{CS effect,
+                    but with inverted targets.}}}
+            \entry{Escape}{%
+                action=\A{a},
+                page=416,
+                tags=\Attack,
+                desc={%
+                    Attempt to get free when \Grabbed, \Immobilized, or \Restrained.  \hfill\CS{And Stride up to \Numb{5}\Feet.}\\
+                    {\scalefont{0.8}Uses attack modifier, \AcrobaticsT, or \AthleticsT}. \hfill\CF{Can't try again until your next turn.}}
+            }
+            \breakLine[The following combat manuevers usually require having a hand free and the target to be no more
+            than one size larger]
+            \entry{Disarm}{%
+                action=\A{a},
+                page=236,
+                tags=\Attack,
+                desc={\begin{minipage}{0.8\linewidth}
+                          \AthleticsReflex[T] \dash\,Knock something out of an opponent's grasp.\\
+                          Target takes \Numb{-2}\Cirm to using the item until target \Refer{interact}. Future disarm gain \Numb{+2}\Cirm until \Refer{interact}.
+                \end{minipage}\hfill
+                \begin{minipage}{0.2\linewidth}
+                    \raggedleft
+                    \CS{Target drops the object.}\\\CF{You become \OffGuard.}
+                \end{minipage}
+                }
+            }
+            \entry{Grapple}{%
+                action=\A{a},
+                page=235,
+                tags=\Attack,
+                uses=\AthleticsFortitude,
+                desc={Grab an opponent with a free hand until your next turn ends. \hfill\CS{Target is restrained
+                instead.}\\
+                \phant\F{Release the target if you already had it \Grabbed or \Restrained.}\hfill\CF{And the target can \Grab you or push you \Prone.}
+                }}
+            \entry{Reposition}{%
+                action=\A{a},
+                page=235,
+                tags=\Attack,
+                uses=\AthleticsFortitude,
+                desc={Move creature \Numb{5\CSC{(10)}}\Feet within your reach. Not into/through obstacles.\hfill \CF{
+                    Target repositions you \Numb{5}\Feet}.}}
+            \entry{Shove}{%
+                action=\A{a},
+                page=235,
+                tags=\Attack,
+                uses=\AthleticsFortitude,
+                desc={ Push an oppoenent \Numb{5\CSC{(10)}}\Feet from you. You can follow. \hfill\CF{Fall \Prone.}
+                }}
+            \entry{Trip}{%
+                action=\A{a},
+                page=236,
+                tags=\Attack,
+                uses=\AthleticsReflex,
+                desc={Knock an opponent \Prone.\hfill\CS{And deal \Numb{1d6}\Type{blunt}}\quad\CF{Fall \Prone.}}
+            }
+        \end{Table}
+        \vfill
+        \begin{Table}{Magical Actions}
+            \entry{Cast a Spell}{%
+                action={\,\scalefont{0.6}\DColor{(usually)}}\A{d},
+                page=299,
+                desc={Cast a spell you have prepared or in your repertoire. Often \Manipulate and/or \Concentrate.\hfill \D{(Distrupted spell is lost)}}}
+            \entry{Dismiss}{%
+                action=\A{a},
+                page=419,
+                tags=\Concentrate,
+                desc={End one spell or item effect.}}
+            \entry{Sustain}{%
+                action=\A{a},
+                page=419,
+                tags=\Concentrate,
+                desc={Extend one spell or item effect.\hfill \D{If your action is distrupted, the ability ends.}}}
+            \breakLine[If you notice a spell being cast and have the same spell prepared or in your repertoire, you
+            automatically identify it and the level it is cast at.]
+            \entry{Identify Spell}{%
+                action=\A{a},
+                page=303,
+                tags=\Concentrate,
+                uses=\MagicalSkill[S],
+                desc=Identify a spell using \Refer{Recall Knowledge}.}
+            \entry{Recognize Spell}{%
+                action=\A{r},
+                namescale=0.95,
+                page=261,
+                uses=\MagicalSkill[T S]\Feat,
+                tags=\Concentrate,
+                desc={Identify a spell begin cast within line of sight. \hfill\CS{+1\Cirm to save or \Ac.}\\
+                Can identify spells up to rank \Ts\,\Numb{2} (\E\,\Numb{4}, \M\,\Numb{6}, \Le\,\Numb{10}) }}
+
+        \end{Table}
+        \vfill
+        \begin{Table}{Defensive Actions}
+            \entry{Avert Gaze}{%
+                action=\A{a},
+                page=419,
+                desc={Get a \Numb{+2}\Cirm bonus against visual abilities.\hfill \D{Lasts until start of next turn.}}}
+            \entry{Take Cover}{%
+                action=\A{a},
+                page=418,
+                desc={Gain \Cover, or get \GCover if you have \Cover. \hfill \D{Lasts until you move, attack, go unconscious or stop}\\
+                    \Cover gives \Numb{+2} \Cirm bonus to \Ac, \ReflexT and checks to avoid detection, \hfill \GCover gives \Numb{+4},}}
+            \breakLine
+            \entry{Raise a shield / Parry}{%
+                action=\A{a},
+                page=419/282,
+                desc=Put up a shield (or parry weapon) to get its bonus to \Ac. \hfill\D{(\Numb{+2}\Ac for most
+                shields; \Numb{+1}\Ac for parry weapons)}}
+            \entry{Sheild Block}{%
+                action=\A{r},
+                page=262,
+                uses=\Feat,
+                tags=\Concentrate,
+                desc={ Reduces the damage of a physical attack by the raised shield's \Hardness.\\Both you and the
+                shield take any remaining damage.\hfill \D{(Objects generally break at half \HPs and are destroyed at \Numb{0} \HPs.)}}}
+        \end{Table}
+        \vfill
+        \begin{Table}{Cloak and Dagger Interactions}
+            \entry{Sneak}{%
+                action=\A{a},
+                page=245,
+                tags=\Move,
+                uses=\Stealth[S],
+                desc=Move half speed while being \Undetected. \hfill\F{Detected but still \Hidden.}\quad \CF{Become \Observed.}}
+            \entry{Hide}{%
+                action=\A{a},
+                page=244,
+                uses=\Stealth[S],
+                desc={Use cover or concealment to become \Hidden. \hfill \D{Usually other actions than \Refer{Hide}, \Refer{Sneak} or \Refer{Step} makes you \Observed.}}
+            }
+            \breakLine
+            \entry{Seek}{%
+                action=\A{a},
+                page=417,
+                uses=\Perception[S],
+                desc={Locate creatues and objects within an area. \hfill \D{(Usually a \Numb{30}\Feet\,cone or a
+                \Numb{15}\Feet\,burst)}\\
+                Creatures go from \Undetected to \Hidden, or from \Hidden to \Observed.}}
+            \entry{Point out}{%
+                action=\A{a},
+                page=419,
+                tags=\Concentrate,
+                desc=Indicate the location of a creature to your allies. \Auditory\,\Visual \hfill \D{If an ally can't hear/understand they gain \PerceptionStealth}
+            }
+            \breakLine
+            \entry{Conceal an Object}{%
+                namescale=0.9,
+                action=\A{a},
+                page=244,
+                tags=\Manipulate,
+                uses=\Stealth[T],
+                desc=Hide an object of light bulk.
+            }
+            \entry{Palm an Object}{%
+                action=\A{a},
+                page=246,
+                uses=\Thievery[S],
+                tags=\Manipulate,
+                desc=Palm an unattened object of neglible bulk.\hfill\F{Noticed by nearby creature.}
+            }
+            \entry{Steal}{%
+                action=\A{a},
+                page=246,
+                uses=\Thievery[S],
+                tags=\Manipulate,
+                desc=Steal an object of neglible bulk from a creature.\hfill \F{Noticed and fail to take object if
+                target noticed.}
+            }
+            \breakLine
+            \entry{Lie}{%
+                action=\A{t}++,
+                page=238,
+                uses=\Deception[S],
+                tags=\Mental\Concentrate,
+                desc=Fool someone with an untruth. \Auditory\,\Linguistic \hfill\F{Target gains a \Numb{+4}\Cirm
+                against your lies.}
+            }
+            \entry{Sense Motive}{%
+                action=\A{a},
+                page=417,
+                uses=\Perception[S],
+                tags=\Concentrate,
+                desc=Detect abnormal behavior/Mental magic. \hfill\CS{Detect true intent/solid idea of mental magic.}\;\CF{Misidentify.}
+            }
+        \end{Table}
+        \vfill
+        \begin{Table}{Medicine Actions}[][\quad \textbf{Usually require holding or wearing healer's tolls and having a hand free}]
+            \entry{First Aid}{%
+                action=\A{d},
+                tags=\Manipulate,
+                page=241,
+                desc={%
+                    \!%
+                    \setlength{\tabcolsep}{9pt}%
+                    \begin{tabularx}{\linewidth}{@{}l@{\;}l@{\extracolsep{\fill}}r@{}}%
+                        \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Recovery}]{\!+5}]\hfill\edash\,\hfill Stabilize:&
+                        Target loses the \Dying condition.&
+                        \hfill\CF{\Numb{-1} to \Dying condition.}\\
+                        \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Effect}]{}]\edash Stop Bleeding:&
+                        Target gets an extra check to stop \Bleeding.&
+                        \hfill\CF{Deal \Bleed damage.}
+                    \end{tabularx}%
+                }
+            }
+            \entry{Battle Medicine}{%
+                action=\A{a},
+                namescale=0.95,
+                page=253,
+                tags=\Manipulate,
+                uses=\Medicine\Feat,
+                desc={Heal in combat, same as \Refer{treat wounds} but doesn't remove \Wounded.\hfill \D{(Cannot use on target for 24 hours)}\\
+                \hphantom{\Medicine}\T\DC[15] \Numb{2d8\CSC{(4d8)}}\quad\quad
+                \E\DC[20] \Numb{2d8\CSC{(4d8)}}\Numb{+10}\quad\quad
+                \M\DC[30] \Numb{2d8\CSC{(4d8)}}\Numb{+30} \quad\quad
+                \Le\DC[40] \Numb{2d8\CSC{(4d8)}}\Numb{+50}\hfill \CF{Deal \Numb{1d8} damage.}}
+            }
+            \entry{Treat Poison}{%
+                action=\A{a},
+                page=242,
+                uses=\Medicine[T],
+                desc={Grants a \Numb{+2\CSC{(+4)}}\Cirm to the next save vs poision.\hfill\CF{\Numb{-2}\Cirm}}
+            }
+        \end{Table}
+        \vfill
+        \begin{Table}{Vehicle Actions}[][%
+            \begin{minipage}[b]{0.79\linewidth}%
+                \Reck \,\dash\, \MSC{Reckless} adds:\; \textbf{\F{lose control, move speed and drift up to \Numb{45} degrees.}}\hfill
+                \Piloting\,\dash\,Relevant piloting check for vehicle.\\
+                Pilot has to use \Refer{Drive} or \Refer{Stop} else lose control.\hfill Uncontrolled vehicles moves at last pilot initative until stopped. Usually loses \Numb{10}\Feet per turn.%
+            \end{minipage}%
+        ]
+            \entry{Board}{%
+                action=\A{a},
+                page=GMC 212,
+                desc={Board or disembark a vehicle. \hfill If it is in motion make a \SkillvsBox{Athletics}[][/\textbf{\MSC{Acrobatics}}]{}[\DCActBox{\MSC{Vehicle} \Ac}]}
+            }
+            \entry{Take Control}{%
+                action=\A{a},
+                page=GMC 212,
+                uses=\Piloting,
+                tags=\Manipulate,
+                desc={Start piloting the vehicle. You can reach the controls. \hfill \D{Some veichles can require more actions.}}
+            }
+            \breakLine[Following actions require that you are piloting the vehicle]
+            \entry{Drive}{%
+                action=\A{a}+,
+                page=GMC 212,
+                uses=\Piloting,
+                tags=\Move,
+                desc={Move vehicle.
+                \A{a} Speed \CF{loose control}\hfill
+                \A{d}\Reck\,\Numb{2x} Speed in current heading.\hfill
+                \A{t}\Reck\,\Numb{3x} Speed in current heading.}
+            }
+            \entry{Stop}{%
+                action=\A{a},
+                page=GMC 212,
+                tags=\Manipulate,
+                desc={Stop the vehicle.}
+            }
+            \entry{Run over}{%
+                action=\A{t},
+                page=GMC 212,
+                uses=\Piloting[R],
+                desc={You run over creatures \Numb{-2} size and/or ram one \Numb{-1} size. \hfill \D{When ramming you and vehicle take damage and stop.}\\
+                Creatures make basic \SkillvsBox{Reflex}[][]{}[\DCBox[\MSC{Collision}]{}] and take vehicles collision damage. \hfill\D{(Other pilots may use \MSC{Piloting})}
+                }
+            }
+        \end{Table}
+    \end{Tables}%
+    \begin{Tables}{\backTableHeight}%
+        \CoinBox{\quad
+            \CoinScale
+            \begin{minipage}[c][][c]{0.25\linewidth}
+                \begin{center}%
+                    \Large\scalefont{1.6}\baselineskip=0pt%
+                    \textcolor{HeaderTextColor}{\MSCB{Action}\\\MSCB{Tracker}}%
+            \end{center}
+            \end{minipage}
+            \hfill \SingleReactionCoin\hfill \SingleCoin\hfill \SingleCoin\hfill  \SingleCoin \quad}
+        \vfill
+        \begin{Table}{Movement Actions}
+            \entry{Stride}{%
+                action=\A{a},
+                page=418,
+                tags=\Move,
+                desc={Move up to your Speed.\hfill \StyleEntry{Burrow}\A{a}\quad\pg{419}\,\Move Move up to your burrow speed. \D{(through dirt or loose material)}}
+            }
+            \entry{Step}{%
+                action=\A{a},
+                page=418,
+                tags=\Move,
+                desc=Move \Numb{5}\Feet without triggering reactions.
+            }
+            \entry{Tumble Through}{%
+                action=\A{a},
+                page=233,
+                tags=\Move,
+                uses=\AcrobaticsReflex,
+                desc={Move up to your speed, including through the space of one enemy as if difficult terrain.\\\phant
+                \F{Your movement ends at the enemy, and you trigger reactions as if you had moved out of the square.}}
+            }
+            \breakLine
+            \entry{Drop Prone}{%
+                action=\A{a},
+                page=416,
+                tags=\Move,
+                desc={Fall \Prone.}
+            }
+            \entry{Crawl}{%
+                action=\A{a},
+                page=416,
+                tags=\Move,
+                desc={Move \Numb{5}\Feet while \Prone. Speed has to be \Numb{10+}.}
+            }
+            \entry{Stand}{%
+                action=\A{a},
+                page=418,
+                tags=\Move,
+                desc={Stand up from \Prone.}
+            }
+            \breakLine
+            \entry{Leap}{%
+                action=\A{a},
+                page=417,
+                tags=\Move,
+                desc={Leap horizontally {(\Numb{10}\Feet\,if Speed \Numb{15+}\Feet or \Numb{15}\Feet if Speed \Numb{30+}\Feet)} or \Numb{5}\Feet horizontally and \Numb{3}\Feet vertically.
+                }
+            }
+            \entry{High Jump}{%
+                action=\A{d},
+                page=235,
+                tags=\Move,
+                uses=\Athletics[][\DC[30]],
+                desc={\Refer{Stride} min \Numb{10}\Feet and then leap \Numb{5\CSC{(8},\FC{3)}}\Feet vertically.\hfill \CS{Or \Numb{10}\Feet horiz. \Numb{5}\Feet vert.}\quad \CF{No leap and fall \Prone.}
+                }
+            }
+            \entry{Long Jump}{%
+                action=\A{d},
+                page=235,
+                tags=\Move,
+                uses=\Athletics[][\DCBox{}[\,Dist. in \Feet]],
+                desc={\Refer{Stride} \Numb{10}\Feet and then leap the full distance in \Refer{stride} direction. \hfill \F{Normal leap.}\; \CF{And fall \Prone.}}
+            }
+            \entry{Grab an Edge}{%
+                action=\A{r},
+                page=419,
+                uses=\SkillvsBox{Reflex Save}[][]{}[\DCBox[Climb]{}],
+                tags=\Manipulate,
+                desc={Stop your fall using a free hand and reduce the fall damage so far by \Numb{20}\Feet.\\\hfill \CS{No need for a free and reduce by \Numb{30}\Feet.} \quad\CF{Take \Numb{10} damage per \Numb{20} feet fallen so far.}}
+            }
+            \breakLine
+            \entry{Balance}{%
+                action=\A{a},
+                page=233,
+                uses=\Acrobatics,
+                tags=\Move,
+                desc={Move across a narrow surface or uneven ground as if difficult terrain.\hfill \CS{Full speed.}\quad \CF{Fall and turn ends.}}
+            }
+            \entry{Climb}{%
+                action=\A{a},
+                page=234,
+                uses=\Athletics,
+                tags=\Move,
+                desc={With both hands free, move \Numb{5(10)}\Feet up, down or across an incline.\hfill \CF{Fall and land \Prone.}}
+            }
+            \entry{Swim}{%
+                action=\A{a},
+                page=235,
+                uses=\Athletics,
+                tags=\Move,
+                desc={Swim \Numb{10\CSC{(15)}}\Feet through water. \hfill Sink \Numb{10} feet or moved by current if not used when it water.}
+            }
+            \breakLine
+            \entry{Fly}{%
+                action=\A{a},
+                page=419,
+                tags=\Move,
+                desc={Move up to your fly speed. Fall if not used on turn. \hfill\D{Treat upwards as difficult terrain. You can move \Numb{10}\Feet down for every \Numb{5}\Feet.}
+                }
+            }
+            \entry{Maneuver in flight}{%
+                action=\A{a},
+                page=233,
+                uses=\Acrobatics[T],
+                tags=\Move,
+                desc={Perform a difficult manuver while flying.\hfill \F{Can't move or bad consequences.}\quad \CF{Worse consequences.}}
+            }
+            \entry{Arrest a fall}{%
+                action=\A{r},
+                page=418,
+                uses=\SkillvsBox{Acrobatics}[][]{}[\DCBox{15}],
+                desc={Slow your fall while flying.}
+            }
+        \end{Table}
+        \vfill
+        \begin{Table}{Object Interactions}
+            \entry{Interact}{%
+                action=\A{a},
+                page={416, 267},
+                tags=\Manipulate,
+                desc={%
+                    \renewcommand{\arraystretch}{1}%
+                    \setlength{\tabcolsep}{6pt}%
+                    \begin{tabularx}{\linewidth}{@{}lll}%
+                        \dash\,Grab an object. &
+                        \dash\,Draw, put away or swap an item. &
+                        \dash\,Stow or retrieve from a open container.\\
+                        \dash\,Open or close a door or container. &
+                        \dash\,Change your grip/add a hand. &
+                        \dash\,Reload \D{(See Weapon)}.\quad\dash\,Or similar actions.
+                    \end{tabularx}
+                }%
+            }%
+            \entry{Release}{%
+                action=\A{f},
+                page=417,
+                tags=\Manipulate,
+                desc={
+                    \dash\,Release something you are holding.\,\quad
+                    \dash\,Change your grip by removing a hand.\hfill\D{Does not trigger reactions.}
+                }
+            }
+            \breakLine
+            \entry{Activate}{%
+                action=\A{a}+ or\A{r},
+                page=231,
+                desc={Call forth the effect of an item by properly activating it.
+                \hfill\D{\Manipulate for \MSC{Interact} act.\hfill \Concentrate for \MSC{Command} or \MSC{Envision} act.}}
+            }
+            \entry{Trick Magic Item}{%
+                action=\!\A{a},
+                namescale=0.95,
+                page=264,
+                tags=\Manipulate,
+                uses=\MagicalSkill\Feat,
+                desc={Can use the item until the end of the turn.}\hfill\F{Can't try again until next round.} \CF{Next daily prep.}
+            }
+            \entry{Invest an Item}{%
+                action=\A{a}+,
+                page=GMC 219,
+                tags=\Manipulate,
+                desc={You invest your energy in an item to benifit from its constant magical abilities. \hfill\D{(Max 10 items per day)}}
+            }
+            \breakLine
+            \entry{Disable a device}{%
+                action=\A{d}+,
+                namescale=0.95,
+                tags=\pbox[c][][c]{0.28\linewidth}{\Manipulate\\\vphantom{a}\hfill\pg{247}},
+                uses=\Thievery[T],
+                desc={Disarm a trap or another complex device. \hfill \CS{Two success and no trace.}\\
+                \D{(theives' tools can be helpful, sometimes required)}\hfill \CF{Trigger the device.}}
+            }
+            \entry{Pick lock}{%
+                action=\A{d}+,
+                page=247,
+                tags=\Manipulate,
+                uses=\Thievery[T],
+                desc={Open a lock with theives' tools. \hfill\CS{Two success and no trace.}\; \CF{Break the tools.}}
+            }
+            \entry{Force open}{%
+                action=\A{a},
+                page=234,
+                tags=\Attack,
+                uses=\Athletics,
+                desc={Break open a door, window or container. \hfill\CS{No damage on target.}\\
+                \D{(\Numb{-2}\Item penalty when prying without a crowbar)}\hfill\CF{\Numb{-2}\Cirm penalty on future attempts.}}
+            }%
+        \end{Table}%
+        \vfill
+        \begin{Table}{Social Actions}
+            \entry{Demoralize}{%
+                action=\A{a},
+                tags=\parbox{0.52\linewidth}{\raggedleft\pg{240}\,\Concentrate\\\Mental\Emotion\Fear},
+                uses=\InitimidationWill,
+                desc={Shake an enemy's resolve. \Auditory \ \hfill \D{(Range of \Numb{30}\Feet)\quad(Interpersonal
+                cooldown of \Numb{10} min)}\\
+                Target become \Frightened\,\Numb{1\CSC{(2)}}.\hfill \D{(\Numb{-4}\,\Cirm penalty if you are not
+                using a language the target can understand)}}
+            }
+            \entry{Create a Diversion}{%
+                namescale=0.95,
+                action=\A{a},
+                page=237,
+                uses=\Deception,
+                tags=\Mental,
+                desc=Use a diversion to temporarily become \Hidden\hfill\D{(Targets gain a \Numb{+4}\Cirm against your
+                diversions for 1 min)}\\\phant If gesture or trick add \Manipulate.\hfill If distracting words add
+                \Auditory and \Linguistic.\hfill}
+            \entry{Bon Mot}{%
+                action=\A{a},
+                tags=\parbox{0.5\linewidth}{\raggedleft\pg{\MSC{Apg} 231}\,\Concentrate\\\Auditory\Linguistic},
+                uses=\DeceptionWill\Feat,
+                desc={Distract a foe with a witty quip.\hfill \D{(Target can retort)}\\
+                Targets takes a \Numb{-2\CSC{(-3)}}\Status penatly to \PerceptionT and \WillT saves for 1 \Min.\hfill \CF{Get the \Numb{-2} penatly instead.}
+                }}
+            \breakLine
+            \entry{Request}{%
+                action=\A{a},
+                page=239,
+                tags=\Concentrate\Mental,
+                uses=\Diplomacy,
+                desc={Make a request of a friendly or helpful creature.\hfill \CS{Target agrees without qualifications.}\\
+                \Auditory and \Linguistic\hfill\F{Target might propose an alternative.}\quad \CF{Target's attitude towards you decreases.}}
+            }
+            \entry{Perform}{%
+                action=\A{a},
+                page=243,
+                tags=\Concentrate,
+                uses=\Performance,
+                desc={Make a brief performance (song, dance joke).\hfill\CS{Impress.}\quad \CF{Show incompetence.}}
+            }
+            \breakLine
+            \entry{Command An Animal}{%
+                pageRotate=true,
+                namescale=0.92,
+                action=\!\A{a},
+                page=242,
+                tags=\Concentrate,
+                uses=\Nature,
+                desc={Issue an order to an animal. \Auditory\hfill \CF{Target misbehaves or misunderstands.}}
+            }
+            \entry{Mount}{%
+                action=\A{a},
+                page=419,
+                tags=\Move,
+                desc={Get on/off an allied animal bigger than you to ride it.}}
+        \end{Table}%
+        \vfill
+        \begin{Table}{Other Actions}
+            \entry{Aid}{%
+                action=\A{a} +\A{r},
+                page=416,
+                uses=\SkillvsBox{Relevant}[][]{}[\DCBox[\MSC{Usually}]{15}],
+                desc={Grant \Numb{+1}\Cirm bonus to your ally. \hfill \CS{\Numb{+2}\Cirm \;\M \Numb{+3}\Cirm \;\Le \Numb{+4}\Cirm}\quad\CF{-1 \Cirm penalty.}}
+            }
+            \entry{Delay}{%
+                action=\A{f},
+                page=416,
+                desc={Delay the start of your turn; start your turn after another creature's turn ends.}}
+            \entry{Ready}{%
+                action=\A{d} +\A{r},
+                page=417,
+                tags=\Concentrate,
+                desc={Prepare to take a \A{a}/\A{f} as a \A{r} with a given trigger.}}
+            \entry{Recall Knowledge}{%
+                pageRotate=true,
+                namescale=0.95,
+                action=\A{a},
+                page=231,
+                tags=\Concentrate,
+                uses=\VariousKnowledge[S],
+                desc={Remember a bit of knowledge about the subject.\hfill\CS{Get more info.}\quad\CF{Get false info.}}
+            }
+        \end{Table}
+
+    \end{Tables}%
+\end{PageBack}
 
 
 
-\begin{landscape}
-
-    size=fbox,sharp corners,
-
-    \begin{minipage}[t][0.4\textheight]{0.6\textwidth}
-        \entry{name=Strike,
-            action=\A{a},
-            page=231,
-            tags=\Attack,
-            uses=,
-            usesDetail=,
-            desc=Attack with a weapon or unarmed attack,
-            detail=\CS{deal double damage}}
-        \entry{name=Feint,
-            action=\A{a},
-            page=231,
-            tags=\Attack,
-            uses={Deception},
-            usesDetail=(Trained),
-            desc=Target is flat footed against your next melee attack this turn. \Mental,
-            detailsec=\hfill\CS{target is flat footed against all your melee attack until end of your next turn}\CF{CS effect, but with inverted targets}}
-        \entry{name=Strike,
-            action=\A{a},
-            page=231,
-            tags=\Attack,
-            desc=description.,
-            detail=\CS{deal double damage}}
-
-    \end{minipage}%
-    \hfill
-    \begin{minipage}[t][0.4\textheight]{0.6\textwidth}
-         line of text
-    \end{minipage}
-    \hspace{0.05\textwidth}
-\end{landscape}
 

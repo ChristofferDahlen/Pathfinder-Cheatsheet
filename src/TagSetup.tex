@@ -1,9 +1,9 @@
 
 
-\newcommand{\tagElem}[1]{\tagBox{#1}{tagColor}}
 
-\newcommand{\Rare}{\tagBox{Rare}{tagFieldColor}}
-\newcommand{\Uncommon}{\tagBox{Uncommon}{tagUncommonColor}}
+
+\newcommand{\tagElem}[1]{\tagBox{#1}{tagColor}\xspace}
+
 
 \newcommand{\Tradition}{\tagElem{Tradition}}
 
@@ -55,16 +55,11 @@
 \newcommand{\General}{\tagElem{General}}
 \newcommand{\Skill}{\tagElem{Skill}}
 
-% Class tags
-\newcommand{\Investigator}{\tagElem{Investigator}}
-\newcommand{\Psychic}{\tagElem{Psychic}}
-\newcommand{\Cleric}{\tagElem{Cleric}}
-\newcommand{\Fighter}{\tagElem{Fighter}}
-
-
 % Ancesty tags
 
-\newcommand{\Ratfolk}{\tagElem{Ratfolk}}
+
+\newcommand{\Investigator}{\tagBox{Investigator}{InvestigatorColor}\xspace}
+
 
 % Properties
 
@@ -97,11 +92,22 @@
 \newcommand{\AmpHeigened}[2]{\noindent\textbf{Amp Heightened  (#1)} #2}
 
 
+\newcommand{\CSC}[1]{{\color{CSColor}#1}}
+\newcommand{\CFC}[1]{{\color{CFColor}#1}}
+\newcommand{\FC}[1]{{\color{FColor}#1}}
+\newcommand{\SC}[1]{{\color{SColor}#1}}
+\newcommand{\DColor}[1]{{\color{DColor}#1}}
 
-\newcommand{\Success}[1]{\noindent\textbf{Success} #1}
-\newcommand{\Failure}[1]{\noindent\textbf{Failure} #1}
-\newcommand{\CS}[1]{{\color{green} CS: #1}}
-\newcommand{\CF}[1]{{\color{red} CF: #1}}
+
+\newcommand{\Success}[1]{{\noindent\textbf{Success} #1}}
+\newcommand{\Failure}[1]{{\noindent\textbf{Failure} #1}}
+\newcommand{\SU}[1]{{\scalefont{0.9}\SC{\textbf{S}: #1}}}
+\newcommand{\CS}[1]{{\scalefont{0.9}\CSC{\textbf{CS}: #1}}}
+\newcommand{\CF}[1]{{\scalefont{0.9}\CFC{\textbf{CF}: #1}}}
+\newcommand{\F}[1]{{\scalefont{0.9}\FC{\textbf{F}: #1}}}
+\newcommand{\D}[1]{{\scalefont{0.9}\DColor{#1}}}
+
+
 
 
 

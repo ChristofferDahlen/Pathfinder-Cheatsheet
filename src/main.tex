@@ -2,25 +2,77 @@
 %! Date = 05/02/2024
 
 % Preamble
-\documentclass[8pt, ]{article}
+\documentclass[12pt]{extarticle}
 
 
-\usepackage{color}
-\usepackage{hyperref}
-\usepackage{plain}
-\usepackage{textcomp}
-\usepackage{etoolbox}
-\usepackage{xstring}
-\usepackage{pbox}
-\usepackage{arabicfnt}
 \input{Settings}
 
-\definecolor{oddColor}{RGB}{200, 100, 100}
-\definecolor{evenColor}{RGB}{140, 140, 140}
+%\definecolor{EntryOddColor}{HTML}{f5efe0}
+%\definecolor{EntryEvenColor}{HTML}{f5f3ed}
+
+\definecolor{EntryOddColor}{HTML}{ede3c8}
+\definecolor{EntryEvenColor}{HTML}{f5efe0}
+\definecolor{EntryColorBorder}{HTML}{000000}
+
+\definecolor{CSColor}{HTML}{127622}
+\definecolor{CFColor}{RGB}{255, 0, 0}
+\definecolor{FColor}{RGB}{191, 76, 0}
+\definecolor{FColorAlt}{RGB}{250, 127, 5}
+\definecolor{SColor}{RGB}{1, 111, 148}
+\definecolor{DColor}{RGB}{109, 109, 110}
+\definecolor{UColor}{RGB}{161, 0, 155}
+\definecolor{PGColor}{RGB}{161, 0, 155}
+
+\definecolor{InvestigatorColor}{RGB}{1, 111, 148}
+
+\definecolor{RareColor}{HTML}{0c1466}
+\definecolor{RareColorBorder}{RGB}{150, 103, 0}
+\definecolor{RareColorText}{RGB}{255, 255, 255}
+
+\definecolor{HeaderColorInner}{HTML}{0010ed}
+\definecolor{HeaderColor}{HTML}{0c2c1f}
+\definecolor{HeaderColorBorder}{HTML}{0c2c1f}
+\definecolor{HeaderTextColor}{HTML}{e9f7a1}
+
+\definecolor{SkillColor}{HTML}{0010ed}
+\definecolor{SkillColorBorder}{RGB}{150, 103, 0}
+\definecolor{SkillColorText}{RGB}{255, 255, 255}
+
+\definecolor{FeatColor}{HTML}{0c2c1f}
+\definecolor{FeatColorBorder}{RGB}{150, 103, 0}
+\definecolor{FeatColorText}{HTML}{e9f7a1}
+
+\definecolor{DCColor}{RGB}{161, 0, 155}
+\definecolor{DCColorBorder}{RGB}{161, 0, 155}
+
+
+\definecolor{IColor}{RGB}{0, 0, 0}
+\definecolor{IColorBorder}{RGB}{255, 255, 255}
+\definecolor{ISkillColorBorder}{RGB}{150, 103, 0}
+\definecolor{IColorText}{RGB}{255, 255, 255}
+
+\definecolor{TimeColor}{RGB}{0, 0, 0}
+\definecolor{TimeColorBorder}{RGB}{0, 0, 0}
+\definecolor{TimeColorText}{RGB}{255, 255, 255}
+
+\definecolor{TitleOuterOutlineColor}{HTML}{0c2c1f}
+\definecolor{TitleOutlineColor}{HTML}{e9f7a1}
+\definecolor{TitleFillColor}{HTML}{0c2c1f}
+
+\definecolor{iconbackColor}{RGB}{255, 255, 255}
+\definecolor{iconColor}{RGB}{0, 0, 0}
+
 \definecolor{tagColor}{RGB}{120, 0, 0}
+\definecolor{tagFieldColor}{RGB}{150, 103, 0}
 
-
+\hfuzz=5pt
+\hbadness=1000
 \begin{document}
+    \include{Backpage}
     \include{MainPage}
+
+    \definecolor{iconbackColor}{HTML}{0c2c1f}
+    \definecolor{iconColor}{HTML}{e9f7a1}
+    \include{IconPage}
 
 \end{document}
