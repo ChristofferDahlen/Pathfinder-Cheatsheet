@@ -213,10 +213,10 @@
                     \!%
                     \setlength{\tabcolsep}{9pt}%
                     \begin{tabularx}{\linewidth}{@{}l@{\;}l@{\extracolsep{\fill}}r@{}}%
-                        \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Recovery}]{\!+5}]\hfill\edash\,\hfill Stabilize:&
+                        \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Recovery}]{\!+5}[][M]]\hfill\edash\,\hfill Stabilize:&
                         Target loses the \Dying condition.&
                         \hfill\CF{\Numb{-1} to \Dying condition.}\\
-                        \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Effect}]{}]\edash Stop Bleeding:&
+                        \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Effect}]{}[][M]]\edash Stop Bleeding:&
                         Target gets an extra check to stop \Bleeding.&
                         \hfill\CF{Deal \Bleed damage.}
                     \end{tabularx}%
@@ -252,7 +252,7 @@
             \entry{Board}{%
                 action=\A{a},
                 page=GMC 212,
-                desc={Board or disembark a vehicle. \hfill If it is in motion make a \SkillvsBox{Athletics}[][/\textbf{\MSC{Acrobatics}}]{}[\DCActBox{\MSC{Vehicle} \Ac}]}
+                desc={Board or disembark a vehicle. \hfill If it is in motion make a \SkillvsBox{Athletics}[][\TextOutline[1pt][M]{/\MSC{Acrobatics}}]{}[\DCActBox{\MSC{Vehicle} \Ac}[M]]}
             }
             \entry{Take Control}{%
                 action=\A{a},
@@ -283,7 +283,7 @@
                 page=GMC 212,
                 uses=\Piloting[R],
                 desc={You run over creatures \Numb{-2} size and/or ram one \Numb{-1} size. \hfill \D{When ramming you and vehicle take damage and stop.}\\
-                Creatures make basic \SkillvsBox{Reflex}[][]{}[\DCBox[\MSC{Collision}]{}] and take vehicles collision damage. \hfill\D{(Other pilots may use \MSC{Piloting})}
+                Creatures make basic \SkillvsBox{Reflex}[][]{}[\DCBox[\MSC{Collision}]{}[][M]] and take vehicles collision damage. \hfill\D{(Other pilots may use \MSC{Piloting})}
                 }
             }
         \end{Table}
@@ -351,7 +351,7 @@
                 action=\A{d},
                 page=235,
                 tags=\Move,
-                uses=\Athletics[][\DC[30]],
+                uses=\Athletics[][\DC[30][M]],
                 desc={\Refer{Stride} min \Numb{10}\Feet and then leap \Numb{5\CSC{(8},\FC{3)}}\Feet vertically.\hfill \CS{Or \Numb{10}\Feet horiz. \Numb{5}\Feet vert.}\quad \CF{No leap and fall \Prone.}
                 }
             }
@@ -359,13 +359,13 @@
                 action=\A{d},
                 page=235,
                 tags=\Move,
-                uses=\Athletics[][\DCBox{}[\,Dist. in \Feet]],
+                uses=\Athletics[][\DCBox{}[\,Dist. in \Feet][M]],
                 desc={\Refer{Stride} \Numb{10}\Feet and then leap the full distance in \Refer{stride} direction. \hfill \F{Normal leap.}\; \CF{And fall \Prone.}}
             }
             \entry{Grab an Edge}{%
                 action=\A{r},
                 page=419,
-                uses=\SkillvsBox{Reflex Save}[][]{}[\DCBox[Climb]{}],
+                uses=\SkillvsBox{Reflex Save}[][]{}[\DCBox[Climb]{}[][M]],
                 tags=\Manipulate,
                 desc={Stop your fall using a free hand and reduce the fall damage so far by \Numb{20}\Feet.\\\hfill \CS{No need for a free and reduce by \Numb{30}\Feet.} \quad\CF{Take \Numb{10} damage per \Numb{20} feet fallen so far.}}
             }
@@ -409,7 +409,7 @@
             \entry{Arrest a fall}{%
                 action=\A{r},
                 page=418,
-                uses=\SkillvsBox{Acrobatics}[][]{}[\DCBox{15}],
+                uses=\SkillvsBox{Acrobatics}[][]{}[\DCBox{15}[][M]],
                 desc={Slow your fall while flying.}
             }
         \end{Table}

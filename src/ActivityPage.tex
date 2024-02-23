@@ -21,7 +21,7 @@
             \activity{Repair}{%
                 action=\,\TimeMin{10},
                 page=236,
-                uses=\SkillvsBox{Crafting}[][]{}[\DCBox[\MSC{Item}]{}],
+                uses=\SkillvsBox{Crafting}[][]{}[\DCBox[\MSC{Item}]{}[][M]],
                 tags=\Manipulate,
                 desc={Repair a damaged Item by \Numb{5\CSC{(10)}}\HPs + \Numb{5\CSC{(10)}}\HPs per proficency rank.\\
                 \D{(Requires a repair kit and a stable surface)}\hfill \CF{deal \Numb{2d8}\dash\Numb{Hardness} damage
@@ -33,7 +33,7 @@
                 page=242,
                 tags=\Manipulate,
                 uses=\Medicine,
-                desc={Heal and remove the wounded condition. \Healing \hfill \D{(Requires healing tools and free hand                    )}\quad\D{(1 hour CD on target)}\\\phant
+                desc={Heal and remove the wounded condition. \Healing\hfill \D{(Requires healing tools and free hand                    )}\quad\D{(1 hour CD on target)}\\\phant
                 \Ts\DC[15] \Numb{2d8\CSC{(4d8)}}\quad
                 \E\DC[20] \Numb{2d8\CSC{(4d8)}}\Numb{+10}\quad
                 \M\DC[30] \Numb{2d8\CSC{(4d8)}}\Numb{+30} \quad
@@ -288,13 +288,18 @@
             \activity{Earn Income}{%
                 action=\,\TimeDaily,
                 page=228,
-                uses=\SKBox{\textbf{\MSC{Crafting}/\MSC{Lore}/\MSC{Performance}/\MSC{Other}}\IBox{T}},
+                uses={\begin{SKBox}%
+                          \SkillTextOutline{\MSC{Crafting}/\MSC{Lore}/\MSC{Performance}/\MSC{Other}}\IBox{T}[M]
+                \end{SKBox}},
                 desc={Earn Money.}
             }
             \activity{Subsist}{%
                 action=\,\TimeHour{8+},
                 page=232,
-                uses=\SKBox{\textbf{\MSC{Society}/\MSC{Survival}}},
+                uses={%
+                \begin{SKBox}
+                \SkillTextOutline{\MSC{Society}/\MSC{Survival}}
+                \end{SKBox}},
                 desc={Provide yourself subsistence level food and shelter. \CS{Provide for another or gain comfortable living.}}
             }
             \activity{Long Term rest}{%
@@ -325,7 +330,7 @@
             \activity{Create Forgery}{%
                 page=244,
                 action=\,\TimeDays{1 - 7},
-                uses=\Society[T S][\DC[20]],
+                uses=\Society[T S][\DC[20][M]],
                 desc={Call forth the effect of an item by properly activating it.\hfill
                 }
             }
@@ -340,20 +345,22 @@
             }
             \activity{Gain Contact}{%
                 page=GMC 199,
-                uses=\SKBox{\MSCB{Diplomacy}/\MSCB{Society}/\MSCB{Lore}},
+                uses=\begin{SKBox}
+                \SkillTextOutline{\MSC{Diplomacy}/\MSC{Society}/\MSC{Lore}}
+                \end{SKBox},
                 desc={Try to find useful contact.\\
                 Gain a contact and 1 Edge point.\hfill \CF{Future attemps suffer from \Numb{-2}\Cirm pentalty; On repeat gain Awareness points.}}
             }
             \activity{Bribe Contact}{%
                 page=GMC 199,
-                uses=\SKBox{\MSCB{Deception}/\MSCB{Diplomacy}\IBox{S}},
+                uses=\begin{SKBox}\SkillTextOutline{\MSC{Deception}/\MSC{Diplomacy}}\IBox{S}[M]\end{SKBox},
                 desc={Offer a bribe to your contact. Gain  1 Edge Point {(regardless)}.\\
                 Costs min \Numb{1/10} of the \Refer{Currency per additional PC} listen on \pgc{GMC 59}. Doubling gives \Numb{+2}\Cirm.\\
                 \F{Gain \Numb{1\CFC{(2)}} Attention point. The GM can decide that this Edge point gives no benifit.}}
             }
             \activity{Scout Location}{%
                 page=GMC 199,
-                uses=\SKBox{\MSCB{Peception}/\MSCB{Society}/\MSCB{Stealth}\IBox{S}},
+                uses=\begin{SKBox}\SkillTextOutline{\MSC{Peception}/\MSC{Society}/\MSC{Stealth}}\IBox{S}[M]\end{SKBox},
                 desc={Spend time observing the target. \SU{Gain 1 Edge point.} \hfill\CF{Gain 1 Edge point that causes \textbf{CF}}.}
             }
             \activity{Forge Documents}{%
@@ -363,7 +370,7 @@
                 Gain 1 Edge Point that you can only use when presenting paperwork.\hfill \F{Gain 1 uselss Edge point.} \CF{That causes \textbf{CF}.}}
             }
             \activity{Secure Disguises}{%
-                uses=\SKBox{\MSCB{Crafting}/\MSCB{Deception}/\MSCB{Performance}/\MSCB{Society}},
+                uses=\begin{SKBox}\SkillTextOutline{\MSC{Crafting}/\MSC{Deception}/\MSC{Performance}/\MSC{Society}}\end{SKBox},
                 page=GMC 199,
                 desc={Procure or create disguises. \\\SU{Gain 1 Edge point that is usable when maintaining identity.}}
             }
@@ -429,7 +436,8 @@
                 action=\,\TimeHour{2},
                 tags=\Manipulate,
                 page=110,
-                uses=\SKBox{\textbf{\MSC{Survival}\DC[22]/\MSC{Cooking Lore}\DC[18]}},
+                uses={\begin{SKBox}%
+                          \SkillTextOutline{\MSC{Survival}}\DC[22][M]\SkillTextOutline{/\MSC{Cooking Lore}}\DC[18][M]\end{SKBox}},
                 desc={Cook a basic meal. Eating gives \Numb{+1}\Status bonus to saves until daily preperations.\\
                 Per serving use 2 basic ingredients and 1 day's rations or provisions from \Refer{Subsiding}.}\\
                 \CS{Gives \Numb{Con}\HPs.} \hfill \CF{Become \Sickened\,\Numb{1} until after they complete their daily prep.}
@@ -438,7 +446,9 @@
                 action=\,\TimeHour{2},
                 tags=\Manipulate,
                 page=KCG 110,
-                uses=\SKBox{\textbf{\MSC{Survival}/\MSC{Cooking Lore}}},
+                uses={\begin{SKBox}\SkillTextOutline{\MSC{Survival}/\MSC{Cooking Lore}}\end{SKBox}
+            }
+                ,
                 desc={Cook a special meal whose receipe you know. \hfill\D{A \Sickened\,creature can't eat.}}
             }
             \activity{Discover Speical Meal}{%
@@ -454,7 +464,9 @@
                 action=\,\TimeHour{2},
                 page=KCG 111,
                 tags=\Move,
-                uses=\SKBox{\textbf{\MSC{Survival}}\IBox{T}\textbf{/\MSC{Hunting Lore}}},
+                uses=\begin{SKBox}
+                         \SkillTextOutline{\MSC{Survival}}\IBox{T}[M]\SkillTextOutline{/\MSC{Hunting Lore}}%
+                \end{SKBox},
                 desc={Gain basic Ingredients. \hfill
                 \CS{Gain \Numb{2 x Zone DC} \LVL{1+} \Numb{+4} \LVL{7+} \Numb{+8} \LVL{14+} \Numb{+12}.}\\
                 \SU{Gain \Numb{Zone DC} \LVL{1+} \Numb{+1d4} \LVL{7+} \Numb{+2d4} \LVL{14+} \Numb{+3d4}.}\hfill
@@ -464,7 +476,7 @@
             \activity{Learn from a Companion}{%
                 action=\,\TimeHour{2},
                 page=KCG 111,
-                uses=\Perception[][\DC[20]],
+                uses=\Perception[][\DC[20][M]],
                 desc={Learn a special activity from a friendly companion. \hfill \CS{You learn the activity.}\\ \SU{Treat attemps at next camping as one degree highter.}\hfill \CF{No more attemps this session.}}
             }
             \activity{Organize Watch}{%

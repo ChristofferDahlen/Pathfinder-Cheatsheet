@@ -5,7 +5,7 @@
 \usepackage{moresize}
 \usepackage{lipsum,lmodern}
 \usepackage{paracol}
-\usepackage[most]{tcolorbox}
+\usepackage[most, fitting]{tcolorbox}
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{pdflscape}
@@ -179,6 +179,8 @@
 
 \NewDocumentCommand{\MSCB}{O{0.7} m}{\textbf{\MSC[#1]{#2}}}
 
+
+
 \newcommand{\StyleEntry}[1]{{\scalefont{1.12}\textbf{\MSC{#1}}}}
 \newcommand{\StyleHeader}[1]{{\textcolor{HeaderTextColor}{#1}}}
 \newcommand{\StyleBreak}[1]{{\scriptsize\scalefont{0.65} \textcolor{HeaderTextColor}{#1}}}
@@ -256,9 +258,6 @@
 \newcommand\OffGuard{\Type{Off-Guard}}
 
 
-\NewDocumentCommand{\DC}{O{}}{%
-    \ifthenelse{\equal{#1}{}}{\Typetv{DC}}{\DCBox{#1}}%
-}
 
 
 \setul{1pt}{.4pt}%
