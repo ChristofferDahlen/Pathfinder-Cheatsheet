@@ -18,7 +18,7 @@
 \usepackage{ifthen}
 \usepackage{scalefnt}
 \usepackage{tokcycle}
-\usepackage{soulutf8}
+\usepackage{ulem}
 \usepackage{xspace}
 \usepackage{tabularx} % in the preamble
 \usepackage{color}
@@ -182,14 +182,14 @@
 
 
 \newcommand{\StyleEntry}[1]{{\scalefont{1.12}\textbf{\MSC{#1}}}}
-\newcommand{\StyleHeader}[1]{{\textcolor{HeaderTextColor}{#1}}}
+\newcommand{\StyleHeader}[1]{{\TextOutline[1pt][B]{#1}[HeaderTextColor][HeaderTextOutline]}}
 \newcommand{\StyleBreak}[1]{{\scriptsize\scalefont{0.65} \textcolor{HeaderTextColor}{#1}}}
 \newcommand{\BodySize}{\scriptsize\scalefont{0.8}}
 \newcommand{\ActionSize}{\scriptsize\scalefont{0.8}}
 
 
-\newcommand{\Numb}[1]{{\kirsty\scalefont{0.7}#1}\xspace}
-\newcommand{\DCNumb}[1]{{\kirsty\scalefont{0.7}#1}\xspace}
+\newcommand{\Numb}[1]{{\kirsty\scalefont{0.7}#1}}
+\newcommand{\DCNumb}[1]{{\kirsty\scalefont{0.7}#1}}
 
 
 \NewDocumentCommand{\Type}{m O{0.7}}{{\kirsty\scalefont{#2}\MSC{#1}}\xspace}
@@ -260,8 +260,9 @@
 
 
 
-\setul{1pt}{.4pt}%
-\NewDocumentCommand{\Refer}{m}{\underline{\MSC{#1}}}
+\setlength{\ULdepth}{1pt}
+\NewDocumentCommand{\Refer}{m}{%
+    \uline{\MSC{#1}}}
 \NewDocumentCommand{\ReferT}{m}{\underline{{\MSC{#1}}}}
 
 \NewDocumentCommand{\HPs}{}{\Typet{HP}}
@@ -369,12 +370,19 @@
         width=\linewidth,
         after skip=0pt,
         before skip=0pt,
-        boxsep=0.3ex,
+        boxsep=0.2ex,
         left=0pt,
         top=0pt,
         bottom = 0pt,
         boxrule=0pt]%
-        \raggedright{\:\StyleHeader{\textbf{\MSC{#1}}#2}\:\StyleBreak{#3}}%
+        \raggedright\:%
+        \begin{adjustbox}{valign=B}%
+            \StyleHeader{\textbf{\MSC{#1}}#2}%
+        \end{adjustbox}%
+        \:\:%
+        \begin{adjustbox}{valign=B}%
+            \StyleBreak{#3}%
+        \end{adjustbox}%
     \end{tcolorbox}%
 }
 

@@ -204,7 +204,7 @@
             }
         \end{Table}
         \vfill
-        \begin{Table}{Medicine Actions}[][\quad \textbf{Usually require holding or wearing healer's tolls and having a hand free}]
+        \begin{Table}{Medicine Actions}[][\quad Usually require holding or wearing \textit{healer's tools} and having a hand free]
             \entry{First Aid}{%
                 action=\A{d},
                 tags=\Manipulate,
@@ -294,7 +294,8 @@
             \begin{minipage}[c][][c]{0.25\linewidth}
                 \begin{center}%
                     \Large\scalefont{1.6}\baselineskip=0pt%
-                    \textcolor{HeaderTextColor}{\MSCB{Action}\\\MSCB{Tracker}}%
+                    \TextOutline{\MSCB{Action}}[HeaderTextColor][HeaderTextOutline]\\
+                    \TextOutline{\MSCB{Tracker}}[HeaderTextColor][HeaderTextOutline]%
             \end{center}
             \end{minipage}
             \hfill \SingleReactionCoin\hfill \SingleCoin\hfill \SingleCoin\hfill  \SingleCoin \quad}
@@ -551,7 +552,7 @@
             \entry{Aid}{%
                 action=\A{a} +\A{r},
                 page=416,
-                uses=\SkillvsBox{Relevant}[][]{}[\DCBox[\MSC{Usually}]{15}],
+                uses=\SkillvsBox{Relevant}[][]{}[\DCBox[\MSC{Usually}]{15}[][M]],
                 desc={Grant \Numb{+1}\Cirm bonus to your ally. \hfill \CS{\Numb{+2}\Cirm \;\M \Numb{+3}\Cirm \;\Le \Numb{+4}\Cirm}\quad\CF{-1 \Cirm penalty.}}
             }
             \entry{Delay}{%

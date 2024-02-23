@@ -55,7 +55,7 @@
     \end{adjustbox}%
 }
 
-\NewDocumentCommand{\LVL}{m}{\IBox{{\scalefont{0.9}\MSC{Lv}L }\Numb{#1}}}%
+\NewDocumentCommand{\LVL}{m}{{\scalefont{0.9}\IBox{\MSC{Lv}L \Numb{#1}}}}%
 
 \newcommand{\TimeBox}[1]{%
     \tcbox[on line,
@@ -250,8 +250,8 @@
 }
 \NewDocumentCommand{\DCBox}{O{} m O{} O{}}{%
 \DCActBox{%
-    \IfNotBlank{#1}{#1}%
+    \IfNotBlank{#1}{#1\,}%
     \DC%
-    \IfNotBlank{#2}{\,\scalefont{0.9}\Numb{#2}}%
-    \IfNotBlank{#3}{#3}}[#4]}
+    \IfNotBlank{#2}{\,\scalefont{1}\Numb{#2}}%
+    \IfNotBlank{#3}{\,#3}}[#4]}%
 

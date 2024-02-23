@@ -24,7 +24,7 @@
                 uses=\SkillvsBox{Crafting}[][]{}[\DCBox[\MSC{Item}]{}[][M]],
                 tags=\Manipulate,
                 desc={Repair a damaged Item by \Numb{5\CSC{(10)}}\HPs + \Numb{5\CSC{(10)}}\HPs per proficency rank.\\
-                \D{(Requires a repair kit and a stable surface)}\hfill \CF{deal \Numb{2d8}\dash\Numb{Hardness} damage
+                \D{(Requires a \Refer{repair kit} and a stable surface)}\hfill \CF{deal \Numb{2d8}\dash\Numb{Hardness} damage
                 to the item.}
                 }
             }
@@ -75,7 +75,7 @@
                 tags=\Concentrate\Manipulate,
                 action=\,\TimeMin{\textasciitilde 10},
                 uses=\Deception[S],
-                desc={Create a disguise. Requires a disguise kit. \hfill \F{Target knows you are disguised.} \CF{And
+                desc={Create a disguise. Requires a \MSC{disguise kit}. \hfill \F{Target knows you are disguised.} \CF{And
                 can recognize you.}
                 }
             }
@@ -182,7 +182,7 @@
                 action=\,\TimeMin{10},
                 tags=\Concentrate,
                 uses=\Crafting[T S],
-                desc={Identify an alchemical item. Requires alchemist's tools.\hfill \CF{Misidentify.}%
+                desc={Identify an alchemical item. Requires \Refer{alchemist's tools}.\hfill \CF{Misidentify.}%
                 }
             }
             \activity{Identify Magic}{%
@@ -241,7 +241,7 @@
                 page=GMC 263,
                 action=\,\TimeMin{10},
                 tags=\Manipulate,
-                desc={Affix or Remove one talisman on one item. Requires Repair kit\hfill \D{(Attaching more then one
+                desc={Affix or Remove one talisman on one item. Requires \Refer{Repair kit}\hfill \D{(Attaching more then one
                 to an item deactivates all)}
                 }
             }
@@ -392,7 +392,12 @@
             }
         \end{Table}
         \vfill
-        \begin{Table}{Hexploration}[][Number of Activites usable each day:\quad \Numb{1/2 : <10}\Feet\quad \Numb{1 : 15-25}\Feet\quad \Numb{2 : 30-40}\Feet\quad \Numb{3 : 45-55}\Feet\quad \Numb{4 : >60}\Feet  ]
+        \begin{Table}{Hexploration}[][Number of Activites usable each day:
+        \quad\quad \Numb{<10} \Feet \Numb{\;:\;1/2}%
+        \quad\quad \Numb{15-25} \Feet \Numb{\;:\;1}%
+        \quad\quad \Numb{30-40} \Feet \Numb{\;:\;30-40}%
+        \quad\quad \Numb{45-55} \Feet \Numb{\;:\;3}%
+        \quad\quad \Numb{>60} \Feet \Numb{\;:\;4}]
             \activity{Fortify camp}{%
                 action=\,\TimeHex{1},
                 uses=\Crafting,
