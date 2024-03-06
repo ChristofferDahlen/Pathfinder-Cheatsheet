@@ -59,6 +59,15 @@
 %\newfontfamily\TitleFont[Path=./Fonts/Rozha_One/, Extension = .ttf]{RozhaOne-Regular.ttf}
 \newfontfamily\TitleFont[Path=./Fonts/Stoke/, Extension = .ttf]{Stoke-Regular.ttf}
 
+\newfontfamily\BodyFont{SairaCondensed}[%
+    Scale=1,
+    Path=./Fonts/SairaCondensed/,
+    Extension=.ttf,
+    UprightFont=*-Medium,
+    BoldFont=*-Bold,
+    ItalicFont=*-Light,
+    BoldItalicFont=*-SemiBold
+]
 \setmainfont{CrimsonPro}[
     Path=./Fonts/CrimsonPro/,
     Extension = .ttf,
@@ -154,8 +163,8 @@
 \setkeys{entryKey}{action=,uses=,page=,tags=,desc=,namescale=1,nameWidth=0.2,bodyWidth=0.8,pageRotate=}
 
 \newcommand{\pgc}[1]{\textcolor{PGColor}{#1}}
-\newcommand{\pg}[1]{{\scalefont{0.5}\textcolor{PGColor}{#1}}}
-\newcommand{\pgRotate}[1]{\rotatebox[origin=t]{90}{\centering\scalefont{0.5}\textcolor{PGColor}{#1}}}
+\newcommand{\pg}[1]{{\BodyFont\scalefont{0.65}\textcolor{PGColor}{#1}}}
+\newcommand{\pgRotate}[1]{{\BodyFont\scalefont{0.6}\baselineskip=0pt\adjustbox{stack = cb,rotate=90}{\textcolor{PGColor}{#1}}}}
 \newcommand{\nameV}[1]{{\textbf{\MakeUppercase{#1}}}}
 \newcommand{\Uses}[1]{\textcolor{UColor}{\MakeUppercase{#1}}}
 \newcommand{\UsesDetail}[1]{\textcolor{UColor}{#1}}
@@ -188,25 +197,25 @@
 \newcommand{\ActionSize}{\scriptsize\scalefont{0.8}}
 
 
-\newcommand{\Numb}[1]{{\kirsty\scalefont{0.7}#1}}
+\newcommand{\Numb}[1]{{\kirsty\scalefont{0.9}#1}}
 \newcommand{\DCNumb}[1]{{\kirsty\scalefont{0.7}#1}}
 
 
-\NewDocumentCommand{\Type}{m O{0.7}}{{\kirsty\scalefont{#2}\MSC{#1}}\xspace}
-\NewDocumentCommand{\Typet}{m O{0.7}}{{\kirsty\scalefont{#2}#1}\xspace}
-\NewDocumentCommand{\Typetv}{m O{0.7}}{{\kirsty\scalefont{#2}#1}}
+\NewDocumentCommand{\Type}{m O{0.9}}{{\kirsty\scalefont{#2}\MSC{#1}}\xspace}
+\NewDocumentCommand{\Typet}{m O{0.9}}{{\kirsty\scalefont{#2}#1}\xspace}
+\NewDocumentCommand{\Typetv}{m O{0.9}}{{\kirsty\scalefont{#2}#1}}
 
 
 \newcommand{\Condition}[1]{{\kirsty\scalefont{0.8}\MSC{#1}}\xspace}
 
 
-\newcommand{\T}{\IBox{T}}
-\newcommand{\Ts}{\IBox[0.9]{T}}
-\newcommand{\E}{\IBox[0.9]{E}}
-\newcommand{\M}{\IBox[0.9]{M}}
-\newcommand{\Le}{\IBox[0.9]{L}}
-\newcommand{\Se}{\IBox{S}}
-\newcommand{\Reck}{\IBox{R}}
+\newcommand{\T}{{\rmfamily\scalefont{1.1}\IBox{T}}}
+\newcommand{\Ts}{{\rmfamily\scalefont{1.1}\IBox[1]{T}}}
+\newcommand{\E}{{\rmfamily\scalefont{1.1}\IBox[0.9]{E}}}
+\newcommand{\M}{{\rmfamily\scalefont{1.1}\IBox[0.9]{M}}}
+\newcommand{\Le}{{\rmfamily\scalefont{1.1}\IBox[0.9]{L}}}
+\newcommand{\Se}{{\rmfamily\scalefont{1.1}\IBox{S}}}
+\newcommand{\Reck}{{\rmfamily\scalefont{1.1}\IBox{R}}}
 \newcommand{\Ac}{\Typet{AC}}
 
 
@@ -298,7 +307,9 @@
         width=\linewidth,
         after skip=0pt,
         before skip=0pt,
-        boxsep=0.4ex,
+        boxsep=0.2ex,
+        right=0.15ex,
+        left=0.1ex,
         frame hidden,
         borderline south={0.1pt}{0pt}{color=EntryColorBorder},
         top=0pt,
@@ -306,7 +317,7 @@
         boxrule=0pt]%
         \begin{minipage}[c][][c]{\entry@namewidth\linewidth}%
             \ActionSize%
-            {\scalefont{\entry@namescale}%
+            {\BodyFont\scalefont{\entry@namescale}%
             \StyleEntry{#1}}\entry@action\hfill%
             \ifthenelse{\equal{\entry@pageRotate}{}}{\raisebox{0.6pt}{\pg{\entry@page}}}{\pgRotate{\entry@page}}\,%
             \entry@tags
@@ -320,7 +331,7 @@
             }}%
             \entry@uses%
             \IfNotBlank{\entry@uses}{\edash}%
-            \entry@desc%
+            {\BodyFont\entry@desc}%
         \end{minipage}
     \end{tcolorbox}
 }
@@ -354,7 +365,7 @@
             bottom = 0pt,
             boxrule=0pt, valign=bottom]%
             \begin{center}%
-            {\centering\StyleBreak{#1}}%
+            {\BodyFont\centering\StyleBreak{#1}}%
             \end{center}%
         \end{tcolorbox}
     }
@@ -381,12 +392,13 @@
         \end{adjustbox}%
         \:\:%
         \begin{adjustbox}{valign=B}%
-            \StyleBreak{#3}%
+        {\BodyFont   \StyleBreak{#3}}%
         \end{adjustbox}%
     \end{tcolorbox}%
 }
 
-
+\def\Serif{\rmfamily}
+\def\SanSerif{\sffamily\scalefont{0.5}}
 
 \gdef\tableHorizontalSpace{}
 \NewDocumentEnvironment{Tables}{m}{%
@@ -403,6 +415,7 @@
     \begin{minipage}[t]{\linewidth}%
         \Header{#1}[#2][#3]%
         }{
+        \rmfamily
     \end{minipage}%
 }
 
@@ -443,6 +456,7 @@
 
 
 \NewDocumentCommand{\PageBottom}{}{%
+    \BodyFont
     \begin{minipage}[t][0.015\pageheight][t]{0.48\linewidth}%
         \tiny%
         \A{a} \MSC{Single Action} \hfill \A{d} \MSC{Two}\dash\MSC{Action Activity} \hfill \A{t} \MSC{Three}\dash\MSC{
@@ -477,6 +491,7 @@
         \D{All of this material is lisenced under either OGL or ORC lisence.}                \hfill\D{\MSC{Voidhawk
         Cheatsheet} \Numb{v0.1}\quad By Voidhawk based on \Numb{v1.6} clean rulebook by Iannick Daniel}%
     \end{minipage}
+    \rmfamily
 }
 
 \NewDocumentEnvironment{PageFront}{}{%

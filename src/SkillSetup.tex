@@ -55,7 +55,7 @@
     \end{adjustbox}%
 }
 
-\NewDocumentCommand{\LVL}{m}{{\scalefont{0.9}\IBox{\MSC{Lv}L \Numb{#1}}}}%
+\NewDocumentCommand{\LVL}{m}{{\rmfamily\scalefont{1.1}\IBox{\MSC{Lv}L \Numb{#1}}}}%
 
 \newcommand{\TimeBox}[1]{%
     \tcbox[on line,
@@ -96,7 +96,10 @@
 
 
 \NewDocumentEnvironment{entryBox}{m m O{t}}{%
+    \scalefont{1.2}
     \adjustbox{valign=#3}\bgroup
+    \rmfamily
+    \bfseries
     \def\SkillAlign{M}%
     \tcolorbox[%
         capture=hbox,
@@ -118,11 +121,13 @@
         right=0.0ex,
         box align=base]
     }{%
+    \BodyFont
     \endtcolorbox%
     \egroup%
 }
 
 \newcommand{\tagBox}[2]{%
+{\scalefont{0.8}%
 \begin{adjustbox}{valign=B, raise=-0.4ex}%
     \tcbox[%
         colframe=tagFieldColor,
@@ -137,8 +142,9 @@
         boxsep=0.2ex,
         top=0.1ex,
         bottom=0.1ex,
-        ]{\scalefont{0.7}\sffamily{\TextOutline[0.5pt][M]{\textbf{\MSC{#1}}}}}%
+        ]{\sffamily{\TextOutline[0.5pt][M]{\textbf{\MSC{#1}}}}}%
 \end{adjustbox}%
+}%
     }
 
 \NewDocumentEnvironment{SKBox}{}{%

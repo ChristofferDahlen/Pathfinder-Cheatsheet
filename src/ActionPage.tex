@@ -7,12 +7,12 @@
                 action=\A{a},
                 page=418,
                 tags=\Attack,
-                desc=Attack with a weapon or unarmed attack. \hfill\CS{Deal double damage}}
+                desc=Attack with a weapon or unarmed attack. \hfill\CS{Deal double damage.}}
             \entry{Reactive Strike}{%
                 action=\A{r},
                 page=138,
                 uses=\Feat,
-                desc={\Refer{Strike} against a creature that uses a \Manipulate or \Move action or a Ranged Attack.\hfill\CS{Disrupt \Manipulate actions.}}}
+                desc={\Refer{Strike} against a creature that uses a \Manipulate\,or \Move action or a Ranged Attack.\hfill\CS{Disrupt \Manipulate \,actions.}}}
             \entry{Feint}{action=\A{a},
                 page=239,
                 uses=\Deception[T],
@@ -36,7 +36,7 @@
                 tags=\Attack,
                 desc={\begin{minipage}{0.8\linewidth}
                           \AthleticsReflex[T] \dash\,Knock something out of an opponent's grasp.\\
-                          Target takes \Numb{-2}\Cirm to using the item until target \Refer{interact}. Future disarm gain \Numb{+2}\Cirm until \Refer{interact}.
+                          Target takes \Numb{-2} \Cirm to using the item until target \Refer{interact}. Future disarm gain \Numb{+2} \Cirm until \Refer{interact}.
                 \end{minipage}\hfill
                 \begin{minipage}{0.2\linewidth}
                     \raggedleft
@@ -80,7 +80,7 @@
             \entry{Cast a Spell}{%
                 action={\,\scalefont{0.6}\DColor{(usually)}}\A{d},
                 page=299,
-                desc={Cast a spell you have prepared or in your repertoire. Often \Manipulate and/or \Concentrate.\hfill \D{(Distrupted spell is lost)}}}
+                desc={Cast a spell you have prepared or in your repertoire. Often \Manipulate\,and/or \Concentrate.\hfill \D{(Distrupted spell is lost)}}}
             \entry{Dismiss}{%
                 action=\A{a},
                 page=419,
@@ -105,7 +105,7 @@
                 page=261,
                 uses=\MagicalSkill[T S]\Feat,
                 tags=\Concentrate,
-                desc={Identify a spell begin cast within line of sight. \hfill\CS{+1\Cirm to save or \Ac.}\\
+                desc={Identify a spell begin cast within line of sight. \hfill\CS{\Numb{+1} \Cirm to save or \Ac.}\\
                 Can identify spells up to rank \Ts\,\Numb{2} (\E\,\Numb{4}, \M\,\Numb{6}, \Le\,\Numb{10}) }}
 
         \end{Table}
@@ -114,12 +114,12 @@
             \entry{Avert Gaze}{%
                 action=\A{a},
                 page=419,
-                desc={Get a \Numb{+2}\Cirm bonus against visual abilities.\hfill \D{Lasts until start of next turn.}}}
+                desc={Get a \Numb{+2} \Cirm bonus against visual abilities.\hfill \D{Lasts until start of next turn.}}}
             \entry{Take Cover}{%
                 action=\A{a},
                 page=418,
-                desc={Gain \Cover, or get \GCover if you have \Cover. \hfill \D{Lasts until you move, attack, go unconscious or stop}\\
-                    \Cover gives \Numb{+2} \Cirm bonus to \Ac, \ReflexT and checks to avoid detection, \hfill \GCover gives \Numb{+4},}}
+                desc={Gain \Cover, or get \GCover if you have \Cover. \hfill \D{Lasts until you move, attack, go unconscious or stop.}\\
+                    \Cover gives \Numb{+2} \Cirm bonus to \Ac, \ReflexT and checks to avoid detection. \hfill \GCover gives \Numb{+4}.}}
             \breakLine
             \entry{Raise a shield / Parry}{%
                 action=\A{a},
@@ -212,14 +212,12 @@
                 desc={%
                     \!%
                     \setlength{\tabcolsep}{9pt}%
-                    \begin{tabularx}{\linewidth}{@{}l@{\;}l@{\extracolsep{\fill}}r@{}}%
-                        \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Recovery}]{\!+5}[][M]]\hfill\edash\,\hfill Stabilize:&
-                        Target loses the \Dying condition.&
+                        \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Recovery}]{\!+5}[][M]]\edash Stabilize:
+                        Target loses the \Dying condition.
                         \hfill\CF{\Numb{-1} to \Dying condition.}\\
-                        \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Effect}]{}[][M]]\edash Stop Bleeding:&
-                        Target gets an extra check to stop \Bleeding.&
+                        \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Effect}]{}[][M]]\edash Stop Bleeding:
+                        Target gets an extra check to stop \Bleeding.
                         \hfill\CF{Deal \Bleed damage.}
-                    \end{tabularx}%
                 }
             }
             \entry{Battle Medicine}{%
@@ -229,7 +227,7 @@
                 tags=\Manipulate,
                 uses=\Medicine\Feat,
                 desc={Heal in combat, same as \Refer{treat wounds} but doesn't remove \Wounded.\hfill \D{(Cannot use on target for 24 hours)}\\
-                \hphantom{\Medicine}\T\DC[15] \Numb{2d8\CSC{(4d8)}}\quad\quad
+                \hfill\T\DC[15] \Numb{2d8\CSC{(4d8)}}\quad\quad
                 \E\DC[20] \Numb{2d8\CSC{(4d8)}}\Numb{+10}\quad\quad
                 \M\DC[30] \Numb{2d8\CSC{(4d8)}}\Numb{+30} \quad\quad
                 \Le\DC[40] \Numb{2d8\CSC{(4d8)}}\Numb{+50}\hfill \CF{Deal \Numb{1d8} damage.}}
@@ -243,7 +241,7 @@
         \end{Table}
         \vfill
         \begin{Table}{Vehicle Actions}[][%
-            \begin{minipage}[b]{0.79\linewidth}%
+            \begin{minipage}[b]{0.755\linewidth}%
                 \Reck \,\dash\, \MSC{Reckless} adds:\; \textbf{\F{lose control, move speed and drift up to \Numb{45} degrees.}}\hfill
                 \Piloting\,\dash\,Relevant piloting check for vehicle.\\
                 Pilot has to use \Refer{Drive} or \Refer{Stop} else lose control.\hfill Uncontrolled vehicles moves at last pilot initative until stopped. Usually loses \Numb{10}\Feet per turn.%
@@ -383,7 +381,7 @@
                 page=234,
                 uses=\Athletics,
                 tags=\Move,
-                desc={With both hands free, move \Numb{5(10)}\Feet up, down or across an incline.\hfill \CF{Fall and land \Prone.}}
+                desc={With both hands free, move \Numb{5\CSC{(10)}}\Feet up, down or across an incline.\hfill \D{\Numb{+5}\Feet per \Numb{20} over \Numb{20}\Feet}\hfill \CF{Fall and land \Prone.}}
             }
             \entry{Swim}{%
                 action=\A{a},
@@ -458,8 +456,9 @@
                 desc={Can use the item until the end of the turn.}\hfill\F{Can't try again until next round.} \CF{Next daily prep.}
             }
             \entry{Invest an Item}{%
+                pageRotate=true,
                 action=\A{a}+,
-                page=GMC 219,
+                page=GMC\\219,
                 tags=\Manipulate,
                 desc={You invest your energy in an item to benifit from its constant magical abilities. \hfill\D{(Max 10 items per day)}}
             }
@@ -553,7 +552,7 @@
                 action=\A{a} +\A{r},
                 page=416,
                 uses=\SkillvsBox{Relevant}[][]{}[\DCBox[\MSC{Usually}]{15}[][M]],
-                desc={Grant \Numb{+1}\Cirm bonus to your ally. \hfill \CS{\Numb{+2}\Cirm \;\M \Numb{+3}\Cirm \;\Le \Numb{+4}\Cirm}\quad\CF{-1 \Cirm penalty.}}
+                desc={Grant \Numb{+1} \Cirm bonus to your ally. \hfill \CS{\Numb{+2} \Cirm \;\M \Numb{+3} \Cirm \;\Le \Numb{+4} \Cirm}\quad\CF{\Numb{-1} \Cirm penalty.}}
             }
             \entry{Delay}{%
                 action=\A{f},
@@ -563,7 +562,7 @@
                 action=\A{d} +\A{r},
                 page=417,
                 tags=\Concentrate,
-                desc={Prepare to take a \A{a}/\A{f} as a \A{r} with a given trigger.}}
+                desc={Prepare to take a \A{a}/\!\A{f} as a \A{r} with a given trigger.}}
             \entry{Recall Knowledge}{%
                 pageRotate=true,
                 namescale=0.95,
