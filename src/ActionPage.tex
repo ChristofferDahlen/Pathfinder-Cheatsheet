@@ -15,9 +15,9 @@
                 desc={\Refer{Strike} against a creature that uses a \Manipulate\,or \Move action or a Ranged Attack.\hfill\CS{Disrupt \Manipulate \,actions.}}}
             \entry{Feint}{action=\A{a},
                 page=239,
-                uses=\Deception[T],
+                uses=\DeceptionPerception[T],
                 tags=\Mental,
-                desc={Target is \OffGuard against your next melee attack this turn. \\\raggedleft\phant\CS{
+                desc={Target is \OffGuard against your next melee attack this turn. \\\hspace{-4em}\raggedleft\phant\CS{
                     Target is \OffGuard against all your melee attack until end of your next turn.}\hfill\CF{CS effect,
                     but with inverted targets.}}}
             \entry{Escape}{%
@@ -26,7 +26,7 @@
                 tags=\Attack,
                 desc={%
                     Attempt to get free when \Grabbed, \Immobilized, or \Restrained.  \hfill\CS{And Stride up to \Numb{5}\Feet.}\\
-                    {\scalefont{0.8}Uses attack modifier, \AcrobaticsT, or \AthleticsT}. \hfill\CF{Can't try again until your next turn.}}
+                    {\scalefont{0.8}Uses unarmed attack modifier, \AcrobaticsT, or \AthleticsT}. \hfill\CF{Can't try again until your next turn.}}
             }
             \breakLine[The following combat manuevers usually require having a hand free and the target to be no more
             than one size larger]
@@ -130,7 +130,6 @@
                 action=\A{r},
                 page=262,
                 uses=\Feat,
-                tags=\Concentrate,
                 desc={ Reduces the damage of a physical attack by the raised shield's \Hardness.\\Both you and the
                 shield take any remaining damage.\hfill \D{(Objects generally break at half \HPs and are destroyed at \Numb{0} \HPs.)}}}
         \end{Table}
@@ -152,6 +151,7 @@
             \entry{Seek}{%
                 action=\A{a},
                 page=417,
+                tags=\Concentrate,
                 uses=\Perception[S],
                 desc={Locate creatues and objects within an area. \hfill \D{(Usually a \Numb{30}\Feet\,cone or a
                 \Numb{15}\Feet\,burst)}\\
@@ -159,7 +159,7 @@
             \entry{Point out}{%
                 action=\A{a},
                 page=419,
-                tags=\Concentrate,
+                tags=\Manipulate,
                 desc=Indicate the location of a creature to your allies. \Auditory\,\Visual \hfill \D{If an ally can't hear/understand they gain \PerceptionStealth}
             }
             \breakLine
@@ -168,20 +168,20 @@
                 action=\A{a},
                 page=244,
                 tags=\Manipulate,
-                uses=\Stealth[T],
+                uses=\Stealth[S],
                 desc=Hide an object of light bulk.
             }
             \entry{Palm an Object}{%
                 action=\A{a},
                 page=246,
-                uses=\Thievery[S],
+                uses=\Thievery,
                 tags=\Manipulate,
                 desc=Palm an unattened object of neglible bulk.\hfill\F{Noticed by nearby creature.}
             }
             \entry{Steal}{%
                 action=\A{a},
                 page=246,
-                uses=\Thievery[S],
+                uses=\Thievery,
                 tags=\Manipulate,
                 desc=Steal an object of neglible bulk from a creature.\hfill \F{Noticed and fail to take object if
                 target noticed.}
@@ -214,9 +214,9 @@
                     \setlength{\tabcolsep}{9pt}%
                         \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Recovery}]{\!+5}[][M]]\edash Stabilize:
                         Target loses the \Dying condition.
-                        \hfill\CF{\Numb{-1} to \Dying condition.}\\
+                        \hfill\CF{\Numb{+1} to \Dying condition.}\\
                         \SkillvsBox{Medicine}[][]{}[\DCBox[\MSC{Effect}]{}[][M]]\edash Stop Bleeding:
-                        Target gets an extra check to stop \Bleeding.
+                        Target gets an extra \DC[10] flat check to stop \Bleeding.
                         \hfill\CF{Deal \Bleed damage.}
                 }
             }
@@ -235,8 +235,9 @@
             \entry{Treat Poison}{%
                 action=\A{a},
                 page=242,
+                tags=\Manipulate,
                 uses=\Medicine[T],
-                desc={Grants a \Numb{+2\CSC{(+4)}}\Cirm to the next save vs poision.\hfill\CF{\Numb{-2}\Cirm}}
+                desc={Grants a \Numb{+2\CSC{(+4)}}\Cirm to the next save vs poison.\hfill\CF{\Numb{-2}\Cirm}}
             }
         \end{Table}
         \vfill
@@ -249,6 +250,7 @@
         ]
             \entry{Board}{%
                 action=\A{a},
+                tags=\Move,
                 page=GMC 212,
                 desc={Board or disembark a vehicle. \hfill If it is in motion make a \SkillvsBox{Athletics}[][\TextOutline[1pt][M]{/\MSC{Acrobatics}}]{}[\DCActBox{\MSC{Vehicle} \Ac}[M]]}
             }
@@ -268,7 +270,7 @@
                 desc={Move vehicle.
                 \A{a} Speed \CF{loose control}\hfill
                 \A{d}\Reck\,\Numb{2x} Speed in current heading.\hfill
-                \A{t}\Reck\,\Numb{3x} Speed in current heading.}
+                \A{t}\Reck\,\Numb{3x} Speed in current heading.} %Additional information is that the vehicle only can be turned on success (but moves regardless), and that the 3 action version takes a -5 penalty on the pilotng check. I really don't see how this could fit though, at least without adding more rows.
             }
             \entry{Stop}{%
                 action=\A{a},
@@ -298,7 +300,7 @@
             \end{minipage}
             \hfill \SingleReactionCoin\hfill \SingleCoin\hfill \SingleCoin\hfill  \SingleCoin \quad}
         \vfill
-        \begin{Table}{Movement Actions}
+        \begin{Table}{Movement Actions}[][\quad \textbf{Climb and Swim gains 5 \Feet of Speed for every 20 \Feet of Speed above 20}]
             \entry{Stride}{%
                 action=\A{a},
                 page=418,
@@ -351,22 +353,22 @@
                 page=235,
                 tags=\Move,
                 uses=\Athletics[][\DC[30][M]],
-                desc={\Refer{Stride} min \Numb{10}\Feet and then leap \Numb{5\CSC{(8},\FC{3)}}\Feet vertically.\hfill \CS{Or \Numb{10}\Feet horiz. \Numb{5}\Feet vert.}\quad \CF{No leap and fall \Prone.}
+                desc={\Refer{Stride} min \Numb{10}\Feet and then leap up to \Numb{5\CSC{(8},\FC{3)}}\Feet vertically and \Numb{5\CSC{(10)}}\Feet horizontally.\hfill \CF{No leap and fall \Prone.}
                 }
             }
             \entry{Long Jump}{%
                 action=\A{d},
                 page=235,
                 tags=\Move,
-                uses=\Athletics[][\DCBox{}[\,Dist. in \Feet][M]],
-                desc={\Refer{Stride} \Numb{10}\Feet and then leap the full distance in \Refer{stride} direction. \hfill \F{Normal leap.}\; \CF{And fall \Prone.}}
+                uses=\Athletics[][\DC[15][M]],
+                desc={\Refer{Stride} min \Numb{10}\Feet and then leap up to your check result rounded down. \hfill \F{Normal leap.}\; \CF{And fall \Prone.}}
             }
             \entry{Grab an Edge}{%
                 action=\A{r},
                 page=419,
-                uses=\SkillvsBox{Reflex Save}[][]{}[\DCBox[Climb]{}[][M]],
+                uses=\SkillvsBox{Acrobatics or Reflex Save}[][]{}[\DCBox[Climb]{}[][M]],
                 tags=\Manipulate,
-                desc={Stop your fall using a free hand and reduce the fall damage so far by \Numb{20}\Feet.\\\hfill \CS{No need for a free and reduce by \Numb{30}\Feet.} \quad\CF{Take \Numb{10} damage per \Numb{20} feet fallen so far.}}
+                desc={Stop your fall using a free hand and reduce the fall damage so far by \Numb{20}\Feet.\\\hfill \CS{No need for a free hand and reduce by \Numb{30}\Feet.} \quad\CF{Take \Numb{10} damage per \Numb{20} feet fallen so far.}}
             }
             \breakLine
             \entry{Balance}{%
@@ -388,7 +390,7 @@
                 page=235,
                 uses=\Athletics,
                 tags=\Move,
-                desc={Swim \Numb{10\CSC{(15)}}\Feet through water. \hfill Sink \Numb{10} feet or moved by current if not used when it water.}
+                desc={Swim \Numb{10\CSC{(15)}}\Feet through water. Sink \Numb{10} feet or moved by current if not used when it water. \hfill \CF{Lose 1 round of air}}
             }
             \breakLine
             \entry{Fly}{%
@@ -408,7 +410,7 @@
             \entry{Arrest a fall}{%
                 action=\A{r},
                 page=418,
-                uses=\SkillvsBox{Acrobatics}[][]{}[\DCBox{15}[][M]],
+                uses=\SkillvsBox{Acrobatics or Reflex Save}[][]{}[\DCBox{15}[][M]],
                 desc={Slow your fall while flying.}
             }
         \end{Table}
@@ -443,15 +445,15 @@
             \breakLine
             \entry{Activate}{%
                 action=\A{a}+ or\A{r},
-                page=231,
-                desc={Activate a effect listed on a Item. Often \Manipulate\,and/or \Concentrate. \hfill \D{Limited uses are lost if distruped.}}
+                page=GMC 220,
+                desc={Activate a effect listed on an Item. Often \Manipulate, and/or \Concentrate. \hfill \D{Limited uses are lost if distruped.}}
             }
             \entry{Trick Magic Item}{%
                 action=\!\A{a},
                 namescale=0.95,
                 page=264,
                 tags=\Manipulate,
-                uses=\MagicalSkill\Feat,
+                uses=\MagicalSkill[T]\Feat,
                 desc={Can use the item until the end of the turn.}\hfill\F{Can't try again until next round.} \CF{Next daily prep.}
             }
             \entry{Invest an Item}{%
@@ -475,7 +477,7 @@
                 page=247,
                 tags=\Manipulate,
                 uses=\Thievery[T],
-                desc={Open a lock with theives' tools. \hfill\CS{Two success and no trace.}\; \CF{Break the tools.}}
+                desc={Open a lock with theives' tools. \hfill\CS{Two success and no trace.}\; \CF{Break the tools and leave obvious damage.}}
             }
             \entry{Force open}{%
                 action=\A{a},
@@ -501,7 +503,7 @@
                 namescale=0.95,
                 action=\A{a},
                 page=237,
-                uses=\Deception,
+                uses=\DeceptionPerception,
                 tags=\Mental,
                 desc=Use a diversion to temporarily become \Hidden\hfill\D{(Targets gain a \Numb{+4}\Cirm against your
                 diversions for 1 min)}\\\phant If gesture or trick add \Manipulate.\hfill If distracting words add
@@ -509,8 +511,8 @@
             \entry{Bon Mot}{%
                 action=\A{a},
                 tags=\parbox{0.5\linewidth}{\raggedleft\pg{\MSC{Apg} 231}\,\Concentrate\\\Auditory\Linguistic},
-                uses=\DeceptionWill\Feat,
-                desc={Distract a foe with a witty quip.\hfill \D{(Target can retort)}\\
+                uses=\DiplomacyWill[T]\Feat,
+                desc={Distract a foe with a witty quip. \Emotion\Mental\hfill \D{(Target can retort)}\\
                 Targets takes a \Numb{-2\CSC{(-3)}}\Status penatly to \PerceptionT and \WillT saves for 1 \Min.\hfill \CF{Get the \Numb{-2} penatly instead.}
                 }}
             \breakLine
@@ -536,7 +538,7 @@
                 action=\!\A{a},
                 page=242,
                 tags=\Concentrate,
-                uses=\Nature,
+                uses=\NatureWill,
                 desc={Issue an order to an animal. \Auditory\hfill \CF{Target misbehaves or misunderstands.}}
             }
             \entry{Mount}{%

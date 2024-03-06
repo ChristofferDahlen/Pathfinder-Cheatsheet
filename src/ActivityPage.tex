@@ -24,7 +24,7 @@
                 uses=\SkillvsBox{Crafting}[][]{}[\DCBox[\MSC{Item}]{}[][M]],
                 tags=\Manipulate,
                 desc={Repair a damaged Item by \Numb{5\CSC{(10)}}\HPs\Numb{ + 5\CSC{(10)}}\HPs per proficency rank.\\
-                \D{(Requires a \Refer{repair kit} and a stable surface)}\hfill \CF{deal \Numb{2d8}\dash\Numb{Hardness} damage
+                \D{(Requires a \Refer{repair kit} and a stable surface)}\hfill \CF{deal \Numb{2d6}\dash\Numb{Hardness} damage
                 to the item.}
                 }
             }
@@ -85,7 +85,7 @@
             \activity{Hustle}{%
                 page=438,
                 tags=\Move,
-                desc={Double your travel speed of \Numb{10 x Con} minitues.\quad \D{If \Numb{Con < 0} treat as \Numb{1}.}
+                desc={Double your travel speed of \Numb{10 x Con} minitues.\quad \D{If \Numb{Con < 1} treat as \Numb{1}.}
                 }
             }
             \activity{Squeeze}{%
@@ -112,7 +112,7 @@
                 page=439,
                 tags=\Concentrate,
                 uses=\VariousKnowledge[S],
-                desc={Use \Refer{Recall Knowledge} on visable clues.\hfill \CS{Get more info.}\quad\CF{Get false info.}
+                desc={Use \Refer{Recall Knowledge} on visible clues.\hfill \CS{Get more info.}\quad\CF{Get false info.}
                 }
             }
             \activity{Search}{%
@@ -171,9 +171,9 @@
             \activity{Decipher Writing}{%
                 tags=\parbox{0.25\linewidth}{\raggedleft\pg{228}\\\Concentrate},
                 action=\,\TimeMin{1+}[/\MSC{Page}],
-                uses=\Society[T S],
+                uses=\VariousKnowledge[T S],
                 desc={Decipher a complicated or esoteric writing. \hfill\CF{Get false info.}\\
-                You understand the ture meaning of a non-coded \CSC{(or coded)} message. \hfill \F{\Numb{-2}\Cirm
+                You understand the true meaning of a non-coded \CSC{(or coded)} message. \hfill \F{\Numb{-2}\Cirm
                 penalty on future attempts.}
                 }
             }
@@ -222,7 +222,7 @@
                 tags=\Concentrate,
                 uses=\Arcana[T],
                 desc={Prepare a spell from someone elses spellbook, arcane witch familiar, or the like. \\\D{(You have
-                to be a prepared caster)} \hfill \F{Loose the spell slot, can't try again today.}}
+                to be a prepared caster)} \hfill \F{Fail to prepare spell but keep spell slot, can't try again today.}}
             }
             \activity{Learn a spell}{%
                 page=230,
@@ -258,11 +258,13 @@
             }
             \activity{Prepare campsite}{%
                 page=KCG 107,
+                pageRotate=true,
+                action=\,\TimeHour{1-2},
                 tags=\Concentrate\Move,
                 uses=\Survival[S],
                 desc={Search for a safe and secure location and set up a campsite.\hfill\CS{\Numb{+2} on rand.
                 encounters for a day, none for \TimeHour{1}.}\\
-                \hfill\F{\Numb{-2} on camp. activities.}\quad \CF{No camp. activies and instant encounter check.}
+                \D{\TimeHour{1} if campsite has already been prepared on hex}\hfill\F{\Numb{-2} on camp. activities.}\quad \CF{No camp. activies and instant encounter check.}
                 }
             }
         \end{Table}
@@ -270,6 +272,7 @@
         \begin{Table}{Research subsystem}
             \activity{Research}{%
                 page=GMC 190,
+                action=\,\TimeHour{up to 24},
                 tags=\Concentrate\Linguistic,
                 desc={Comb though information to learn more about the topic at hand. Gain \Numb{1\CSC{(2)}} Reserch point.\\
                 \CF{Make a false discovery and lose 1 Research point.}}
@@ -305,10 +308,10 @@
             \activity{Long Term rest}{%
                 action=\,\TimeHour{24},
                 page=440,
-                desc={Regain \Numb{2 x Level x Con} \HPs \quad\D{If \Numb{Con < 0} treat as \Numb{1}.}}
+                desc={Regain \Numb{2 x Level x Con} \HPs \quad\D{If \Numb{Con < 1} treat as \Numb{1}.}}
             }
             \activity{Treat Disease}{%
-                action=\,\TimeHour{8},
+                action=\,\TimeHour{8+},
                 page=242,
                 tags=\Manipulate,
                 uses=\Medicine[T],
@@ -316,7 +319,7 @@
             }
             \activity{Retraining}{%
                 page=440,
-                action=\,\TimeWeek{1},
+                action=\,\TimeWeek{1+},
                 desc={Change one of your chosen feats, skills or class features.\hfill
                 }
             }
@@ -331,7 +334,7 @@
                 page=244,
                 action=\,\TimeDays{1 - 7},
                 uses=\Society[T S][\DC[20][M]],
-                desc={Call forth the effect of an item by properly activating it.\hfill
+                desc={Forge a document that does (\FC{not}) fool passive observers (up to \Numb{+4} \Cirm bonus if similar doc. known). \hfill
                 }
             }
         \end{Table}
@@ -356,7 +359,7 @@
                 uses=\begin{SKBox}\SkillTextOutline{\MSC{Deception}/\MSC{Diplomacy}}\IBox{S}[M]\end{SKBox},
                 desc={Offer a bribe to your contact. Gain \Numb{1} Edge Point {(regardless)}.\\
                 Costs min \Numb{1/10} of the \Refer{Currency per additional PC} listed on \pgc{GMC 59}. Doubling gives \Numb{+2} \Cirm.\\
-                \F{Gain \Numb{1\CFC{(2)}} Attention point. The GM can decide that this Edge point gives no benifit.}}
+                \F{Gain \Numb{1\CFC{(2)}} Attention point. The Edge Point is useless, which the GM can reveal if/when they want.}}
             }
             \activity{Scout Location}{%
                 page=GMC 199,
@@ -364,7 +367,7 @@
                 desc={Spend time observing the target. \SU{Gain \Numb{1} Edge point.} \hfill\CF{Gain \Numb{1} Edge point that causes \textbf{CF}}.}
             }
             \activity{Forge Documents}{%
-                uses=\Deception[S],
+                uses=\Society[S],
                 page=GMC 199,
                 desc={Prepare a convincing forgery prop. \\
                 Gain \Numb{1} Edge Point that you can only use when presenting paperwork.\hfill \F{Gain \Numb{1} uselss Edge point.} \CF{That causes \textbf{CF}.}}
@@ -379,12 +382,14 @@
         \begin{Table}{Influence Subsystem}
             \activity{Influence}{%
                 page=GMC 187,
-                desc={Make favorable impression on a NPC to convince the NPC to support your cause. \Linguistic
+                tags=\Concentrate\Linguistic,
+                desc={Make favorable impression on a NPC to convince the NPC to support your cause.
                 \hfill \CF{Lose \Numb{1} influence points.} \\
                 Gain \Numb{1\CSC{(2)}}} influence points.
             }
             \activity{Discover}{%
                 page=GMC 187,
+                tags=\Concentrate,
                 uses=\Perception[S],
                 desc={Watch or study an NPC.
                 Choose to learn \Numb{1\CSC{(2)}} of the following:  \hfill\CF{Get false info.}}\\
@@ -430,22 +435,22 @@
         \begin{Table}{Kingmaker Camping Activies}[][Following activites can only be done at a campsite. Use \Refer{Prepare Campsite} to find a site]
             \activity{Camouflage Campsite}{%
                 tags=\Manipulate,
-                uses=\Stealth[S],
+                uses=\Stealth[T S],
                 action=\,\TimeHour{1},
                 page=KCG 109,
-                desc={Hide your campsite. Increase Encounter \DC\,by \Numb{1\CSC{(2}/\CFC{-2)}}.\hfill\CS{Skip the first encounter check.}\\
+                desc={Hide your campsite. Increase Encounter \DC\,by \Numb{1\CSC{(2}/\CFC{-2)}}.\hfill\CS{Skip the first successful encounter check.}\\
                 \phant\CF{Encounter checks are critical success on \Numb{19} or \Numb{20}.}
                 }
             }
             \activity{Cook Basic Meal}{%
                 action=\,\TimeHour{2},
                 tags=\Manipulate,
-                page=110,
+                page=KCG 110,
                 uses={\begin{SKBox}%
                           \SkillTextOutline{\MSC{Survival}}\DC[22][M]\SkillTextOutline{/\MSC{Cooking Lore}}\DC[18][M]\end{SKBox}},
                 desc={Cook a basic meal. Eating gives \Numb{+1} \Status bonus to saves until daily preperations.\\
                 Per serving use 2 basic ingredients and 1 day's rations or provisions from \Refer{Subsiding}.}\\
-                \CS{Gives \Numb{Con}\HPs.} \hfill \CF{Become \Sickened\,\Numb{1} until after they complete their daily prep.}
+                \CS{Gives \Numb{2 x Level x Con}\HPs.} \hfill \CF{Become \Sickened\,\Numb{1} until after they complete their daily prep.}
             }
             \activity{Cook Special Meal}{%
                 action=\,\TimeHour{2},
@@ -487,7 +492,7 @@
             \activity{Organize Watch}{%
                 action=\,\TimeHour{2},
                 page=KCG 111,
-                uses=\Perception,
+                uses=\Perception[E],
                 desc={Organize the nights watch. Watch standers gain \Numb{+1\CSC{(+2)}}\Status to \PerceptionT. \\
                 \CS{Reduce rest time as if one more person.} \hfill
                 \F{No benifits.}\quad \CF{And make a encounter check.}
@@ -507,7 +512,7 @@
             \activity{Tell Campfire Story}{%
                 action=\,\TimeHour{2},
                 page=KCG 112,
-                tags=\Concentrate,
+                tags=\Concentrate, %Should be \Emotion, \Linguistic and \Mental as well but I don't see how to fit them
                 uses=\Performance,
                 desc={Allies gain \Numb{+1\CSC{(+2)}} (or Relaxing \Numb{+2}) \Status bonus to Attack, saves and skills during combat.
                 \\\CS{relaxing ally gain one reroll during camping session.} \hfill\F{No benifits.}\hfill \CF{\Numb{-1} penalty to skills until \Refer{relax} or daily prep.}}
