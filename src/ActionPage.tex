@@ -243,8 +243,7 @@
         \vfill
         \begin{Table}{Vehicle Actions}[][%
             \begin{minipage}[b]{0.755\linewidth}%
-                \Reck \,\dash\, \MSC{Reckless} adds:\; \textbf{\F{lose control, move speed and drift up to \Numb{45} degrees.}}\hfill
-                \Piloting\,\dash\,Relevant piloting check for vehicle.\\
+                \Piloting\,\dash\,Relevant piloting check for vehicle. \hfill \Reck \,\dash\, \MSC{Reckless} adds: \textbf{\F{lose control, move speed and drift up to \Numb{45} degrees.}}\\
                 Pilot has to use \Refer{Drive} or \Refer{Stop} else lose control.\hfill Uncontrolled vehicles moves at last pilot initative until stopped. Usually loses \Numb{10}\Feet per turn.%
             \end{minipage}%
         ]
@@ -267,10 +266,13 @@
                 page=GMC 212,
                 uses=\Piloting,
                 tags=\Move,
-                desc={Move vehicle.
-                \A{a} Speed \CF{loose control}\hfill
-                \A{d}\Reck\,\Numb{2x} Speed in current heading.\hfill
-                \A{t}\Reck\,\Numb{3x} Speed in current heading.} %Additional information is that the vehicle only can be turned on success (but moves regardless), and that the 3 action version takes a -5 penalty on the pilotng check. I really don't see how this could fit though, at least without adding more rows.
+                desc={Move vehicle.\hfill
+                \begin{minipage}[c]{0.78\linewidth}
+                    \A{a} Speed \SU{Can turn.} \F{In straignt line} \CF{and loose control.} \\
+                    \A{d}\Reck\,\Numb{2x} Speed in current heading.\hfill
+                    \A{t}\Reck\,\Numb{3x} Speed in current heading. Take \Numb{-5} pentaly.
+                \end{minipage}
+                }
             }
             \entry{Stop}{%
                 action=\A{a},
@@ -457,9 +459,9 @@
                 desc={Can use the item until the end of the turn.}\hfill\F{Can't try again until next round.} \CF{Next daily prep.}
             }
             \entry{Invest an Item}{%
-                pageRotate=true,
+                %pageRotate=true,
                 action=\A{a}+,
-                page=GMC\\219,
+                page=GMC 219,
                 tags=\Manipulate,
                 desc={You invest your energy in an item to benifit from its constant magical abilities. \hfill\D{(Max 10 items per day)}}
             }
@@ -533,7 +535,7 @@
             }
             \breakLine
             \entry{Command An Animal}{%
-                pageRotate=true,
+                %pageRotate=true,
                 namescale=0.92,
                 action=\!\A{a},
                 page=242,
@@ -565,7 +567,7 @@
                 tags=\Concentrate,
                 desc={Prepare to take a \A{a}/\!\A{f} as a \A{r} with a given trigger.}}
             \entry{Recall Knowledge}{%
-                pageRotate=true,
+                %pageRotate=true,
                 namescale=0.95,
                 action=\A{a},
                 page=231,
