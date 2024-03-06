@@ -156,6 +156,10 @@
 
 \NewDocumentCommand{\SkillTextOutline}{m O{}}{\TextOutline[1pt][#2]{#1}}
 
+\NewDocumentCommand{\VS}{}{%
+        {\scalefont{0.6}\,vs\,}\vphantom{I}%
+}
+
 \NewDocumentCommand{\SkillBox}{m O{} O{}}{%
     \begin{SKBox}%
     \SkillTextOutline{\MSC{#1}}[M]%
@@ -168,7 +172,7 @@
         \SkillTextOutline{\MSC{#1}}[M]%
         \IfNotBlank{#2}{\,\applytoeveryword{#2}{\!\IBox{##1}[M]}}#3%
         \SkillTextOutline{%
-                {\scalefont{0.6}\,vs\,}\vphantom{I}\MSC{#4}}[M]%
+            \VS\MSC{#4}}[M]%
         #5%
     \end{SKBox}%
 }

@@ -366,9 +366,9 @@
             \entry{Grab an Edge}{%
                 action=\A{r},
                 page=419,
-                uses=\SkillvsBox{Acrobatics or Reflex Save}[][]{}[\DCBox[Climb]{}[][M]],
+                uses={\begin{SKBox}\SkillTextOutline{\MSC{Acrobatics}/\MSC{Reflex Save}\VS}\DCBox[Climb]{}[][M]\end{SKBox}},
                 tags=\Manipulate,
-                desc={Stop your fall using a free hand and reduce the fall damage so far by \Numb{20}\Feet.\\\hfill \CS{No need for a free hand and reduce by \Numb{30}\Feet.} \quad\CF{Take \Numb{10} damage per \Numb{20} feet fallen so far.}}
+                desc={Stop your fall using a free hand and reduce the fall damage so far by \Numb{20}\Feet.\\\hfill \CS{No need for a free hand and reduce by \Numb{30}\Feet.} \quad\quad\CF{Take \Numb{10} damage per \Numb{20} feet fallen so far.}}
             }
             \breakLine
             \entry{Balance}{%
@@ -410,7 +410,7 @@
             \entry{Arrest a fall}{%
                 action=\A{r},
                 page=418,
-                uses=\SkillvsBox{Acrobatics or Reflex Save}[][]{}[\DCBox{15}[][M]],
+                uses={\begin{SKBox}\SkillTextOutline{\MSC{Acrobatics}/\MSC{Reflex Save}\VS}\DC[15][M]\end{SKBox}},
                 desc={Slow your fall while flying.}
             }
         \end{Table}
