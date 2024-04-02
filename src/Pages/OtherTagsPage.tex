@@ -1,0 +1,592 @@
+%! suppress = LineBreak
+\renewcommand{\PageBottomReferences}{%
+    \hfill LCR = Legacy Core Rulebook
+    \hfill DA = Dark Archive
+    \hfill GnM = Gods and magic
+    \hfill GMC = GM Core\\
+    \hfill SoM = Secrets of Magic
+    \hfill GG = Guns \& Gears
+    \hfill TV = Treasure Vault
+    \hfill AG = Ancesty Guide
+    \hfill ME = Magwani Expanse
+    \hfill Le = Ledgends
+}%
+\setlength{\parindent}{0mm}%
+\begin{PageFront}[\SubtitleFillText{\MSC{Traits}}]
+    \begin{Tables}{\frontTableHeight}
+        \begin{Table}{Traits: Actions}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Attack,
+                page=452,
+            }
+                Action uses \D{(checks are penalized by)} and increases the MAP. \hfill\D{\Numb{-5} for second attack
+                and \Numb{-10} for third onwards.}
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Auditory,
+                page=453,
+            }
+                This action can only be performed you can produce the required sounds.\\ \D{Can only affect
+                targets that can hear it. Only applies to sound-based parts of the effect, determined by \GM.}
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Concentrate,
+                page=452,
+            }
+                This action requires mental concentration and discipline. The action cannot be used in certain
+                circumstances.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Flourish,
+                page=139,
+            }
+                You can only use one action with this trait per round.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Manipulate,
+                page=458,
+            }
+                You manipulate something. Often leaving you open to a \Refer{Reactive Strike}.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Move,
+                page=458,
+            }
+                You move. Often leaving you open to a \Refer{Reactive Strike}.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Open,
+                page=LCR 634,
+            }
+                You can only use if you haven't used an action with the \Attack\,or \Open\,trait this turn.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Press,
+                page=139,
+            }
+                You can only use this if you are currently affected by MAP. Can only be used on your turn.\\
+                \D{Effecs that are added on a \FC{failure} don't apply on a \CFC{CF}. \hfill If your action \SC{
+                    succeds} you can choose to apply the \FC{failure} effect instead.}
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                page=460,
+                action=\Secret \dash {\scalefont{0.8} \Se},
+            }
+                The \GM rolls the relevant check hidden.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Subtle,
+                page=460,
+            }
+                A spell that can be cast without incantations and doesn't have obvious manifestations. \hfill \D{This
+                often means your target are unaware of your spell.}
+            \end{entry}
+        \end{Table}
+        \TableSpace
+        \begin{Table}{Traits: Immunities}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Emotion,
+                page=455,
+            }
+                Creatures with special training or have mechanical or artificial intelligence are immune.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Fear,
+                page=456,
+            }
+                Makes the target afraid. Always has the \Mental\,and \Emotion\,trait.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Linguistic,
+                page=458,
+            }
+                Target have to be able to understand the language you are speaking.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Mental,
+                page=458,
+            }
+                Target cannot be a object or a mindless creature.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Olfactory,
+                page=459,
+            }
+                The action can only affect targets that smell it. \hfill Only applied to olfactory parts of the
+                effect, determined by \GM.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Visual,
+                page=463,
+            }
+                The action can only affect targets that see it.\hfill Only applies to visible parts of the effect,
+                determined by \GM.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Auditory,
+                page=453,
+            }
+                Can only affect targets that can hear it. \hfill Only applies to sound-based parts of the effect,
+                determined by \GM.\\
+                \D{This action can only be performed you can produce the required sounds.}
+            \end{entry}
+        \end{Table}
+        \TableSpace
+        \begin{Table}{Traits: Energy / Resistances / Weakness}
+            \begin{entry}{}{%
+                name width=0.3,%
+                action=\stackbox[l][c]{\Acid\Cold\Electricity\Fire\Force}, }
+                Pure damage type tags. \pg{452,
+                    454-456},
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Sonic,
+                page=461,
+            }
+                Deals sonic damage. A effect that only works if it makes sounds, doesn't work in a vacuum. \hfill \D{
+                    Target doesn't need to hear the spell.}
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Vitality,
+                page=463,
+            }
+                Effects with this heals living creatures, deals vitality energy damage to undead, or manipulate
+                vitality energy.\hfill Previously \Positive
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Void,
+                page=463,
+            }
+                Effects with this heals undead creatures, deals vitality energy damage to living creatures, or
+                manipulate void energy. \hfill Previously \Negative
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Holy /\Unholy,
+                page=457 / 462,
+            }
+                Creatures with one of these tags are often vulnerable to the other.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                page=113,
+                action=\Sanctified,
+            }
+                If you are \Holy\,or \Unholy\,your \Sanctified\,actions and spells gain the same trait.
+            \end{entry}
+        \end{Table}
+        \TableSpace
+        \begin{Table}{Traits: Afflictions }[{\scalefont{0.8}(\MSC{Poisons}, \MSC{Drugs}, \MSC{Diseases and Curses})}]
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Virulent,
+                page=334,
+            }
+                A Affliction that is harder to remove. You must succeed at two consecutive saves to reduce stage by \Numb{1}. A \CSC{CS} reduces stage by \Numb{1} instead of \Numb{2}.
+            \end{entry}
+            \breakLine
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Contact,
+                page=GMC 248,
+            }
+                A poison activated by applying to an item or living creatures skin.
+                The first creature to touch must attempt a saving throw against the poison.\\
+                \D{Cannot be delivered via an attack.}
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Ingested,
+                page=GMC 248,
+            }
+                A poison activated by applying it to food or dink.
+                A creature who eats/drinks the poison must attempt a saving throw against the poison.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Inhaled,
+                page=GMC 248,
+            }%
+                When Unleashed it fills a \Numb{10-Foot} cube lasting for \TimeMin{1} or dissipated by a strong wind.
+                Creatures entering must attempt a saving throw against it. \\
+                \D{If a creature is aware of it they can hold their breath and gain \Numb{+2}\Cirm bonus to the
+                saving throw.}
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Injury,
+                page=GMC 248,
+            }
+                Applied to weapon or ammunition. If a strike hit and deals \Type{Piercing} or \Type{slashing} then
+                the target must attempt a saving throw. \\
+                \D{The poison is consumed upon hit or if strike is \CFC{CF}.}\hfill
+                \D{If \CFC{CF} or hit fails to deal \Type{Piercing} or \Type{Slashing} damage the poision isn't
+                applied.}
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Poison,
+                page=GMC 248,
+            }
+                An effect with this trait delivers a poison or deals poison
+                damage. Might cause an affliction \hfill See \Refer{Treat Posison} for removing.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Drug,
+                page=GMG 251,
+            }
+                A \Poison that gives short-term benefits but long term
+                consequences. Each time a creature uses they must do a saving throw against \Refer{Addiction}:\\
+                \newcommand{\Scaleing}{\scalefont{0.9}}
+                \Fortitude[][before=Drug] \pg{GMG 120}
+                \hfill\D{When taking drug: can't reduce stage. }
+                \\{\Scaleing
+                \textbf{Onset} \TimeDay{1};
+                \hfill\textbf{S\Numb{1}} \Fatigued, \TimeWeek{1}[][\Scaleing];
+                \hfill\textbf{S\Numb{2}} \Fatigued, \Sickened\,\Numb{1} \TimeWeek{1}[][\Scaleing];
+                \hfill\textbf{S\Numb{3}} \Fatigued, \Drained\,\Numb{1}, \Sickened\,\Numb{1} \TimeWeek{1}[][\Scaleing];
+                \hfill\textbf{S\Numb{4}} \Fatigued, \Drained\,\Numb{2}, \Sickened\,\Numb{2},
+                    \Stupefied\,\Numb{1} \TimeWeek{1}[][\Scaleing];}
+                \\
+                When you are addicted the conditions can't be removed. They are suppressed by taking the drug. \hfill
+                \D{Save once a week for recovery: can't increase stage.}
+            \end{entry}
+            \breakLine
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Disease,
+                page=455,
+            }
+                A disease. Usually a affliction. \hfill See \Refer{Treat Disease}
+            \end{entry}
+            \breakLine
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Curse,
+                page=454,
+            }
+                A affliction only removable by effects that specifically
+                targets curses. \hfill See Spell \Refer{Clense Affliction} or \Refer{Break Curse} skill feat for
+                removing.
+            \end{entry}
+        \end{Table}
+        \TableSpace
+        \begin{Table}{Shapeshifting}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Morph,
+                page=301,
+            }
+                Alter a part of your body. You can only morph one body part at a time. Any \Refer{Strikes}
+                granted are \Magical. \hfill \D{\GM decides which morphs can be used together.}
+                \\
+                A second attempts to \Refer{Counteract} the first as \Polymorph.\hfill \D{Your morph might end if
+                polymorphed.}
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Polymorph,
+                page=301,
+            }
+                Change form. Only one polymorph effect can be used at a time. Any \Refer{Strikes} granted are
+                \Magical. \hfill \D{No control over precise appearance.}
+                \\A second polymorph attempts to \Refer{Counteract} the first. If it succeeds it replaces it. \\
+                Usually in a battle form you can't cast spells, speak or use \Manipulate\,actions. \hfill \D{Your
+                gear is absorbed (their constant abilities remain, but can't activate).}
+            \end{entry}
+        \end{Table}
+    \end{Tables}%
+    \begin{Tables}{\frontTableHeight}
+        \renewcommand{\TableSpace}{\\\vspace{2mm}\\}%
+        \begin{Table}{Traits: Magical}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Death,
+                page=454,
+            }
+                If you are reduced to \Numb{0} \HPs by an effect you \textbf{die}, skipping \Refer{Dying}.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\stackbox[l][c]{\Fortune\\\vspace{-0.6ex}\Misfortune},
+                page=401,
+            }
+                There can only be one \Fortune/\Misfortune\,effect applied on a roll.
+                Choose best/worst.\\
+                If there is both \Fortune\,and \Misfortune\,effect they cancel out.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Incapacitation,
+                page=457,
+            }
+                Any creature higher than the effect {(or twice spell level)} treats the result as one step
+                higher.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Light,
+                page=458,
+            }
+                Overcomes non-magical darkness in the area and can \Refer{Counteract} magical darkness.
+                Usually your light magic must target the darkness magic.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Mindshift,
+                page=DA 221,
+            }
+                You can replace any damage with mental damage. It gains the \Mental trait and any save it
+                requires changes to a \WillT save. It looses other damage types it no longer deals.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Possession,
+                page=459,
+            }
+                Creature takes control of body, via mind and spirit. Possessor is \Unconscious unless it
+                physically enters.\\
+                Possessor gains the target purely physical abilities/stats but uses its own spells and purely mental
+                abilities/stats.\\
+                When target takes damage, possessor takes half as mental. \hfill \D{Targets item bonuses apply to
+                physical and possesors apply to mental.}\\
+                If possessor reaches \Numb{0} \HPs it is knocked out and Possession ends.\\
+                If target reaches \Numb{0} \HPs possessor can fall \Unconscious or return to its body with \A{f}.
+                \hfill If target dies, Possession ends and Possessor is \Stunned \TimeMin{1}.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Prediction,
+                page=460,
+            }
+                Effects with this trait determine what is likely to happen in the near future.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Revelation,
+                page=460,
+            }
+                Effects with this trait see things as they truly are.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Spellshape,
+                page=302,
+            }
+                Tweak spells. Must use directly before casting the spell you want to alter. \hfill Previously
+                \Metamagic.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Summon,
+                page=360,
+            }
+                You summon a creature. They gain the \Summoned\,trait. Highest level you can summon for each rank
+                is:\\
+                \textbf{1st:} \Numb{-1}
+                \hfill\textbf{2nd:} \Numb{1}
+                \hfill\textbf{3rdt:} \Numb{2}
+                \hfill\textbf{4th:} \Numb{3}
+                \hfill\textbf{5th:} \Numb{5}
+                \hfill\textbf{6th:} \Numb{7}
+                \hfill\textbf{7th:} \Numb{9}
+                \hfill\textbf{8th:} \Numb{11}
+                \hfill\textbf{9th:} \Numb{13}
+                \hfill\textbf{10th:} \Numb{15}
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Summoned,
+                page=301,
+            }
+                A summoned creature can't summon other creatures, create things of value or cast spell that require a
+                cost. It gains \Minion trait.\\
+                If it attempts to cast a spell higher than the summoning spell it fails and the summoning spell ends. \\
+                It usually attacks your enemies. If you can communicate with it you can command it.\hfill \D{When it
+                is summoned it immediately uses its \Numb{2} actions.}\\
+                When reduced to \Numb{0} \HPs or the spell ends it is banished. \hfill\D{Summoned creatures can be
+                banished} \hfill \D{Could return to unaltered state.}
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Minion,
+                page=301,
+            }
+                A minion can only use \Numb{2} actions per turn and no reactions. It can't act outside its
+                masters turn.\\
+                It acts when you spend an action to command it. \D{Done via \Refer{Command an Animal}, \Refer{Sustain
+                a spell} or verbal command.}
+                \\If you don't command it. It uses no actions except to defend itself or to escape obvious harm.\\
+                If left unattended for long enough they {(usually \TimeMin{1})} they start to act independent
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Teleportation,
+                page=462,
+            }
+                Move something from one point to another instantaneously. Usually doesn't trigger \Refer{Reactions}
+            \end{entry}
+        \end{Table}\TableSpace
+        \begin{Table}{Traits: Misc Items}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Adjustment,
+                page=ME 308,
+            }
+                Items with this trait alter existing pieces of equipment. \hfill \D{Armor adjustments can't modift
+                \Refer{Explorers clothing}}\\ A equipment can only be affected by a single adjustment. \hfill \D{
+                    Appying usually takes \TimeMin{10} and a \Refer{Repair Kit}.}
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Companion,
+                page=GMC 272,
+            }
+                An item with this trait can be worn by a \Refer{Animal Companion}
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Consumable,
+                page=454,
+            }
+                An item that can only be used once. \hfill \D{You can craft in batches of four.}
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Gadget,
+                page=GG 233,
+            }
+                Consumable Technological inventions
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Mechanical,
+                page=458,
+            }
+                Is a constructed physical object.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Snare,
+                page=LCR 636,
+            }
+                A trap that can be crafted if you have
+                \Refer{Snare Crafting} feat. When used or dismantled it is destroyed.\\
+                It takes \TimeMin{1} to craft it at its listed price. It occupies a \Numb{5} \Feet square. \hfill \D{If
+                \E\,in \CraftingT only creatures \T\,in \PerceptionT can find trap, same for \M\, only \E\, etc.}\\
+                When a small or larger creature enters the effect occurs.\\
+                Use creators \CraftingT \DC\,as its \StealthT \DC\,and the \DC\,for \Refer{Disable a Device}. \hfill \D{
+                    You can allways disable your own snare.}
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Precious,
+                page=GMC 332,
+            }
+                A material with special properties
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Steam,
+                page=GG 236,
+            }
+                Items powered by engines that boil water.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                action=\Trap,
+                page=GG 236,
+            }
+                A hazard constructed to hinder interlopers.\hfill Can usually
+                be disabled using \Refer{Disable a Device}
+            \end{entry}
+        \end{Table}\TableSpace
+        \begin{Table}{Traits: Alchemical Items}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Bomb,
+                page=453,
+            }
+                An alchemical bomb \hfill \D{As \Consumable item they cannot
+                be etched with runes.} \\ Count as martial thrown weapons with a range increment of \Numb{20} \Feet.
+                \hfill \D{It is activated as part of the strike}
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Lozenge,
+                page=TV 220,
+            }
+                A alchemical lozenge. You gain a bonus while in your mouth over time. \hfill You can bite a for
+                a secondary effect, using it up.\\
+                You can only have one lozenge in your mouth. You can spit it out using \A{a} making it inert.
+                \hfill\D{If you have more than one both become inert}.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                action=\Mutagen,
+                page=LCR 634,
+            }
+                A Elixir that temporarily transmogrifies the subjects body.
+                Always gives one benefit and one drawback.\\
+                This is a \Refer{Polymorphic} effect with its counteract value according to \Refer{DCs By Level} and
+                modifier that is \Numb{10} less than it.
+            \end{entry}
+            \begin{entry}{}{%
+                name width=\conditionLength,%
+                page=455,
+                action=\Elixir,
+            }
+                A liquid that grants the drinker some benefit.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                name width=\conditionLength,%
+                page=455,
+                action=\Processed,
+            }
+                A Alchemical item that can be crafted with the \Refer{Quick Alchemy} but takes \TimeMin{1} to
+                craft.\\
+                If it takes more than\!\A{t} to activate then it remains potent equal to its activation time.
+            \end{entry}
+        \end{Table}
+    \end{Tables}%
+\end{PageFront}%

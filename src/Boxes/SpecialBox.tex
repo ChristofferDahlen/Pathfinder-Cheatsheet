@@ -1,0 +1,51 @@
+\newif\ifRawSpecial
+
+
+\makeatletter
+\pgfkeys{
+    /SpecialBox/.is family, /SpecialBox,
+    SpeicalBoxDefault/.style = {
+        color box background=SkillColor,
+        color box border=SkillColorBorder,
+    },
+    color box border/.store in=\skill@box@border,
+    color box background/.store in=\skill@box@background,
+    color text/.store in=\skill@text@color,
+    color text border/.store in=\skill@text@border,
+    raw/.is choice,
+    raw/.default=false,
+    raw/.is if=RawSpecial,
+}
+
+\NewDocumentCommand{\SpecialBox}{O{} m O{}}{%
+    \pgfkeys{/SpecialBox, SpeicalBoxDefault, #1}%
+    \tcbox[%
+        enhanced,
+        capture=hbox,
+        valign=bottom,
+        on line,
+        box align=base,
+        colframe=\skill@box@border,
+        colback=\skill@box@background,
+        right skip=0.1ex,
+        left skip=0pt,
+        size=fbox,
+        sharp corners,
+        boxrule=0.1ex,
+        boxsep=0.1ex,
+        top=0.12ex,
+        bottom=0.2ex,
+        left=0.1ex,
+        right=0.1ex,
+        enlarge top initially by=-0.1ex,
+        enlarge bottom finally by=-0.2ex,
+        #3]{{%
+        \rmfamily%
+        \bfseries%
+        \TextOutline{%
+            \ifRawSpecial#2%
+            \else\MSC{#2}%
+            \fi%
+        }%
+    }}%
+}

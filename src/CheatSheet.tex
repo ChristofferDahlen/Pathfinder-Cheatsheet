@@ -1,0 +1,116 @@
+%! Author = Chris
+%! Date = 05/02/2024
+
+% Preamble
+\documentclass[14pt]{extarticle}
+\usepackage{tabulary}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{booktabs}
+
+\input{Settings}
+
+%\definecolor{EntryOddColor}{HTML}{f5efe0}
+%\definecolor{EntryEvenColor}{HTML}{f5f3ed}
+
+\definecolor{EntryOddColor}{HTML}{ede3c8}
+\definecolor{EntryEvenColor}{HTML}{f5efe0}
+\definecolor{EntryColorBorder}{HTML}{000000}
+
+\definecolor{CSColor}{HTML}{127622}
+\definecolor{CFColor}{RGB}{255, 0, 0}
+\definecolor{FColor}{RGB}{191, 76, 0}
+\definecolor{FColorAlt}{RGB}{250, 127, 5}
+\definecolor{SColor}{RGB}{1, 111, 148}
+\definecolor{DColor}{RGB}{109, 109, 110}
+\definecolor{UColor}{RGB}{161, 0, 155}
+\definecolor{PGColor}{RGB}{161, 0, 155}
+\definecolor{PGHColor}{RGB}{255,0,255}
+
+\definecolor{InvestigatorColor}{RGB}{1, 111, 148}
+
+\definecolor{RareColor}{HTML}{0c1466}
+\definecolor{RareColorBorder}{RGB}{150, 103, 0}
+\definecolor{RareColorText}{RGB}{255, 255, 255}
+
+\definecolor{UniqueColor}{RGB}{255,0,255}
+\definecolor{UniqueColorBorder}{RGB}{150, 103, 0}
+\definecolor{UniqueColorText}{RGB}{255, 255, 255}
+
+
+\definecolor{HeaderColorInner}{HTML}{0010ed}
+\definecolor{HeaderColor}{HTML}{0c2c1f}
+\definecolor{HeaderColorBorder}{HTML}{0c2c1f}
+\definecolor{HeaderTextColor}{HTML}{e9f7a1}
+\definecolor{HeaderTextOutline}{RGB}{0,0,0}
+
+\definecolor{SkillColor}{HTML}{0010ed}
+\definecolor{SkillColorBorder}{RGB}{150, 103, 0}
+\definecolor{SkillColorText}{RGB}{255, 255, 255}
+
+\definecolor{FeatColor}{HTML}{0c2c1f}
+\definecolor{FeatColorBorder}{RGB}{150, 103, 0}
+\definecolor{FeatColorText}{HTML}{e9f7a1}
+
+\definecolor{DCColor}{RGB}{161, 0, 155}
+\definecolor{DCColorBorder}{RGB}{161, 0, 155}
+
+
+\definecolor{IColor}{RGB}{0, 0, 0}
+\definecolor{IColorBorder}{RGB}{255, 255, 255}
+\definecolor{ISkillColorBorder}{RGB}{150, 103, 0}
+\definecolor{IColorText}{RGB}{255, 255, 255}
+
+\definecolor{TimeColor}{RGB}{0, 0, 0}
+\definecolor{TimeColorBorder}{RGB}{0, 0, 0}
+\definecolor{TimeColorText}{RGB}{255, 255, 255}
+
+\definecolor{TitleOuterOutlineColor}{HTML}{0c2c1f}
+\definecolor{TitleOutlineColor}{HTML}{e9f7a1}
+\definecolor{TitleFillColor}{HTML}{0c2c1f}
+
+\definecolor{iconbackColor}{RGB}{255, 255, 255}
+\definecolor{iconColor}{RGB}{0, 0, 0}
+\definecolor{iconOutline}{RGB}{255, 255, 255}
+
+\definecolor{tagColor}{RGB}{120, 0, 0}
+\definecolor{tagFieldColor}{RGB}{150, 103, 0}
+\definecolor{tagUncommonColor}{HTML}{FF6F00}
+
+\input{Version}
+
+\hfuzz=5pt
+\hbadness=1000
+\begin{document}
+    \scalefont{1.0}
+    \newcommand\backTableHeight{\HeightBody}%
+    \newcommand\frontTableHeight{\HeightBody}%
+
+    \newpage
+
+    \RenewDocumentCommand{\PageBottomType}{}{\MSC{Activity \& Actions}}
+    \renewcommand{\BodySize}{\scriptsize\scalefont{0.8}}
+    \renewcommand{\ActionSize}{\scriptsize\scalefont{0.8}}
+    \include{Pages/ActivityPage}
+    \include{Pages/ActionPage}
+
+    \RenewDocumentCommand{\PageBottomType}{}{\MSC{Conditions, Rules, \& Tables}}
+    \renewcommand{\BodySize}{\scriptsize\scalefont{0.8}}
+    \renewcommand{\ActionSize}{\scriptsize\scalefont{0.8}}
+    \include{Pages/ConditionPage}
+    \include{Pages/GMPage}
+
+    \RenewDocumentCommand{\PageBottomType}{}{Traits}
+    \renewcommand{\BodySize}{\scriptsize\scalefont{0.7}}
+    \renewcommand{\ActionSize}{\scriptsize\scalefont{1.1}}
+    \renewcommand{\conditionLength}{0.14}
+    \include{Pages/OtherTagsPage}
+    \include{Pages/ItemTagsPage}
+
+    \definecolor{iconbackColor}{HTML}{0c2c1f}
+    \definecolor{iconColor}{HTML}{e9f7a1}
+    \definecolor{iconOutline}{RGB}{0, 0, 0}
+    %\include{IconPage}
+
+
+\end{document}

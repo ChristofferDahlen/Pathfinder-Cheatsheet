@@ -1,0 +1,104 @@
+
+\input{Boxes/DCBox}
+\input{Boxes/IBox}
+
+\newif\ifRawSkill
+
+
+\NewDocumentCommand{\SkillDCBoxX}{m O{}}{%
+    \DCBoxX{#1}[%
+        bottom=0.2ex,
+        top=0.1ex,
+        enlarge bottom finally by=-0.2ex,%
+        enlarge top initially by=-0.2ex,
+        #2]%
+}
+
+\NewDocumentCommand{\SkillIBoxX}{m O{}}{%
+    \IBoxX{{\scalefont{0.8}#1}}[%
+        bottom=0.05ex,
+        top=0.1ex,
+        enlarge bottom finally by=-0.05ex,%
+        enlarge top initially by=-0.1ex
+        #2]%
+}
+
+
+
+\makeatletter
+\pgfkeys{
+    /SkillBox/.is family, /SkillBox,
+    Skdefault/.style = {
+        skill=,
+        tags=,
+        color box background=SkillColor,
+        color box border=SkillColorBorder,
+        defense=,
+        skill raw=,
+    },
+    skill/.store in=\skill@name,
+    defense/.store in=\skilldefense,
+    color box border/.store in=\skill@box@border,
+    color box background/.store in=\skill@box@background,
+    color text/.store in=\skill@text@color,
+    color text border/.store in=\skill@text@border,
+    tags/.store in=\skill@name@tags,
+    tags defense/.store in=\skill@defense@tags,
+    tags dc/.store in=\skill@dc@tags,
+    raw/.is choice,
+    raw/.default=false,
+    raw/.is if=RawSkill,
+    skill raw/.store in=\skill@raw@name,
+}
+
+\NewDocumentCommand{\SkillBoxX}{m O{} O{}}{%
+    \pgfkeys{/SkillBox, Skdefault, #1}%
+    %\raisebox{0.1ex}{%
+    \tcbox[%
+        enhanced,
+        capture=hbox,
+        valign=bottom,
+        on line,
+        box align=base,
+        colframe=\skill@box@border,
+        colback=\skill@box@background,
+        right skip=0.1ex,
+        left skip=0pt,
+        size=fbox,
+        sharp corners,
+        boxrule=0.1ex,
+        boxsep=0ex,
+        top=0.2ex,
+        bottom=0.2ex,
+        left=0.2ex,
+        right=0.2ex,
+        enlarge top initially by=-0.2ex,
+        enlarge bottom finally by=-0.2ex,
+        #3]{{%
+        \rmfamily%
+        \bfseries%
+        \skill@raw@name%
+        \TextOutline{%
+            \ifRawSkill\skill@name%
+            \else\MSC{\skill@name}%
+            \fi%
+        }%
+        \IfNotBlank{\skill@name@tags}{{%
+            \foreach \c in \skill@name@tags{%
+                \SkillIBoxX{\c}%
+            }}%
+        }%
+        \ifthenelse{\equal{#2}{} \AND \equal{\skilldefense}{}}%
+        {}{{\scalefont{0.6}\hspace{0.2ex}\TextOutline{vs}\hspace{0.2ex}}}%
+        \IfNotBlank{\skilldefense}{%
+        \TextOutline{%
+            \ifRawSkill\skilldefense%
+            \else\MSC{\skilldefense}%
+            \fi%
+        }}%
+        \IfNotBlank{#2}{%
+            \SkillDCBoxX{#2}%
+        }%
+    }}%
+   % }%
+}

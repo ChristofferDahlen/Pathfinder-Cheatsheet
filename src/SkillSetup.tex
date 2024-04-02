@@ -1,0 +1,145 @@
+\NewDocumentCommand{\TextOutline}{O{1pt} O{B} O{0ex} m O{white} O{black} }{%
+    \begin{tikzpicture}[baseline=(A.base)]%
+        \node[outer sep=0, inner sep=0] (A) {%
+            \textpdfrender{%
+                TextRenderingMode=FillStrokeClip,%
+                LineCapStyle=ProjectingSquare,
+                LineJoinStyle=Bevel,%
+                LineWidth=#1,%
+                StrokeColor=#6,%
+                FillColor=#5%
+            }{#4}%
+        };
+        \node[outer sep=0, inner sep=0, text=#5, anchor=north west] at (A.north west) {%
+            #4%
+        };%
+    \end{tikzpicture}%
+}
+
+\NewDocumentCommand{\LVL}{m}{{\rmfamily\scalefont{1.1}\IBoxX{\MSC{Lv}L \Numb{#1}}}}%
+
+\newcommand{\TimeBox}[1]{%
+    \tcbox[on line,
+        box align=base,
+        arc=0.0ex,
+        halign=center,
+        valign=center,
+        colframe=TimeColorBorder,
+        colback=TimeColor,
+        right skip=0ex,
+        left skip=0ex,
+        size=fbox,
+        top =0.2ex,
+        bottom=0.1ex,
+        left=0.3ex,
+        right=0.3ex,
+        boxsep=0.1ex]{\textcolor{TimeColorText}{\textbf{#1}}}%
+}
+
+\NewDocumentCommand{\Time}{O{} m O{} m O{}}{{\scriptsize\scalefont{0.6}#3%
+\IfNotBlank{#1}{#1\xspace}%
+\IfNotBlank{#2}{{\Numb{#2}}\xspace}%
+#4%
+\IfNotBlank{#5}{#5}%
+}}
+%\NewDocumentCommand{\Time}{O{} m m O{}}{{\scriptsize\scalefont{0.5}%
+%    \IfNotBlank{#1}{#1\xspace}%
+%    \IfNotBlank{#2}{{\kirsty#2\xspace}}%
+%    \IfNotBlank{#3}{#3\xspace}#4}}
+\NewDocumentCommand{\TimeMin}{m O{} O{}}{\TimeBox{\Time{#1}[#3]{\MSC{Min}}[#2]}}
+\NewDocumentCommand{\TimeHour}{m O{} O{}}{\TimeBox{\Time{#1}{H}[#2]}}
+\NewDocumentCommand{\TimeDay}{m O{} O{}}{\TimeBox{\Time{#1}[#3]{\MSC{Day}}[#2]}}
+\NewDocumentCommand{\TimeDays}{m O{} O{}}{\TimeBox{\Time{#1}[#3]{\MSC{Days}}[#2]}}
+\NewDocumentCommand{\TimeWeek}{m O{} O{}}{\TimeBox{\Time{#1}[#3]{\MSC{Week}}[#2]}}
+\NewDocumentCommand{\TimeWeeks}{m O{} O{}}{\TimeBox{\Time{#1}[#3]{\MSC{Weeks}}[#2]}}
+\NewDocumentCommand{\TimeDaily}{O{}}{\TimeBox{\Time{\MSC{#1Daily}}}}
+
+\NewDocumentCommand{\TimeHex}{O{} m}{\TimeBox{\Time[#1]{#2}{\MSC{Hex Act.}}}}
+
+
+\NewDocumentCommand{\tagBox}{m O{} m}{%
+        \tcbox[%
+            capture=hbox,
+            colframe=tagFieldColor,
+            colback=#3,
+            halign=center,
+            valign=center,
+            size=fbox,
+            on line,
+            right skip=0.1ex,
+            left skip=0.1ex,
+        %before skip=0pt,
+        %after skip=0pt,
+            sharp corners,
+            boxrule=0.1ex,
+            boxsep=0.1ex,
+            right=0.1ex,
+            left=0.1ex,
+            top=0.1ex,
+            bottom=0.0ex,
+            enlarge top initially by=-0.2ex,
+            enlarge bottom finally by=-0.1ex,
+            box align=base,
+        ]{\scalefont{0.8}\sffamily{\TextOutline[0.5pt][M]{\textbf{\MSC{#1}#2}}}}%
+}%
+
+
+
+\NewDocumentCommand{\SkillTextOutline}{m O{}}{\TextOutline[1pt][#2]{#1}}
+
+\NewDocumentCommand{\Feat}{}{%
+    \SpecialBox[color text=FeatColorText,
+        color box border=FeatColorBorder,
+        color box background=FeatColor
+    ]{Feat}%
+}
+
+\NewDocumentCommand{\Rare}{O{} O{}}{%
+    \SpecialBox[color text=RareColorText,
+        color box border=RareColorBorder,
+        color box background=RareColor
+    ]{Rare}%
+}
+
+\NewDocumentCommand{\Unique}{O{} O{}}{%
+    \SpecialBox[color text=UniqueColorText,
+        color box border=UniqueColorBorder,
+        color box background=UniqueColor
+    ]{Unique}%
+}
+
+\NewDocumentCommand{\Acrobatics}{O{} O{} O{}}{\SkillBoxX{skill=Acrobatics, #1}[#2][#3]}
+\NewDocumentCommand{\Deception}{O{} O{} O{}}{\SkillBoxX{skill=Deception, #1}[#2][#3]}
+\NewDocumentCommand{\Crafting}{O{} O{} O{}}{\SkillBoxX{skill=Crafting, #1}[#2][#3]}
+\NewDocumentCommand{\Perception}{O{} O{} O{}}{\SkillBoxX{skill=Perception, #1}[#2][#3]}
+\NewDocumentCommand{\Stealth}{O{} O{} O{}}{\SkillBoxX{skill=Stealth, #1}[#2][#3]}
+\NewDocumentCommand{\Survival}{O{} O{} O{}}{\SkillBoxX{skill=Survival, #1}[#2][#3]}
+\NewDocumentCommand{\Athletics}{O{} O{} O{}}{\SkillBoxX{skill=Athletics, #1}[#2][#3]}
+\NewDocumentCommand{\Thievery}{O{} O{} O{}}{\SkillBoxX{skill=Thievery, #1}[#2][#3]}
+\NewDocumentCommand{\Diplomacy}{O{} O{} O{}}{\SkillBoxX{skill=Diplomacy, #1}[#2][#3]}
+\NewDocumentCommand{\Performance}{O{} O{} O{}}{\SkillBoxX{skill=Performance, #1}[#2][#3]}
+\NewDocumentCommand{\Nature}{O{} O{} O{}}{\SkillBoxX{skill=Nature, #1}[#2][#3]}
+\NewDocumentCommand{\Society}{O{} O{} O{}}{\SkillBoxX{skill=Society, #1}[#2][#3]}
+\NewDocumentCommand{\Arcana}{O{} O{} O{}}{\SkillBoxX{skill=Arcana, #1}[#2][#3]}
+\NewDocumentCommand{\Piloting}{O{} O{} O{}}{\SkillBoxX{skill=Piloting, #1}[#2][#3]}
+\NewDocumentCommand{\Medicine}{O{} O{} O{}}{\SkillBoxX{skill=Medicine, #1}[#2][#3]}
+\NewDocumentCommand{\Flat}{O{} O{} O{}}{\SkillBoxX{skill=Flat, #1}[#2][#3]}
+\NewDocumentCommand{\Fortitude}{O{} O{} O{}}{\SkillBoxX{skill=Fortitude, #1}[#2][#3]}
+\NewDocumentCommand{\Will}{O{} O{} O{}}{\SkillBoxX{skill=Will, #1}[#2][#3]}
+\NewDocumentCommand{\Reflex}{O{} O{} O{}}{\SkillBoxX{skill=Reflex, #1}[#2][#3]}
+\NewDocumentCommand{\MagicalSkill}{O{} O{} O{}}{\SkillBoxX{skill=Magical Skill, #1}[#2][#3]}
+\NewDocumentCommand{\VariousKnowledge}{O{} O{} O{}}{\SkillBoxX{skill=Various Knowledge, #1}[#2][#3]}
+\NewDocumentCommand{\AthleticsFortitude}{O{} O{} O{}}{\SkillBoxX{skill=Athletics, defense=Fortitude, #1}[#2][#3]}
+\NewDocumentCommand{\AcrobaticsReflex}{O{} O{} O{}}{\SkillBoxX{skill=Acrobatics, defense=Reflex, #1}[#2][#3]}
+\NewDocumentCommand{\DeceptionWill}{O{} O{} O{}}{\SkillBoxX{skill=Deception, defense=Will, #1}[#2][#3]}
+\NewDocumentCommand{\InitimidationWill}{O{} O{} O{}}{\SkillBoxX{skill=Intimidation, defense=Will, #1}[#2][#3]}
+\NewDocumentCommand{\DiplomacyWill}{O{} O{} O{}}{\SkillBoxX{skill=Diplomacy, defense=Will, #1}[#2][#3]}
+\NewDocumentCommand{\NatureWill}{O{} O{} O{}}{\SkillBoxX{skill=Nature, defense=Will, #1}[#2][#3]}
+\NewDocumentCommand{\PerceptionStealth}{O{} O{} O{}}{\SkillBoxX{skill=Perception, defense=Stealth, #1}[#2][#3]}
+\NewDocumentCommand{\AthleticsReflex}{O{} O{} O{}}{\SkillBoxX{skill=Athletics, defense=Reflex, #1}[#2][#3]}
+\NewDocumentCommand{\DeceptionPerception}{O{} O{} O{}}{\SkillBoxX{skill=Deception, defense=Perception, #1}[#2][#3]}
+
+
+\NewDocumentCommand{\DC}{O{}}{%
+    \ifthenelse{\equal{#1}{}}{\Typetv{DC}}{\DCBoxX{val=#1}}%
+}

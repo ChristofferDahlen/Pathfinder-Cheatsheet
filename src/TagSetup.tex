@@ -1,70 +1,18 @@
-
-
-\newcommand{\tagElem}[1]{\tagBox{#1}{tagColor}}
-
-\newcommand{\Rare}{\tagBox{Rare}{tagFieldColor}}
-\newcommand{\Uncommon}{\tagBox{Uncommon}{tagUncommonColor}}
-
+\NewDocumentCommand{\tagElem}{m O{}}{\tagBox{#1}[#2]{tagColor}}
 \newcommand{\Tradition}{\tagElem{Tradition}}
 
 %% Tags
-\newcommand{\Concentrate}{\tagElem{Concentrate}}
-\newcommand{\Manipulate}{\tagElem{Manipulate}}
-\newcommand{\Auditory}{\tagElem{Auditory}}
-\newcommand{\Visual}{\tagElem{Visual}}
-\newcommand{\Move}{\tagElem{Move}}
-\newcommand{\Incapacitation}{\tagElem{Incapacitation}}
-\newcommand{\Secret}{\tagElem{Secret}}
-\newcommand{\Attack}{\tagElem{Attack}}
-
-\newcommand{\Sonic}{\tagElem{Sonic}}
-\newcommand{\Nonlethal}{\tagElem{Nonlethal}}
-
-\newcommand{\Subtle}{\tagElem{Subtle}}
 
 
-\newcommand{\Linguistic}{\tagElem{Linguistic}}
-\newcommand{\Mental}{\tagElem{Mental}}
-\newcommand{\Emotion}{\tagElem{Emotion}}
-\newcommand{\Fear}{\tagElem{Fear}}
-\newcommand{\Light}{\tagElem{Light}}
-\newcommand{\Illusion}{\tagElem{Illusion}}
 
-\newcommand{\Fortune}{\tagElem{Fortune}}
 
-% Action type tags
-\newcommand{\Exploration}{\tagElem{Exploration}}
-
-\newcommand{\Aura}{\tagElem{Aura}}
-
-% Damage type tags
-\newcommand{\Vitality}{\tagElem{Vitality}}
-\newcommand{\Force}{\tagElem{Force}}
-\newcommand{\Spirit}{\tagElem{Spirit}}
-\newcommand{\Psyche}{\tagElem{Psyche}}
 % Wierd types
-\newcommand{\Healing}{\tagElem{Healing}}
-\newcommand{\Detection}{\tagElem{Detection}}
-
-\newcommand{\Sanctified}{\tagElem{Sanctified}}
-
-\newcommand{\Cantrip}{\tagElem{Cantrip}}
-
-\newcommand{\Polymorph}{\tagElem{Polymorph}}
-
-\newcommand{\General}{\tagElem{General}}
-\newcommand{\Skill}{\tagElem{Skill}}
-
-% Class tags
-\newcommand{\Investigator}{\tagElem{Investigator}}
-\newcommand{\Psychic}{\tagElem{Psychic}}
-\newcommand{\Cleric}{\tagElem{Cleric}}
-\newcommand{\Fighter}{\tagElem{Fighter}}
-
-
 % Ancesty tags
 
-\newcommand{\Ratfolk}{\tagElem{Ratfolk}}
+\newcommand{\Uncommon}{\tagBox{Uncommon}{tagUncommonColor}}
+
+\newcommand{\Investigator}{\tagBox{Investigator}{InvestigatorColor}}
+
 
 % Properties
 
@@ -96,12 +44,261 @@
 \newcommand{\Amp}[1]{\noindent\textbf{Amp} #1}
 \newcommand{\AmpHeigened}[2]{\noindent\textbf{Amp Heightened  (#1)} #2}
 
+\NewDocumentCommand{\Agile}{}{\tagElem{Agile}}
+\NewDocumentCommand{\Alchemical}{}{\tagElem{Alchemical}}
+\NewDocumentCommand{\Attached}{}{\tagElem{Attached}}
+\NewDocumentCommand{\Azarketi}{}{\tagElem{Azarketi}}
+\NewDocumentCommand{\Backstabber}{}{\tagElem{Backstabber}}
+\NewDocumentCommand{\Backswing}{}{\tagElem{Backswing}}
+\NewDocumentCommand{\Brace}{}{\tagElem{Brace}}
+\NewDocumentCommand{\Brutal}{}{\tagElem{Brutal}}
+\NewDocumentCommand{\Capacity}{O{}}{\tagElem{Capacity}[#1]}
+\NewDocumentCommand{\Climbing}{}{\tagElem{Climbing}}
+\NewDocumentCommand{\Clockwork}{}{\tagElem{Clockwork}}
+\NewDocumentCommand{\Cobbled}{}{\tagElem{Cobbled}}
+\NewDocumentCommand{\Combination}{}{\tagElem{Combination}}
+\NewDocumentCommand{\Concealable}{}{\tagElem{Concealable}}
+\NewDocumentCommand{\Concussive}{}{\tagElem{Concussive}}
+\NewDocumentCommand{\CriticalFusion}{}{\tagElem{Critical Fusion}}
+\NewDocumentCommand{\Deadly}{}{\tagElem{Deadly}}
+\NewDocumentCommand{\Disarm}{}{\tagElem{Disarm}}
+\NewDocumentCommand{\DoubleBarrel}{}{\tagElem{Double Barrel}}
+\NewDocumentCommand{\Fatal}{}{\tagElem{Fatal}}
+\NewDocumentCommand{\FatalAim}{}{\tagElem{Fatal Aim}}
+\NewDocumentCommand{\Finesse}{}{\tagElem{Finesse}}
+\NewDocumentCommand{\Forceful}{}{\tagElem{Forceful}}
+\NewDocumentCommand{\FreeHand}{}{\tagElem{Free-Hand}}
+\NewDocumentCommand{\Grapple}{}{\tagElem{Grapple}}
+\NewDocumentCommand{\Hampering}{}{\tagElem{Hampering}}
+\NewDocumentCommand{\Injection}{}{\tagElem{Injection}}
+\NewDocumentCommand{\Jousting}{}{\tagElem{Jousting}}
+\NewDocumentCommand{\Kickback}{}{\tagElem{Kickback}}
+\NewDocumentCommand{\Modular}{}{\tagElem{Modular}}
+\NewDocumentCommand{\Mounted}{}{\tagElem{Mounted}}
+\NewDocumentCommand{\Nonlethal}{}{\tagElem{Nonlethal}}
+\NewDocumentCommand{\Parry}{}{\tagElem{Parry}}
+\NewDocumentCommand{\Portable}{}{\tagElem{Portable}}
+\NewDocumentCommand{\Propulsive}{}{\tagElem{Propulsive}}
+\NewDocumentCommand{\RangedTrip}{}{\tagElem{Ranged Trip}}
+\NewDocumentCommand{\Razing}{}{\tagElem{Razing}}
+\NewDocumentCommand{\Reach}{}{\tagElem{Reach}}
+\NewDocumentCommand{\Recovery}{}{\tagElem{Recovery}}
+\NewDocumentCommand{\Reload}{}{\tagElem{Reload}}
+\NewDocumentCommand{\Repeating}{}{\tagElem{Repeating}}
+\NewDocumentCommand{\Resonant}{}{\tagElem{Resonant}}
+\NewDocumentCommand{\Scatter}{}{\tagElem{Scatter}}
+\NewDocumentCommand{\Shove}{}{\tagElem{Shove}}
+\NewDocumentCommand{\Sweep}{}{\tagElem{Sweep}}
+\NewDocumentCommand{\Tethered}{}{\tagElem{Tethered}}
+\NewDocumentCommand{\Thrown}{O{}}{\tagElem{Thrown}[#1]}
+\NewDocumentCommand{\Training}{}{\tagElem{Training}}
+\NewDocumentCommand{\Trip}{}{\tagElem{Trip}}
+\NewDocumentCommand{\Twin}{}{\tagElem{Twin}}
+\NewDocumentCommand{\TwoHand}{}{\tagElem{Two-Hand}}
+\NewDocumentCommand{\Unarmed}{}{\tagElem{Unarmed}}
+\NewDocumentCommand{\Vehicular}{}{\tagElem{Vehicular}}
+\NewDocumentCommand{\Versatile}{}{\tagElem{Versatile}}
+\NewDocumentCommand{\Volley}{}{\tagElem{Volley}}
 
 
-\newcommand{\Success}[1]{\noindent\textbf{Success} #1}
-\newcommand{\Failure}[1]{\noindent\textbf{Failure} #1}
-\newcommand{\CS}[1]{{\color{green} CS: #1}}
-\newcommand{\CF}[1]{{\color{red} CF: #1}}
+%Armor
+\NewDocumentCommand{\Barding}{}{\tagElem{Barding}}
+\NewDocumentCommand{\Entrench}{}{\tagElem{Entrench}}
+\NewDocumentCommand{\Adjusted}{}{\tagElem{Adjusted}}
+\NewDocumentCommand{\Aquadynamic}{}{\tagElem{Aquadynamic}}
+\NewDocumentCommand{\Bulwark}{}{\tagElem{Bulwark}}
+\NewDocumentCommand{\Comfort}{}{\tagElem{Comfort}}
+\NewDocumentCommand{\Flexible}{}{\tagElem{Flexible}}
+\NewDocumentCommand{\Hindering}{}{\tagElem{Hindering}}
+\NewDocumentCommand{\Inscribed}{}{\tagElem{Inscribed}}
+\NewDocumentCommand{\Laminar}{}{\tagElem{Laminar}}
+\NewDocumentCommand{\Noisy}{}{\tagElem{Noisy}}
+\NewDocumentCommand{\Ponderous}{}{\tagElem{Ponderous}}
+
+
+% Sheilds
+
+\NewDocumentCommand{\Deflecting}{}{\tagElem{Deflecting}}
+\NewDocumentCommand{\Foldaway}{}{\tagElem{Foldaway}}
+\NewDocumentCommand{\Harnessed}{}{\tagElem{Harnessed}}
+\NewDocumentCommand{\Hefty}{}{\tagElem{Hefty}}
+\NewDocumentCommand{\Integrated}{}{\tagElem{Integrated}}
+\NewDocumentCommand{\Launching}{}{\tagElem{Launching}}
+\NewDocumentCommand{\ShieldThrow}{}{\tagElem{Shield Throw}}
+
+
+% Other
+
+\NewDocumentCommand{\Attack}{}{\tagElem{Attack}}
+\NewDocumentCommand{\Aura}{}{\tagElem{Aura}}
+\NewDocumentCommand{\Cantrip}{}{\tagElem{Cantrip}}
+\NewDocumentCommand{\Charm}{}{\tagElem{Charm}}
+\NewDocumentCommand{\Class}{}{\tagElem{Class}}
+\NewDocumentCommand{\Concentrate}{}{\tagElem{Concentrate}}
+\NewDocumentCommand{\Consecration}{}{\tagElem{Consecration}}
+\NewDocumentCommand{\Contingency}{}{\tagElem{Contingency}}
+\NewDocumentCommand{\Curse}{}{\tagElem{Curse}}
+\NewDocumentCommand{\Darkness}{}{\tagElem{Darkness}}
+\NewDocumentCommand{\Death}{}{\tagElem{Death}}
+\NewDocumentCommand{\Dedication}{}{\tagElem{Dedication}}
+\NewDocumentCommand{\Detection}{}{\tagElem{Detection}}
+\NewDocumentCommand{\Deviant}{}{\tagElem{Deviant}}
+\NewDocumentCommand{\Disease}{}{\tagElem{Disease}}
+\NewDocumentCommand{\Downtime}{}{\tagElem{Downtime}}
+\NewDocumentCommand{\Emotion}{}{\tagElem{Emotion}}
+\NewDocumentCommand{\Experiment}{}{\tagElem{Experiment}}
+\NewDocumentCommand{\Exploration}{}{\tagElem{Exploration}}
+\NewDocumentCommand{\Extradimensional}{}{\tagElem{Extradimensional}}
+\NewDocumentCommand{\Fear}{}{\tagElem{Fear}}
+\NewDocumentCommand{\Flourish}{}{\tagElem{Flourish}}
+\NewDocumentCommand{\FocusTag}{}{\tagElem{Focus}}
+\NewDocumentCommand{\Fortune}{}{\tagElem{Fortune}}
+\NewDocumentCommand{\General}{}{\tagElem{General}}
+\NewDocumentCommand{\Healing}{}{\tagElem{Healing}}
+\NewDocumentCommand{\Holy}{}{\tagElem{Holy}}
+\NewDocumentCommand{\Incapacitation}{}{\tagElem{Incapacitation}}
+\NewDocumentCommand{\Incarnate}{}{\tagElem{Incarnate}}
+\NewDocumentCommand{\Legacy}{}{\tagElem{Legacy}}
+\NewDocumentCommand{\Light}{}{\tagElem{Light}}
+\NewDocumentCommand{\Lineage}{}{\tagElem{Lineage}}
+\NewDocumentCommand{\Linguistic}{}{\tagElem{Linguistic}}
+\NewDocumentCommand{\Magical}{}{\tagElem{Magical}}
+\NewDocumentCommand{\Manipulate}{}{\tagElem{Manipulate}}
+\NewDocumentCommand{\Mental}{}{\tagElem{Mental}}
+\NewDocumentCommand{\Mindshift}{}{\tagElem{Mindshift}}
+\NewDocumentCommand{\Minion}{}{\tagElem{Minion}}
+\NewDocumentCommand{\Misfortune}{}{\tagElem{Misfortune}}
+\NewDocumentCommand{\Morph}{}{\tagElem{Morph}}
+\NewDocumentCommand{\Move}{}{\tagElem{Move}}
+\NewDocumentCommand{\Multiclass}{}{\tagElem{Multiclass}}
+\NewDocumentCommand{\Open}{}{\tagElem{Open}}
+\NewDocumentCommand{\Polymorph}{}{\tagElem{Polymorph}}
+\NewDocumentCommand{\Possession}{}{\tagElem{Possession}}
+\NewDocumentCommand{\Prediction}{}{\tagElem{Prediction}}
+\NewDocumentCommand{\Press}{}{\tagElem{Press}}
+\NewDocumentCommand{\Radiation}{}{\tagElem{Radiation}}
+\NewDocumentCommand{\Reckless}{}{\tagElem{Reckless}}
+\NewDocumentCommand{\Revelation}{}{\tagElem{Revelation}}
+\NewDocumentCommand{\Sanctified}{}{\tagElem{Sanctified}}
+\NewDocumentCommand{\Scrying}{}{\tagElem{Scrying}}
+\NewDocumentCommand{\Secret}{}{\tagElem{Secret}}
+\NewDocumentCommand{\Skill}{}{\tagElem{Skill}}
+\NewDocumentCommand{\Sleep}{}{\tagElem{Sleep}}
+\NewDocumentCommand{\Spellshape}{}{\tagElem{Spellshape}}
+\NewDocumentCommand{\Metamagic}{}{\tagElem{Metamagic}}
+\NewDocumentCommand{\Spirit}{}{\tagElem{Spirit}}
+\NewDocumentCommand{\Splash}{}{\tagElem{Splash}}
+\NewDocumentCommand{\Subtle}{}{\tagElem{Subtle}}
+\NewDocumentCommand{\Summon}{}{\tagElem{Summon}}
+\NewDocumentCommand{\Summoned}{}{\tagElem{Summoned}}
+\NewDocumentCommand{\Tech}{}{\tagElem{Tech}}
+\NewDocumentCommand{\Telepathy}{}{\tagElem{Telepathy}}
+\NewDocumentCommand{\Teleportation}{}{\tagElem{Teleportation}}
+\NewDocumentCommand{\Unholy}{}{\tagElem{Unholy}}
+\NewDocumentCommand{\Varies}{}{\tagElem{Varies}}
+\NewDocumentCommand{\Virulent}{}{\tagElem{Virulent}}
+\NewDocumentCommand{\Vocal}{}{\tagElem{Vocal}}
+
+
+
+\NewDocumentCommand{\Auditory}{}{\tagElem{Auditory}}
+\NewDocumentCommand{\Olfactory}{}{\tagElem{Olfactory}}
+\NewDocumentCommand{\Visual}{}{\tagElem{Visual}}
+
+
+%Misc Equipment
+
+\NewDocumentCommand{\Adjustment}{}{\tagElem{Adjustment}}
+\NewDocumentCommand{\Apex}{}{\tagElem{Apex}}
+\NewDocumentCommand{\Companion}{}{\tagElem{Companion}}
+\NewDocumentCommand{\Consumable}{}{\tagElem{Consumable}}
+\NewDocumentCommand{\Gadget}{}{\tagElem{Gadget}}
+\NewDocumentCommand{\Mechanical}{}{\tagElem{Mechanical}}
+\NewDocumentCommand{\Snare}{}{\tagElem{Snare}}
+\NewDocumentCommand{\Precious}{}{\tagElem{Precious}}
+\NewDocumentCommand{\Steam}{}{\tagElem{Steam}}
+\NewDocumentCommand{\Trap}{}{\tagElem{Trap}}
+
+
+% Magical Item Traits
+\NewDocumentCommand{\Artifact}{}{\tagElem{Artifact}}
+\NewDocumentCommand{\BottledBreath}{}{\tagElem{Bottled Breath}}
+\NewDocumentCommand{\Catalyst}{}{\tagElem{Catalyst}}
+\NewDocumentCommand{\Censer}{}{\tagElem{Censer}}
+\NewDocumentCommand{\Coda}{}{\tagElem{Coda}}
+\NewDocumentCommand{\Contract}{}{\tagElem{Contract}}
+\NewDocumentCommand{\Cursed}{}{\tagElem{Cursed}}
+\NewDocumentCommand{\Expandable}{}{\tagElem{Expandable}}
+\NewDocumentCommand{\Figurehead}{}{\tagElem{Figurehead}}
+\NewDocumentCommand{\Focused}{}{\tagElem{Focused}}
+\NewDocumentCommand{\Fulu}{}{\tagElem{Fulu}}
+\NewDocumentCommand{\Grimoire}{}{\tagElem{Grimoire}}
+\NewDocumentCommand{\Intelligent}{}{\tagElem{Intelligent}}
+\NewDocumentCommand{\Invested}{}{\tagElem{Invested}}
+\NewDocumentCommand{\Missive}{}{\tagElem{Missive}}
+\NewDocumentCommand{\Oil}{}{\tagElem{Oil}}
+\NewDocumentCommand{\Potion}{}{\tagElem{Potion}}
+\NewDocumentCommand{\Relic}{}{\tagElem{Relic}}
+\NewDocumentCommand{\Scroll}{}{\tagElem{Scroll}}
+\NewDocumentCommand{\Spellgun}{}{\tagElem{Spellgun}}
+\NewDocumentCommand{\Spellheart}{}{\tagElem{Spellheart}}
+\NewDocumentCommand{\Staff}{}{\tagElem{Staff}}
+\NewDocumentCommand{\Structure}{}{\tagElem{Structure}}
+\NewDocumentCommand{\Talisman}{}{\tagElem{Talisman}}
+\NewDocumentCommand{\Tattoo}{}{\tagElem{Tattoo}}
+\NewDocumentCommand{\Wand}{}{\tagElem{Wand}}
+
+
+% Alchemical traits 6
+\NewDocumentCommand{\Lozenge}{}{\tagElem{Lozenge}}
+\NewDocumentCommand{\Bomb}{}{\tagElem{Bomb}}
+\NewDocumentCommand{\Elixir}{}{\tagElem{Elixir}}
+\NewDocumentCommand{\Drug}{}{\tagElem{Drug}}
+\NewDocumentCommand{\Mutagen}{}{\tagElem{Mutagen}}
+\NewDocumentCommand{\Processed}{}{\tagElem{Processed}}
+
+% Poison Traits 5
+\NewDocumentCommand{\Contact}{}{\tagElem{Contact}}
+\NewDocumentCommand{\Ingested}{}{\tagElem{Ingested}}
+\NewDocumentCommand{\Inhaled}{}{\tagElem{Inhaled}}
+\NewDocumentCommand{\Injury}{}{\tagElem{Injury}}
+\NewDocumentCommand{\Poison}{}{\tagElem{Poison}}
+
+% Damage types
+\NewDocumentCommand{\Acid}{}{\tagElem{Acid}}
+\NewDocumentCommand{\Cold}{}{\tagElem{Cold}}
+\NewDocumentCommand{\Electricity}{}{\tagElem{Electricity}}
+\NewDocumentCommand{\Fire}{}{\tagElem{Fire}}
+\NewDocumentCommand{\Force}{}{\tagElem{Force}}
+\NewDocumentCommand{\Sonic}{}{\tagElem{Sonic}}
+\NewDocumentCommand{\Vitality}{}{\tagElem{Vitality}}
+\NewDocumentCommand{\Void}{}{\tagElem{Void}}
+\NewDocumentCommand{\Positive}{}{\tagElem{Positive}}
+\NewDocumentCommand{\Negative}{}{\tagElem{Negative}}
+
+
+\newcommand{\CSC}[1]{{\color{CSColor}#1}}
+\newcommand{\CFC}[1]{{\color{CFColor}#1}}
+\newcommand{\FC}[1]{{\color{FColor}#1}}
+\newcommand{\SC}[1]{{\color{SColor}#1}}
+\newcommand{\DColor}[1]{{\color{DColor}#1}}
+
+
+\newcommand{\Success}[1]{{\noindent\textbf{Success} #1}}
+\newcommand{\Failure}[1]{{\noindent\textbf{Failure} #1}}
+\newcommand{\CSSU}[1]{{\scalefont{0.9}\CSC{\textbf{CS}}/\SC{\textbf{S}: #1}}}
+\newcommand{\SU}[1]{{\scalefont{0.9}\SC{\textbf{S}: #1}}}
+\newcommand{\CS}[1]{{\scalefont{0.9}\CSC{\textbf{CS}: #1}}}
+\newcommand{\CF}[1]{{\scalefont{0.9}\CFC{\textbf{CF}: #1}}}
+\newcommand{\F}[1]{{\scalefont{0.9}\FC{\textbf{F}: #1}}}
+\newcommand{\D}[1]{{\scalefont{0.9}\DColor{#1}}}
+
+\newcommand{\Ex}[1]{{\textbf{Ex:}\scalefont{0.9} \DColor{#1}}}
+
+
+
+
+
 
 
 

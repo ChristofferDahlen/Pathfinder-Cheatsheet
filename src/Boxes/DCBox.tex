@@ -1,0 +1,62 @@
+\newif\ifRawDC
+
+\makeatletter
+\pgfkeys{
+    /DCBox/.is family, /DCBox,
+    DCdef/.style = {%
+        DC Replace Name=,
+        val=,%
+        color box border=DCColorBorder,%
+        color box background=DCColor,%
+        before=,%
+        after=,
+    },%
+    color box border/.store in=\DC@box@border,%
+    color box background/.store in=\DC@box@background,%
+    DC Replace Name/.store in=\DC@name,%
+    val/.store in=\DC@Value,%
+    before/.store in=\DC@Before,%
+    after/.store in=\DC@After,%
+    raw/.is choice,%
+    raw/.default=false,%
+    raw/.is if=RawDC%
+}
+
+\NewDocumentCommand{\DCBoxX}{m O{}}{%
+    \pgfkeys{/DCBox, DCdef, #1}%
+    \tcbox[%
+        arc=0.0ex,
+        on line,
+        box align=base,
+        colframe=\DC@box@border,
+        colback=\DC@box@background,
+        halign=center,
+        valign=center,
+        right skip=0ex,
+        left skip=0ex,
+        size=fbox,
+        top=0.2ex,
+        bottom=0.2ex,
+        left=0.0ex,
+        right=0.0ex,
+        boxrule=0ex,
+        bottomrule=0pt,
+        toprule=0pt,
+        boxsep=0.1ex,
+        #2]{{%
+        \rmfamily%
+        \bfseries%
+        \IfNotBlank{\DC@Before}{\TextOutline{%
+            \ifRawDC\DC@Before%
+            \else\MSC{\DC@Before}%
+            \fi}\,}%
+        \TextOutline{\IfBlankElse{\DC@name}{\DC}{{\kirsty\DC@name}}}%
+        \IfNotBlank{\DC@Value}{\hspace{0.2ex}}%
+        \TextOutline{\Numb{\DC@Value}}%
+        \IfNotBlank{\DC@After}{\hspace{0.2ex}}%
+        \IfNotBlank{\DC@After}{\TextOutline{%
+            \ifRawDC\DC@After%
+            \else\MSC{\DC@After}%
+            \fi}\,}%
+    }}%
+}

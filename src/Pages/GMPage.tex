@@ -1,0 +1,372 @@
+\renewcommand{\PageBottomReferences}{%
+    \hfill LCR = Legacy Core Rulebook
+    \hfill GMC = GM Core\\
+    \hfill PFS = Pathfinder Society Guide
+    \hfill FB = Firebrands
+    \hfill TG = Travel Guide
+}%
+\setlength{\parindent}{0mm}%
+\begin{PageBack}%
+    \begin{Tables}{\backTableHeight}%
+        \begin{Table}{Misc Tables}[][Most of these tables are for reference: Remember to consult your \GM.]%
+            \vspace{0.3mm}%
+            \newcommand{\nodeDist}{2mm}
+            \begin{tikzpicture}[node distance=\nodeDist,every node/.style={inner sep=0,outer sep=0}]
+                \node at (0, 0) (DCs) {\input{Pages/SqureTables/DCsByLevel}};
+
+                \node[right=of DCs.north east, anchor=north west] (SDC) {\input{Pages/SqureTables/SimpleDCs}};
+                \node[right=of SDC.north east, anchor=north west] (DCA) {\input{Pages/SqureTables/DCAdjustment}};
+                \node[right=of DCA.north east, anchor=north west] (ED) {\input{Pages/SqureTables/Enviromental Damage}};
+                \node[right=of ED.north east, anchor=north west] (RW) {\input{Pages/SqureTables/WatchesAndRest}};
+
+
+                \node[anchor=north west, shift={(\nodeDist,-\nodeDist)}] (TEMP) at (DCs.east |- DCA.south){\input{
+                    Pages/SqureTables/Temperature}};
+                \node[right=of TEMP.north east, anchor=north west] (TS) {\input{Pages/SqureTables/Travel Speed}};
+
+
+                \node[below=of TEMP.south west, anchor=north west] (MAT) {\input{Pages/SqureTables/Material}};
+                \node[right=of MAT.north east, anchor=north west] (URB) {\input{Pages/SqureTables/Urban1}};
+                \node[below=of URB.south west, anchor=north west] (FO) {\input{Pages/SqureTables/Forcing Open}};
+                \node[below=of FO.south west, anchor=north west] (COL) {\input{Pages/SqureTables/Costs_of_living}};
+
+
+                \node[below=of COL.south west, anchor=north west] (SR) {\input{Pages/SqureTables/Size and reach}};
+
+                \node[left=of SR.north west, anchor=north east] (CB) {\input{Pages/SqureTables/CreatureBulk}};
+                \node[left=of CB.north west, anchor=north east] (BC) {\input{Pages/SqureTables/BulkConversions}};
+
+
+                \node[above=of BC.north west, anchor=south west] (CO) {\input{Pages/SqureTables/SizedObjects}};
+
+
+                \scalefont{0.3}
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]DCs.north west) {\pgh{GMC 52}};
+                \node[anchor=south west] at ([shift={(1pt,-344pt-6.5pt)}]DCs.north west) {\pgh{\scalefont{0.8}GMC 133}};
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]SDC.north west) {\pgh{GMC 52}};
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]DCA.north west) {\pgh{GMC 52}};
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]RW.north west) {\pgh{GMC 43}};
+
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]FO.north west) {\pgh{GMC 92}};
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]URB.north west) {\pgh{GMC 92}};
+
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]COL.north west) {\pgh{295}};
+                \node[anchor=south west] at ([shift={(1pt,-14pt)}]ED.north west) {\pgh{GMC 90}};
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]TS.north west) {\pgh{GMC 36}};
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]MAT.north west) {\pgh{GMC 252}};
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]TEMP.north west) {\pgh{GMC 95}};
+
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]CB.north west) {\pgh{269}};
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]CO.north west) {\pgh{GMC 95}};
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]BC.north west) {\pgh{GMC 95}};
+
+                \node[anchor=south west] at ([shift={(1pt,-6.5pt)}]SR.north west) {\pgh{421}};
+
+                %\node[anchor=north west] at ([shift={(1pt,-4pt)}]ID.north west) {\BodySize\pgbc{xxx}};
+            \end{tikzpicture}
+        \end{Table}
+    \end{Tables}%
+    \begin{Tables}{\backTableHeight}%
+        \begin{Table}{Turn}
+            \begin{entry}{Rolling initative}{%
+                align=center seam,
+                name width=\turnLength,
+                page={\raisebox{-2pt}{\stackbox{435,\\GMC 25}}},
+            }%
+                You usually roll \PerceptionT for initiative. \GM might call for other checks if relevant. \hfill \D{
+                    For ties: enemies go first and players choose order during first round.}\\
+                If creatures use \Refer{Avoid Notice} the \StealthT roll can be used for initiative.\hfill \D{
+                    Creatues have to use \StealthT or become noticed.}
+            \end{entry}
+            \begin{entry}{Start of turn}{%
+                align=center seam,
+                name width=\turnLength,%
+                page=435,
+            }
+                - Use\A{f} or your\A{r} with trigger ``Your turn begins''. \hfill
+                - Reduce your active effects by 1 round. \hfill
+                - Recovery check. \hfill - Other start of turn effects.\\
+                The last step you regain your actions\A{a} and your reactions\A{r}. \hfill \D{You also gain/loose
+                extra actions here.}
+            \end{entry}
+            \begin{entry}{Turn}{%
+                name width=\turnLength,%
+                page=436,
+            }
+                You use action/reactions/activities until you cannot. \hfill \D{If you can't act, you can't use
+                any actions, including reactions and free actions.}
+            \end{entry}
+            \begin{entry}{End of Turn}{%
+                align=center seam,
+                name width=\turnLength,%
+                page=436,
+            }%
+                \begin{tabular}{@{}ll}%
+                    - Use\A{f} or your\A{r} with a trigger ``Your turn ends'' &%
+                    - End effects that last until end of turn. \\%
+                    - Take persistent damage, attempt the flat check. &
+                    - Resolve anything specified.
+                \end{tabular}%}
+            \end{entry}
+            \begin{entry}{Reactions}{%
+                name width=\turnLength,%
+                page={15, 436},
+            }
+                You can use reactions \A{r} outside your turn. \hfill \D{\GM determins wheter you can use
+                reactions before your first turn begins, depending on situtation.}
+            \end{entry}
+            \begin{entry}{Free Actions}{%
+                align=center seam,
+                name width=\turnLength,%
+                page=15,
+            }
+                You can use however many free actions\A{f} during your turn. \hfill \pbox{0.6\linewidth}{If it
+                has a trigger, like a reaction, then it can be triggered as a reaction.\\ \D{You can only use one
+                free action per trigger.}}
+            \end{entry}
+        \end{Table}\TableSpace
+        \begin{Table}{Falling}[][\pghh{421}]
+            \begin{entry}{Falling}{%
+                align=center seam,
+                name width=\turnLength,}
+                If you fall more than \Numb{5} \Feet you take \Type{Bludgeoning} equal
+                to half you
+                fell.\hfill If you take damage from falling you fall \Prone.\\
+                \D{First round 500 \Feet; Thereafter 1,500 \Feet}
+            \end{entry}
+            \begin{entry}{Falling on a Creature}{%
+                name width=\turnLength,}
+                Other creature makes a \Reflex[][val=15] and take damage equal
+                to \CS{
+                    no damage} \SU{one-quarter} \F{half} \CF{same} you took.
+            \end{entry}
+            \begin{entry}{Falling Objects}{%
+                name width=\turnLength,}
+                Same rules as for creature. \hfill \D{Hazards and spells have their own
+                rules.}
+            \end{entry}
+        \end{Table}\TableSpace
+        \begin{Table}{Terrain}[][\pghh{423}]
+            \begin{entry}{Difficult Terrain}{%
+                align=center seam,
+                name width=\turnLength,}
+                Each square costs \Numb{5} extra \Feet of movement. \hfill {\scalefont{
+                    1.2}\textbf{\MSC{Greater Difficult Terrain}}}: Each square costs \Numb{10} extra \Feet. \\\hfill\D{If you ignore difficult terrain you move through greater difficult terrain as normal difficult terrain.}
+            \end{entry}
+            \begin{entry}{Hazardous Terrain}{%
+                name width=\turnLength,}
+                Moving through hazardous terrain deals damage.
+            \end{entry}
+            \begin{entry}{Narrow Surface}{%
+                name width=\turnLength,}
+                \OffGuard and must \Refer{Balance} to cross. When you're hit or fail a
+                save, succeed at a \ReflexT save or \FC{fall}.
+            \end{entry}
+            \begin{entry}{Uneven Ground}{%
+                name width=\turnLength,}
+                \OffGuard and might need to \Refer{Balance} or fall \Prone. When you're hit
+                or fail a save, succeed at a \ReflexT save or \FC{fall}.
+            \end{entry}
+            \begin{entry}{Incline}{%
+                name width=\turnLength,}
+                You need to \Refer{Climb} to ascend an incline. You're \OffGuard while
+                \Refer{Climbing}.
+            \end{entry}
+        \end{Table}\TableSpace
+        \begin{Table}{Afflictions}[][\pghh{430 - 431}]
+            \begin{entry}{Iniital Exposure}{%
+                name width=\turnLength,%
+            }
+                When first exposed you roll a saving throw. \F{Go to stage 1} \CF{Go to stage 2} \hfill \D{
+                    Spells with affliction typically use the caster's spell \DC}
+            \end{entry}
+            \begin{entry}{Stages}{%
+                align=center seam,
+                name width=\turnLength,}
+                Each stage lasts for a time. At the end of that time you attempt a new
+                saving. Move to stage \CSC{\Numb{+2}},\SC{\Numb{+1}},\FC{\Numb {-1}},\CFC{\Numb{-2}}. If you reach
+                stage \Numb{0} the affliction ends.\\
+                If it is virulent you must succeed at two consecutive saves to reduce the stage by \Numb{1}. A \CSC{
+                    CS} reduces the stage by \Numb{1}
+            \end{entry}
+            \begin{entry}{Multiple Exposures}{%
+                name width=\turnLength,}
+                If you are exposed again, make a new initial saving throw which instead
+                increases the stage by \FC{\Numb{1}} \CFC{\Numb{(2)}}.
+            \end{entry}
+            \begin{entry}{}{%
+                align=center seam,
+                action={\BodyFont\scalefont{1.2}\stackbox[c][c]{\MSCB{Damage}\,\textbf{\scalefont{0.6}AND}\\\vspace{
+                    -0.6ex}\MSCB{Conditions}}},
+                name width=\turnLength,%
+                name scale=0.95,
+            }
+                Any damage happens when you reach that stage. Conditions affect you when the you reach the
+                stage and last for their normal duration.\\
+                Any condition that doesn't have a default duration lasts as long as you're at that stage {(unless
+                stated otherwise)}.
+            \end{entry}
+        \end{Table}\TableSpace
+        \begin{Table}{Common costs}[][These are only reference costs. \GM has final say a usual.]
+            \begin{entry}{Beverages }{%
+                name width=\turnLength,%
+                page=294,
+            }
+                \textbf{Bottle of Fine Wine} - 1 gp, \quad
+                \textbf{Bottle of Wine} - 1 sp, \quad
+                \textbf{Keg of Ale} - 2 sp, \quad
+                \textbf{Mug of Ale} - 1 cp \quad
+                \textbf{Pot of Coffee or Tea} - 2 cp\quad
+            \end{entry}
+            \begin{entry}{Meal}{%
+                name width=\turnLength,%
+                page=294,
+            }
+                \textbf{Poor}- 1 cp, \quad
+                \textbf{Square} - 3 cp, \quad
+                \textbf{Fine Dining} - 1 gp \quad
+            \end{entry}
+            \breakLine[Travel and Navigation]
+            \begin{entry}{Lodging}{%
+                name width=\turnLength,%
+                page=294,
+            }
+                \textbf{Floor Space}- 3 cp/day, \hfill
+                \textbf{Bed, for 1} - 1 sp/day, \hfill
+                \textbf{Private Room, for 2} - 8 sp/day, \hfill
+                \textbf{Extravagant Suite} - 10 gp/day \hfill\vline\hfill \textbf{Stabling} 2 cp/day
+            \end{entry}
+            \begin{entry}{Transportation}{%
+                name width=\turnLength,%
+                page=294,
+            }%
+                \textbf{Caravan} - 3 cp / 5 miles\hfill
+                \textbf{Carriage} - 2 sp / 5 miles\hfill
+                \textbf{Ferry or Riverboat} - 4 cp / 5 miles\hfill
+                \textbf{Sailing Ship} - 6 cp / 5 miles \hfill\vline\hfill
+                \textbf{Toll} - 1 cp
+            \end{entry}
+            \breakLine[Help]
+            \begin{entry}{Guide }{%
+                align=center seam,
+                name width=\turnLength,%
+                action={\BodyFont (\MSCB{Wilderness})},
+                page=FB 93,
+            }%
+                Familiar with the terrain and the habits of the creatures of the region. They can guide you
+                through unfamiliar or hazardous locations.\\
+                \textbf{Expedient} - 6 gp/day,\quad
+                \textbf{Safe} - 4 gp/day \D{(Doubles your travel time but avoids hostile creatures.)}
+            \end{entry}
+            \begin{entry}{Guide }{%
+                align=center seam,
+                name width=\turnLength,%
+                action={\BodyFont (\MSCB{Survival})},
+                page=FB 93,
+            }
+                Can help locate targets up to their level plus \Numb{5}. \hfill \D{Can locate a target of their
+                level or lower in \Numb{1} day. Add \Numb{1} day for each level above.}\\
+                \textbf{Level 1; Trained} - 4 gp/day, \hfill
+                \textbf{Level 2} - 10 gp/day\hfill
+                \textbf{Level 3; Expert} - 20 gp/day\hfill
+                \textbf{Level 4} - 50 gp/day\\
+            \end{entry}
+            \begin{entry}{Hireling}{%
+                name width=\turnLength,%
+                page=LCR 294,
+            }
+                Paid laborer \quad
+                \textbf{Unskilled} - 1 sp/day, \quad
+                \textbf{Skilled} - 5 sp/day \D{(\Numb{+4} mod. in their expertise)}.\hfill \D{Double cost if
+                adventuring.}
+            \end{entry}
+            \begin{entry}{Spellcasting}{%
+                align=center seam,
+                name width=\turnLength,%
+                name scale=1,
+                tags=\stackbox[r][c]{\pg{295}\\\vspace{-0.1ex}\Uncommon},
+            }
+                Have someone cast a spell for you.\hfill \D{\Uncommon\,spells cost at least +100\% more. Spells
+                that take longer than \Numb{1} min usually cost +25\% more} \\
+                \textbf{Rank:} \textbf{1st} - 3 gp, \hfill
+                \textbf{2nd} - 7 gp, \hfill
+                \textbf{3rd} - 18 gp, \hfill
+                \textbf{4th} - 40 gp, \hfill
+                \textbf{5th} - 80 gp, \hfill
+                \textbf{6th} - 160 gp, \hfill
+                \textbf{7th} - 360 gp, \hfill
+                \textbf{8th} - 720 gp, \hfill
+                \textbf{9th} - 1,800 gp\\
+                \D{If the spell has a cost you must pay that in addition.}
+            \end{entry}
+            \breakLine[Information]
+            \begin{entry}{Fixer }{%
+                align=center seam,
+                name width=\turnLength,%
+                action={\BodyFont (\MSCB{Informant})},
+                page=PFS 116,
+            }%
+                Provides basic information on a location.\hfill
+                Automatically \Refer{Aids} you on attempts to \Refer{Gather Information} and \Refer{Recall
+                Knowledge} on specific location.\\
+                \textbf{Basic} - 5 sp/h, \quad
+                \textbf{Expert}  1 gp/h \D{(Automatically Critical succeeds at \Refer{Aiding} you.)}
+            \end{entry}
+            \begin{entry}{Fixer }{%
+                align=center seam,
+                name width=\turnLength,%
+                action={\BodyFont (\MSCB{Councelor})},
+                page=PFS 116,
+            }%
+                Helps you in social maters.\hfill
+                Automatically \Refer{Aids} you on \Refer{Impersonate}, \Refer{Lie}, \Refer{Make an Impression},
+                and \Refer{Request} within expertise.\\
+                \textbf{Basic} - 1 gp/h, \quad
+                \textbf{Expert}  2 gp/h \D{(Automatically Critical succeeds at \Refer{Aiding} you.)}
+            \end{entry}
+            \begin{entry}{Researcher}{%
+                align=center seam,
+                name width=\turnLength,%
+                page=PFS 116,
+            }
+                Independent Research: Can provide information to their level \Numb{+4}.\hfill Takes min \Numb{1}
+                week and add \Numb{1} week for every level above.\\
+                Research assistance: \Refer{Aids} a single PC with a single skill check as part of the \Refer{
+                    Research subsystem}\hfill\D{\CSC{CS} if 4 level above library.}\\
+                \textbf{Level 1; trained} - 4 gp/day,\quad
+                \textbf{Level 2} - 6 gp/day,\quad
+                \textbf{Level 3; expert} - 10 gp/day, \hfill\D{Can't help if library is 4 levels above}\\
+                \textbf{Level 4} - 14 gp/day,\hspace{-0.73ex}\hphantom{; trained}\quad
+                \textbf{Level 5} - 20 gp/day,\hspace{-0.73ex}\quad
+                \textbf{Level 6} - 40 gp/day,\quad
+                \textbf{Level 7; master} - 50 gp/day, \quad
+            \end{entry}
+            \breakLine[Housing]
+            \begin{entry}{Renting}{%
+                align=center seam,
+                name width=\turnLength,%
+                page=TG 17,
+            }
+                \textbf{Thatch hut (poor home)} - 8 gp, \hfill
+                \textbf{Wood cottage (comfortable home)} - 20 gp, \hfill
+                \textbf{Stone house (quality home)} - 80 gp,\\
+                \textbf{Wood, stone, and metal manse (fine home)} - 240 gp, \quad
+                \textbf{Villa (luxury home) } - 600 gp \hfill\D{For Urban housing quarter cost.}
+            \end{entry}
+            \begin{entry}{Buying}{%
+                align=center seam,
+                name width=\turnLength,%
+                page=TG 17,
+            }
+                \textbf{Thatch hut (poor home)} - 100 gp + 2 gp/month, \hfill
+                \textbf{Wood cottage (comfortable home)} - 300 gp + 6 gp/month, \\
+                \textbf{Stone house (quality home)} - 2,000 gp + 40 gp/month, \hfill
+                \textbf{Wood, stone, and metal manse (fine home)} - 6,000 gp + 120 gp/month,\\
+                \textbf{Villa (luxury home) } - 15,000 gp + 300 gp/month \hfill\D{For urban housing it costs half
+                . Adding rooms to urban house cost up to 25\% of house value}
+            \end{entry}
+        \end{Table}
+    \end{Tables}%
+\end{PageBack}%
+
+

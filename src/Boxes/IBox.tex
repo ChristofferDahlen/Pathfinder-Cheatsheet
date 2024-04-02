@@ -1,0 +1,35 @@
+\makeatletter
+\pgfkeys{
+    /IBox/.is family, /IBox,
+    IBoxDefault/.style = {
+        color box background=IColor,
+        color box border=IColorBorder,
+        color text=IColorText,
+    },
+    color box border/.store in=\IBox@border,
+    color box background/.store in=\IBox@background,
+    color text/.store in=\IBox@textcolor,
+}
+
+\NewDocumentCommand{\IBoxX}{O{} m O{}}{%
+    \pgfkeys{/IBox, IBoxDefault, #1}%
+    \tcbox[%
+        on line,
+        box align=base,
+        arc=0.0ex,
+        colframe=\IBox@border,
+        colback=\IBox@background,
+        right skip=0ex,
+        left skip=0.1ex,
+        size=fbox,
+        top =0.2ex,
+        bottom=0.2ex,
+        left=0.0ex,
+        right=0.0ex,
+        boxrule=0.2pt,
+        boxsep=0.1ex,
+    #3%
+    ]{%
+        \textcolor{\IBox@textcolor}{\scalefont{#1}\textbf{#2}}
+    }%
+}
