@@ -7,37 +7,25 @@ on:
 name: Create Release
 
 jobs:
-  build:
-    name: Create Release
+  Create_Release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Set up Git repository
         uses: actions/checkout@v3
+
       - name: Update Version Number
         run:
-          echo "\newcommand{\Version}{${{ secrets.GITHUB_TOKEN }}}" > Version.tex
+          echo "\newcommand{\Version}{${{ github.ref_name }}}" > src/Version.tex
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
           working_directory: src
           latexmk_use_lualatex: true
           root_file: CheatSheet.tex
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref_name  }}
-          draft: false
-          prerelease: false
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./src/CheatSheet.pdf
-          asset_name: CheatSheet.${{ github.ref }}.pdf
+          make_latest: true
+          files: src/CheatSheet.pdf
