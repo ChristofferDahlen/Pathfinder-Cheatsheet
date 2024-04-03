@@ -37,8 +37,8 @@
 }
 
 \NewDocumentCommand{\Time}{O{} m O{} m O{}}{{\scriptsize\scalefont{0.6}#3%
-\IfNotBlank{#1}{#1\xspace}%
-\IfNotBlank{#2}{{\Numb{#2}}\xspace}%
+\IfNotBlank{#1}{#1\,}%
+\IfNotBlank{#2}{{\Numb{#2}}\,}%
 #4%
 \IfNotBlank{#5}{#5}%
 }}
