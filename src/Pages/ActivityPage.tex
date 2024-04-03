@@ -35,25 +35,26 @@
                 uses={\Crafting[][before=Item]},%[][]{}[\DCBox[\MSC{Item}]{}[][M]],
                 tags=\Manipulate,
             }
-                Repair a damaged Item by \Numb{5\CSC{(10)}}\,\HPs\Numb{ + 5\CSC{(10)}}\,\HPs per \Type{proficency
-                rank}.\\
-                \D{Requires a \Refer{repair kit} and a stable surface.}\hfill \CF{Deal \Numb{2d6 - Hardness} damage
-                to the item.}
+                Repair a damaged Item by \Numb{5\CSC{(10)}}\,\HPs\Numb{+5\CSC{(10)}}\,\HPs per \Type{proficency rank}.\\
+                \D{Requires a \Refer{repair kit} and a stable surface.}\hfill
+                \CF{Deal \Numb{2d6 - Hardness} damage to the item.}
             \end{entry}
             \begin{entry}{Treat Wounds}{%
                 align=center seam,
                 name width=\activityLength,%
                 action=\,\TimeMin{10},
-                tags=
-                \adjustbox{varwidth=0.48\linewidth}{\raggedleft\pg{242}\,\Manipulate\Healing\\ \D{\TimeHour{1}\sffamily\scalefont{0.75} \textbf{for double healing.}}},
+                tags=\parbox{0.4\linewidth}{\raggedleft\pg{242}\,\Manipulate\Healing\\
+                \D{\TimeHour{1}\sffamily\scalefont{0.75} \textbf{for double healing.}}},
                 uses=\Medicine,
             }
-                Heal \CSSU{And remove the \Wounded condition.} \hfill \D{Requires \Refer{healing tools} and \Focus{
-                    free hand}.} \hfill\D{\TimeHour{1} \Numb{CD} on target.}\\\hfill
+                Heal \CSSU{And remove the \Wounded condition.} \hfill
+                \D{Requires \Refer{healing tools} and \Focus{free hand}.} \hfill
+                \D{\TimeHour{1} \Numb{CD} on target.}\\\hfill
                 \Ts\DC[15] \Numb{2d8\CSC{(4d8)}}\quad
                 \E\DC[20] \Numb{2d8\CSC{(4d8)}}\Numb{+10}\quad
                 \M\DC[30] \Numb{2d8\CSC{(4d8)}}\Numb{+30} \quad
-                \Le\DC[40] \Numb{2d8\CSC{(4d8)}}\Numb{+50}\hfill \CF{Deal \Numb{1d8} damage.}
+                \Le\DC[40] \Numb{2d8\CSC{(4d8)}}\Numb{+50}\hfill
+                \CF{Deal \Numb{1d8} damage.}
             \end{entry}
         \end{Table}
         \TableSpace
@@ -68,8 +69,8 @@
                 Bully a creature into doing what you want.\\
                 Target cooperates up to \TimeDay{1}, then its attitude downgrades to unfriendly. \hfill
                 \CS{Target won't retaliate soon.}\\
-                \F{Target's attitude downgrades to unfriendly.}\hfill \CF{Target becomes hostile and is immune for at
-                least a week.}
+                \F{Target's attitude downgrades to unfriendly.}\hfill
+                \CF{Target becomes hostile and is immune for at least a week.}
             \end{entry}
             \begin{entry}{Gather Information}{%
                 name width=\activityLength,%
@@ -77,19 +78,20 @@
                 page=239,
                 uses={\Diplomacy[tags={S}]},
             }
-                Canvass an area to learn about something specific.\hfill\CF{Get false info.}
+                Canvass an area to learn about something specific.\hfill
+                \CF{Get false info.}
             \end{entry}
             \begin{entry}{Make an Impression}{%
                 name width=\activityLength,%
-                name scale=0.8,
+            %name scale=0.9,
             %pageRotate=true,
-                action=\TimeMin{1+},
+                action=\,\TimeMin{1+},
                 page=239,
                 tags=\kern-0.5pt\Mental\Concentrate,
                 uses=\DiplomacyWill,
             }
-                Temporarily improve the target's attitude by \Numb{1\CSC{(2)}\CFC{(-1)}}. \quad\Auditory\,and
-                \Linguistic
+                Temporarily improve the target's attitude by \Numb{1\CSC{(2)}\CFC{(-1)}}.
+                \quad\Auditory\,and \Linguistic
             \end{entry}
             \begin{entry}{Impersonate}{%
                 name width=\activityLength,%
@@ -98,8 +100,9 @@
                 action=\,\TimeMin{\textasciitilde 10},
                 uses={\Deception[tags={S}]},
             }
-                Create a disguise. Requires a \Refer{disguise kit}. \hfill \F{Target knows you are disguised.} \CF{And
-                can recognize you.}
+                Create a disguise. Requires a \Refer{disguise kit}. \hfill
+                \F{Target knows you are disguised.}
+                \CF{And can recognize you.}
             \end{entry}
         \end{Table}
         \TableSpace
@@ -109,7 +112,8 @@
                 page=438,
                 tags=\Move,
             }
-                Double your travel speed of \Numb{10 x Con} minutes.\quad \D{If \Numb{Con < 1} treat as \Numb{1}.}
+                Double your travel speed of \Numb{10 x Con} minutes.\quad
+                \D{If \Numb{Con < 1} treat as \Numb{1}.}
             \end{entry}
             \begin{entry}{Squeeze}{%
                 name width=\activityLength,%
@@ -117,8 +121,8 @@
                 tags=\Move,
                 uses={\Acrobatics[tags=T]},
             }
-                Squeeze \Numb{5\CSC{(10)}}\,\Feet/\Min through a space you can barely fit through. \hfill \CF{
-                    Get stuck.}
+                Squeeze \Numb{5\CSC{(10)}}\,\Feet/\Min through a space you can barely fit through. \hfill
+                \CF{Get stuck.}
             \end{entry}
             \breakLine[The following can only be done at half speed or slower]
             \begin{entry}{Defend}{%
@@ -141,7 +145,9 @@
                 tags=\Concentrate,
                 uses={\VariousKnowledge[tags=S]},
             }
-                Use \Refer{Recall Knowledge} on visible clues.\hfill \CS{Get more info.}\quad\CF{Get false info.}
+                Use \Refer{Recall Knowledge} on visible clues.\hfill
+                \CS{Get more info.}\quad
+                \CF{Get false info.}
             \end{entry}
             \begin{entry}{Search}{%
                 name width=\activityLength,%
@@ -149,16 +155,18 @@
                 tags=\Concentrate,
                 uses={\Perception[tags=S]},
             }
-                \Refer{Seek}. \hfill \D{You can detect everything when moving up to \Numb{300}\,\Feet/\Min\,(Before
-                entering \Numb{150}\,\Feet/\Min).}
+                \Refer{Seek}. \hfill
+                \D{You can detect everything when moving up to \Numb{300}\,\Feet/\Min\,
+                (Before entering \Numb{150}\,\Feet/\Min).}
             \end{entry}
             \begin{entry}{Detect Magic}{%
                 name width=\activityLength,%
                 page=438,
                 tags=\Concentrate,
             }
-                Cast \Refer{Detect magic} regularly.\hfill \D{No chance of missing magical auras when moving up
-                to \Numb{300}\,\Feet/\Min\,(Before entering \Numb{150}\,\Feet/\Min).}
+                Cast \Refer{Detect magic} regularly.\hfill
+                \D{No chance of missing magical auras when moving up to \Numb{300}\,\Feet/\Min\,
+                (Before entering \Numb{150}\,\Feet/\Min).}
             \end{entry}
             \breakLine
             \begin{entry}{Avoid Notice}{%
@@ -184,7 +192,8 @@
                 action=\,\D{(\!\A{a})},
                 uses={\Survival[tags=T]},
             }
-                Follow tracks.\hfill \F{Can't try again for \TimeHour{1}.}\quad \CF{For \TimeHour{24}.}
+                Follow tracks.\hfill \F{Can't try again for \TimeHour{1}.}\quad
+                \CF{For \TimeHour{24}.}
             \end{entry}
             \breakLine
             \begin{entry}{Repeat a Spell}{%
@@ -192,16 +201,16 @@
                 page=439,
                 tags=\Concentrate,
             }
-                Repeatedly \Refer{cast a spell} of\A{d} or lower.\hfill\D{Spells with Complex Decisions can
-                give \Fatigued\hspace{.1em}(up to \GM).}
+                Repeatedly \Refer{cast a spell} of\A{d} or lower.\hfill
+                \D{Spells with Complex Decisions can give \Fatigued\hspace{.1em}(up to \GM).}
             \end{entry}
             \begin{entry}{Sustain an effect}{%
                 name width=\activityLength,%
                 page=439,
                 tags=\Concentrate,
             }
-                Repeatedly \Refer{Sustain} an effect. \hfill\D{Effects with Complex Decisions can give
-                \Fatigued\hspace{.1em}(up to \GM).}
+                Repeatedly \Refer{Sustain} an effect. \hfill
+                \D{Effects with Complex Decisions can give \Fatigued\hspace{.1em}(up to \GM).}
             \end{entry}
         \end{Table}
         \TableSpace
@@ -214,9 +223,10 @@
                 action=\,\TimeMin{1+}[/\MSC{Page}],
                 uses={\VariousKnowledge[tags={T,S}]},
             }
-                Decipher a complicated or esoteric writing. \hfill\CF{Get false info.}\\
-                You understand the true meaning of a \Focus{non-coded} \CSC{(or \Focus{coded})} message. \hfill \F{\Numb{-2}\,\Cirm
-                penalty on future attempts.}
+                Decipher a complicated or esoteric writing. \hfill
+                \CF{Get false info.}\\
+                You understand the true meaning of a \Focus{non-coded} \CSC{(or \Focus{coded})} message. \hfill
+                \F{\Numb{-2}\,\Cirm penalty on future attempts.}
             \end{entry}
             \begin{entry}{Identify Alchemy}{%
                 name width=\activityLength,%
@@ -225,7 +235,8 @@
                 tags=\Concentrate,
                 uses={\Crafting[tags={T,S}]},
             }
-                Identify an alchemical item. Requires \Refer{alchemist's tools}.\hfill \CF{Misidentify.}%}
+                Identify an alchemical item. Requires \Refer{alchemist's tools}.\hfill
+                \CF{Misidentify.}%}
             \end{entry}
             \begin{entry}{Identify Magic}{%
                 align=center seam,
@@ -235,10 +246,12 @@
                 uses={\MagicalSkill[tags={T,S}]},
                 tags=\Concentrate,
             }
-                Investigate a magical item, location or ongoing effect.\hfill \CS{Learn everything.}\quad \SU{
-                    Can't try again.}\\
-                You learn what it does, and for item or location how to activate it. \hfill\F{Can't try for
-                \TimeDay{1}.}\quad\;\, \CF{Misidentify.}
+                Investigate a magical item, location or ongoing effect.\hfill
+                \CS{Learn everything.}\quad
+                \SU{Can't try again.}\\
+                You learn what it does, and for item or location how to activate it. \hfill
+                \F{Can't try for \TimeDay{1}.}\quad\;\,
+                \CF{Misidentify.}
             \end{entry}
             \breakLine
             \begin{entry}{Pursue a lead}{%
@@ -259,8 +272,8 @@
                 action=\,\TimeMin{\textasciitilde 1},
                 uses={\Survival[tags=S]},
             }
-                Stay oriented in the wild and get a sense of cardinal directions. \hfill\D{\Numb{-2} \Item penalty
-                without a \Refer{compass}.}\\
+                Stay oriented in the wild and get a sense of cardinal directions. \hfill
+                \D{\Numb{-2} \Item penalty without a \Refer{compass}.}\\
                 \hfill\CS{Excellent sense of where you are and exact cardinal directions.}
             \end{entry}
         \end{Table}
@@ -273,8 +286,9 @@
                 tags=\Concentrate,
                 uses={\Arcana[tags=T]},
             }
-                Prepare a spell from someone else's spellbook, arcane witch familiar, or the like. \\\D{You have
-                to be a prepared caster.} \hfill \F{Fail to prepare spell but keep spell slot, can't try again today.}
+                Prepare a spell from someone else's spellbook, arcane witch familiar, or the like. \\
+                \D{You have to be a prepared caster.} \hfill
+                \F{Fail to prepare spell but keep spell slot, can't try again today.}
             \end{entry}
             \begin{entry}{Learn a spell}{%
                 align=center seam,
@@ -284,9 +298,10 @@
                 action=\,\TimeHour{1+}[/Rank],
                 uses={\MagicalSkill[tags=T]},
             }
-                Spend materials to learn a spell from a person, spellbook or scroll. \hfill\CS{Spend half
-                material.}\\
-                \hphantom{t}\hfill\F{Can't try again until next level.}\quad\CF{And waste half materials.}
+                Spend materials to learn a spell from a person, spellbook or scroll. \hfill
+                \CS{Spend half material.}\\
+                \hphantom{t}\hfill\F{Can't try again until next level.}\quad
+                \CF{And waste half materials.}
             \end{entry}
         \end{Table}
         \TableSpace
@@ -297,8 +312,8 @@
                 action=\,\TimeMin{10},
                 tags=\Manipulate,
             }
-                Affix or Remove one talisman on one item. Requires \Refer{Repair kit}.\hfill \D{Attaching more then one
-                to an item deactivates all.}
+                Affix or Remove one talisman on one item. Requires \Refer{Repair kit}.\hfill
+                \D{Attaching more then one to an item deactivates all.}
             \end{entry}
             \begin{entry}{Compose Missive}{%
                 name width=\activityLength,%
@@ -323,10 +338,11 @@
                 tags=\Concentrate\Move,
                 uses=\Survival,
             }
-                Search for a safe and secure location and set up a campsite.\hfill\CS{\Numb{+2} on rand.
-                encounters for a day, none for \TimeHour{1}.}\\
-                \D{\TimeHour{1} if campsite has already been prepared on hex.}\hfill\F{\Numb{-2} penalty on camp.
-                activities.}\hfill \CF{No camp. activies and instant encounter check.}
+                Search for a safe and secure location and set up a campsite.\hfill
+                \CS{\Numb{+2} on rand. encounters for a day, none for \TimeHour{1}.}\\
+                \D{\TimeHour{1} if campsite has already been prepared on hex.}\hfill
+                \F{\Numb{-2} penalty on camp. activities.}\hfill
+                \CF{No camp. activies and instant encounter check.}
             \end{entry}
         \end{Table}
         \TableSpace
@@ -338,8 +354,9 @@
                 action=\,\TimeHour{max 24},
                 tags=\Concentrate,
             }
-                Comb though information to learn more about the topic at hand. Gain \Numb{1\CSC{(2)}} \Focus{Reserch
-                Point}. Often \Linguistic.\\
+                Comb though information to learn more about the topic at hand.
+                Gain \Numb{1\CSC{(2)}} \Focus{Reserch Point}.
+                Often \Linguistic.\\
                 \CF{Make a false discovery and lose \Numb{1} \Focus{Research Point}.}
             \end{entry}
         \end{Table}
@@ -353,7 +370,8 @@
                 tags=\Manipulate,
                 uses={\Crafting[tags={T}]},
             }
-                Make an item from raw materials.\hfill \D{Requires appropriate tools and workplace.}
+                Make an item from raw materials.\hfill
+                \D{Requires appropriate tools and workplace.}
             \end{entry}
             \begin{entry}{Earn Income}{%
                 name width=\activityLength,%
@@ -369,15 +387,16 @@
                 page=232,
                 uses={\SkillBoxX{raw, skill=\MSC{Society}/\MSC{Survival}}}
             }
-                Provide yourself subsistence level food and shelter.\hfill \CS{Provide for another or gain
-                comfortable living.}
+                Provide yourself subsistence level food and shelter.\hfill
+                \CS{Provide for another or gain comfortable living.}
             \end{entry}
             \begin{entry}{Long Term rest}{%
                 name width=\activityLength,%
                 action=\,\TimeHour{24},
                 page=440,
             }
-                Regain \Numb{2 x Level x Con}\,\HPs. \quad\D{If \Numb{Con < 1} treat as \Numb{1}.}
+                Regain \Numb{2 x Level x Con}\,\HPs. \quad
+                \D{If \Numb{Con < 1} treat as \Numb{1}.}
             \end{entry}
             \begin{entry}{Treat Disease}{%
                 name width=\activityLength,%
@@ -386,7 +405,8 @@
                 tags=\Manipulate,
                 uses={\Medicine[tags=T]},
             }
-                Grants a \Numb{+2\CSC{(+4)}}\,\Cirm bonus to the next \Type{save} vs \Type{disease}. \hfill \CF{\Numb{-2}\,\Cirm penalty.}
+                Grants a \Numb{+2\CSC{(+4)}}\,\Cirm bonus to the next \Type{save} vs \Type{disease}. \hfill
+                \CF{\Numb{-2}\,\Cirm penalty.}
             \end{entry}
             \begin{entry}{Retraining}{%
                 name width=\activityLength,%
@@ -409,22 +429,22 @@
                 action=\,\TimeDays{1 - 7},
                 uses={\Society[tags={T,S}][val=20]},
             }
-                Forge a document that does {(\FC{not})} fool passive observers. \hfill \D{Up to \Numb{+4}\,\Cirm
-                bonus if similar doc. known.}
+                Forge a document that does {(\FC{not})} fool passive observers. \hfill
+                \D{Up to \Numb{+4}\,\Cirm bonus if similar doc. known.}
             \end{entry}
         \end{Table}
         \vfill
-        \begin{Table}{Infiltration Subsystem}[\;\dash\;\MSC{Preparation Activities}][Following activities are part of
-        Downtime]
+        \begin{Table}{Infiltration Subsystem}[\;\dash\;\MSC{Preparation Activities}][Following activities are part of Downtime]
             \begin{entry}{Gossip}{%
                 align=center seam,
                 name width=\activityLength,%
                 page=GMC 199,
                 uses={\Diplomacy[tags=S]},
             }
-                Seek out rumors about the target. \hfill \CS{and get a \Numb{+2}\,\Cirm bonus to future prep. checks.}\\
-                Gain inside information about the target. \hfill\CF{Gain 1 \Focus{Awareness Point} and
-                \Numb{-2}\,\Cirm penalty to next prep. check.}
+                Seek out rumors about the target. \hfill
+                \CS{and get a \Numb{+2}\,\Cirm bonus to future prep. checks.}\\
+                Gain inside information about the target. \hfill
+                \CF{Gain 1 \Focus{Awareness Point} and \Numb{-2}\,\Cirm penalty to next prep. check.}
             \end{entry}
             \begin{entry}{Gain Contact}{%
                 align=center seam,
@@ -433,8 +453,8 @@
                 uses={\SkillBoxX{raw, skill=\MSC{Diplomacy}/\MSC{Society}/\MSC{Lore}}}
             }
                 Try to find useful contact.\\
-                Gain a contact and \Numb{1} \Focus{Edge Point}.\hfill \CF{Future attempts suffer from
-                \Numb{-2}\,\Cirm penalty; On repeat gain \Focus{Awareness Points}.}
+                Gain a contact and \Numb{1} \Focus{Edge Point}.\hfill
+                \CF{Future attempts suffer from \Numb{-2}\,\Cirm penalty; On repeat gain \Focus{Awareness Points}.}
             \end{entry}
             \begin{entry}{Bribe Contact}{%
                 align=center seam,
@@ -445,16 +465,17 @@
                 Offer a bribe to your contact. \hfill Always gain \Numb{1} \Focus{Edge Point}.\\
                 Costs minimum \Numb{1/10} of the \Refer{Currency per additional PC} listed on \pgc{GMC 59}. \hfill
                 Doubling costs gives \Numb{+2}\,\Cirm.\\
-                \F{Gain \Numb{1\CFC{(2)}} \Focus{Awareness point}. \hfill The \Focus{Edge Point} is useless, which
-                the GM can reveal if/when they want.}
+                \F{Gain \Numb{1\CFC{(2)}} \Focus{Awareness point}. \hfill
+                The \Focus{Edge Point} is useless, which the GM can reveal if/when they want.}
             \end{entry}
             \begin{entry}{Scout Location}{%
                 name width=\activityLength,%
                 page=GMC 199,
                 uses=\SkillBoxX{raw, skill={\MSC{Perception}/\MSC{Society}/\MSC{Stealth}}, tags=S},
             }
-                Spend time observing the target.\hfill \SU{Gain \Numb{1} \Focus{Edge Point}.} \hfill\CF{Gain
-                \Numb{1} \Focus{Edge Point} that causes \textbf{CF}}.
+                Spend time observing the target.\hfill
+                \SU{Gain \Numb{1} \Focus{Edge Point}.} \hfill
+                \CF{Gain \Numb{1} \Focus{Edge Point} that causes \textbf{CF}}.
             \end{entry}
             \begin{entry}{Forge Documents}{%
                 align=center seam,
@@ -463,8 +484,9 @@
                 page=GMC 199,
             }
                 Prepare a convincing forgery prop. \\
-                Gain \Numb{1} \Focus{Edge Point} that you can only use when presenting paperwork.\hfill \F{Gain
-                \Numb{1} useless \Focus{Edge Point}.} \CF{That causes \textbf{CF}.}
+                Gain \Numb{1} \Focus{Edge Point} that you can only use when presenting paperwork.\hfill
+                \F{Gain \Numb{1} useless \Focus{Edge Point}.}
+                \CF{That causes \textbf{CF}.}
             \end{entry}
             \begin{entry}{Secure Disguises}{%
                 align=center seam,
@@ -472,8 +494,8 @@
                 uses=\SkillBoxX{raw, skill=\MSC{Crafting}/\MSC{Deception}/\MSC{Performance}/\MSC{Society}},
                 page=GMC 199,
             }
-                Procure or create disguises. \\\phant\SU{Gain \Numb{1} \Focus{Edge Point} that is usable when
-                maintaining identity.}
+                Procure or create disguises. \\\phant
+                \SU{Gain \Numb{1} \Focus{Edge Point} that is usable when maintaining identity.}
             \end{entry}
         \end{Table}
         \vfill
@@ -495,7 +517,9 @@
             }
                 Watch or study an NPC.
                 Choose to learn \Numb{1\CSC{(2)}} of the following:  \hfill\CF{Get false info.}\\
-                {lowest unknown \Focus{Influence} \Numb{DC}, \quad personal preference, \quad one \Type{Resistance},
+                {lowest unknown \Focus{Influence} \Numb{DC},
+                    \quad personal preference,
+                    \quad one \Type{Resistance},
                     \quad one \Type{Weakness}.}
             \end{entry}
         \end{Table}
@@ -512,8 +536,8 @@
                 uses=\Crafting,
                 page=GMC 208,
             }
-                Gain \Numb{+2}\,\Cirm bonus to \MSCB{initiative} and \MSCB{Perception} checks to find \Focus{Sneaking
-                Creatures}.
+                Gain \Numb{+2}\,\Cirm bonus to \MSCB{initiative} and \MSCB{Perception} checks to find
+                \Focus{Sneaking Creatures}.
             \end{entry}
             \begin{entry}{Map the Area}{%
                 name width=\activityLength,%
@@ -522,8 +546,8 @@
                 uses=\Survival,
                 page=GMC 208,
             }
-                Create a accurate map of the hex. Any \DC\,to navigate the hex is reduced by \Numb{2}. \hfill\D{Need
-                succesful \Refer{Reconnoiter}.}
+                Create a accurate map of the hex. Any \DC\,to navigate the hex is reduced by \Numb{2}. \hfill
+                \D{Need succesful \Refer{Reconnoiter}.}
             \end{entry}
             \breakLine[Group activities]
             \begin{entry}{Travel}{%
@@ -532,10 +556,10 @@
                 page=GMC 208,
                 tags=\Move,
             }
-                Travel between hexes. Multiple uses are required for difficult terrain.\hfill \D{Road can reduce uses
-                .}\\
-                \D{It is possible to force march gaining \Numb{1} extra \Focus{Travel Activity}. Can be done for
-                \Numb{Con} days, min \Numb{1}.}
+                Travel between hexes. Multiple uses are required for difficult terrain.\hfill
+                \D{Road can reduce uses.}\\
+                \D{It is possible to force march gaining \Numb{1} extra \Focus{Travel Activity}.
+                Can be done for \Numb{Con} days, min \Numb{1}.}
             \end{entry}
             \begin{entry}{Reconnoiter}{%
                 name width=\activityLength,%
@@ -543,8 +567,9 @@
                 page=GMC 208,
                 tags=\Concentrate,
             }
-                Survey the hex for \Focus{Unusual Features}. Same multiple uses as \Refer{Travel}.\hfill \D{Road can
-                't reduce uses.}\\
+                Survey the hex for \Focus{Unusual Features}.
+                Same multiple uses as \Refer{Travel}.\hfill
+                \D{Road can't reduce uses.}\\
                 Certain features might require a check.
             \end{entry}
         \end{Table}%
@@ -559,8 +584,8 @@
                 action=\,\TimeHour{1},
                 page=KCG 109,
             }
-                Hide your campsite. Increase \Focus{Encounter} \DC\,by \Numb{1\CSC{(2)}\CFC{(-2)}}.\hfill\CS{Skip the
-                first successful \Focus{Encounter Check}.}\\
+                Hide your campsite.
+                Increase \Focus{Encounter} \DC\,by \Numb{1\CSC{(2)}\CFC{(-2)}}.\hfill\CS{Skip the first successful \Focus{Encounter Check}.}\\
                 \phant\CF{\Focus{Encounter Checks} are \Focus{CS} on \Numb{19} or \Numb{20}.}
             \end{entry}
             \begin{entry}{Cook Basic Meal}{%
@@ -573,8 +598,7 @@
             }
                 Cook a basic meal. Eating gives \Numb{+1}\,\Status bonus to \Type{Saves} until daily prep.\\
                 Per serving use \Numb{2} \Focus{basic ingredients} and \Numb{1} day's rations or provisions from \Refer{Subsiding}.\\
-                \CS{Gives \Numb{2 x Level x Con}\,\HPs.} \hfill \CF{Become \Sickened\,\Numb{1} until after they
-                complete their daily prep.}
+                \CS{Gives \Numb{2 x Level x Con}\,\HPs.} \hfill \CF{Become \Sickened\,\Numb{1} until after they complete their daily prep.}
             \end{entry}
             \begin{entry}{Cook Special Meal}{%
                 name width=\activityLength,%
@@ -593,10 +617,9 @@
                 tags=\Manipulate,
                 uses=\SkillBoxX{skill=Cooking Lore},
             }
-                Learn a common recipe. Prepare \Numb{1} \Focus{Serving}. Uses \Focus{Double Ingredients}. \hfill\CS{
-                    You recover half resources.}\\
-                \D{The recepie has to be a lower level than the zone.}\hfill\F{Don't learn.} \quad \CF{And you are
-                exposed to the meals \textbf{CF}.}
+                Learn a common recipe. Prepare \Numb{1} \Focus{Serving}. Uses \Focus{Double Ingredients}. \hfill
+                \CS{You recover half resources.}\\
+                \D{The recepie has to be a lower level than the zone.}\hfill\F{Don't learn.} \quad \CF{And you are exposed to the meals \textbf{CF}.}
             \end{entry}
             \begin{entry}{Hunt and Gather}{%
                 align=center seam,
@@ -605,8 +628,7 @@
                 page=KCG 111,
                 tags=\Move,
                 uses={\SkillBoxX{skill raw={%
-                \SkillTextOutline{\MSC{Survival}}\SkillIBoxX{T}\SkillTextOutline{%
-                    /\MSC{Hunting Lore}}\!}}},
+                \SkillTextOutline{\MSC{Survival}}\SkillIBoxX{T}\SkillTextOutline{/\MSC{Hunting Lore}}\!}}},
             }
                 Gain \Focus{Basic Ingredients}. \hfill
                 \CS{Gain \Numb{2 x Zone DC} \LVL{1+} \Numb{+4} \LVL{7+} \Numb{+8} \LVL{14+} \Numb{+12}.}\\
@@ -640,7 +662,9 @@
                 tags=\Concentrate,
                 page=KCG 112,
             }
-                Grant \Numb{+1}\,\Cirm bonus to your ally's \Type{Camping Activity}. \hfill \CS{\Numb{+2} \Cirm \;\M \Numb{+3}\Cirm \;\Le \Numb{+4}\Cirm}\quad\CF{\Numb{-1} \Cirm penalty.}
+                Grant \Numb{+1}\,\Cirm bonus to your ally's \Type{Camping Activity}. \hfill
+                \CS{\Numb{+2} \Cirm \;\M \Numb{+3}\Cirm \;\Le \Numb{+4}\Cirm}\quad
+                \CF{\Numb{-1} \Cirm penalty.}
             \end{entry}
             \begin{entry}{Relax}{%
                 name width=\activityLength,%
@@ -656,10 +680,11 @@
                 page=KCG 112,
                 tags=\Concentrate, %Should be \Emotion, \Linguistic and \Mental as well but I don't see how to fit them
                 uses=\Performance,
-            }\scalefont{0.98}
-                During Camp. Session: Allies gain \Numb{+1\CSC{(+2)}}(Relaxing \Numb{+2})\,\Status bonus to \Type{
-                    Attack}, \Type{Saves} and \Type{Skills} during combat.
-                \\\CS{Relaxing ally gain one reroll during camp. session.} \hfill\F{No benefits.}\hfill \CF{\Numb{-1} penalty to \Type{Skills} until \Refer{relax} or daily prep.}
+            }
+                \scalefont{0.98}
+                During Camp. Session: Allies gain \Numb{+1\CSC{(+2)}}(Relaxing \Numb{+2})\,\Status bonus to \Type{Attack}, \Type{Saves} and \Type{Skills} during combat.\\
+                \CS{Relaxing ally gain one reroll during camp. session.} \hfill\F{No benefits.}\hfill
+                \CF{\Numb{-1} penalty to \Type{Skills} until \Refer{relax} or daily prep.}
             \end{entry}
         \end{Table}
     \end{Tables}%
