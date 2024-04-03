@@ -5,5 +5,4 @@ This is a cheatsheet for Pathfinder 2nd Edition created in latex. Hope you like 
  2. Select desired version
  3. Download the CheatSheet.pdf file under assets
 
-
-Also I don't take any reponsibility for keeping this up to date etc. I will update it only in regard to my own energy/regard.
+Any updates are of the friendly whim of the mantainers do not expect any updates other then that based of the energy/time etc of the maintainers.
