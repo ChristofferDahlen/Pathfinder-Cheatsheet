@@ -22,10 +22,14 @@ jobs:
         with:
           working_directory: src
           latexmk_use_lualatex: true
-          root_file: CheatSheet.tex
+          root_file: |
+            CheatSheet.tex
+            CheatSheet-LS.tex
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           make_latest: true
-          files: src/CheatSheet.pdf
+          files: |
+            src/CheatSheet.pdf
+            src/CheatSheet-LS.pdf

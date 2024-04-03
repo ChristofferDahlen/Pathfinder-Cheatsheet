@@ -1,0 +1,33 @@
+\input{Version}
+
+\hfuzz=5pt
+\hbadness=1000
+
+\scalefont{1.0}
+\newcommand\backTableHeight{\HeightBody}%
+\newcommand\frontTableHeight{\HeightBody}%
+
+\newpage
+
+\RenewDocumentCommand{\PageBottomType}{}{\MSC{Activity \& Actions}}
+\renewcommand{\BodySize}{\scriptsize\scalefont{0.8}}
+\renewcommand{\ActionSize}{\scriptsize\scalefont{0.8}}
+\include{Pages/ActivityPage}
+\include{Pages/ActionPage}
+
+\RenewDocumentCommand{\PageBottomType}{}{\MSC{Conditions, Rules, \& Tables}}
+\renewcommand{\BodySize}{\scriptsize\scalefont{0.8}}
+\renewcommand{\ActionSize}{\scriptsize\scalefont{0.8}}
+\include{Pages/ConditionPage}
+\include{Pages/GMPage}
+
+\RenewDocumentCommand{\PageBottomType}{}{Traits}
+\renewcommand{\BodySize}{\scriptsize\scalefont{0.7}}
+\renewcommand{\ActionSize}{\scriptsize\scalefont{1.1}}
+\renewcommand{\conditionLength}{0.14}
+\include{Pages/OtherTagsPage}
+\include{Pages/ItemTagsPage}
+
+\UpdateActionTrackerColors
+\include{Pages/IconPage}
+

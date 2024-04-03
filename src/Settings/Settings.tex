@@ -1,5 +1,4 @@
 \usepackage[a4paper,margin=6pt, lmargin=12pt, rmargin=12pt]{geometry}
-% Packages
 \usepackage{tikz}
 \usepackage{xcolor,colortbl}
 \usepackage{moresize}
@@ -14,7 +13,6 @@
 \usepackage{pdfrender}
 \usepackage{setspace}
 \usepackage{adjustbox}
-\definecolor{LightCyan}{rgb}{0.88,1,1}
 \usepackage{ifthen}
 \usepackage{scalefnt}
 \usepackage{tokcycle}
@@ -36,6 +34,10 @@
 \usepackage{nicematrix}
 \usepackage{stackengine}
 \usepackage{hhline}
+\usepackage{tabulary}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{booktabs}
 \usetikzlibrary{backgrounds, positioning}
 % Document
 
@@ -710,8 +712,7 @@
 }
 
 
-\input{TagSetup}
+\input{Settings/TagSetup}
 \input{Boxes/SkillBox}
 \input{Boxes/SpecialBox}
-\input{Skills}
-\input{SkillSetup}
+\input{Settings/SkillSetup}

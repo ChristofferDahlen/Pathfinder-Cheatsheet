@@ -23,8 +23,9 @@ jobs:
         with:
           working_directory: src
           latexmk_use_lualatex: true
-          root_file: CheatSheet.tex
-
+          root_file: |
+            CheatSheet.tex
+            CheatSheet-LS.tex
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -34,3 +35,4 @@ jobs:
           title: "Development Build"
           files: |
             src/CheatSheet.pdf
+            src/CheatSheet-LS.pdf
