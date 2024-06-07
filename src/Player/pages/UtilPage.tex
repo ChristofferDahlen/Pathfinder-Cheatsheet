@@ -6,38 +6,38 @@
     \hfill TG = Travel Guide
 }%
 \setlength{\parindent}{0mm}%
-\begin{PageBack}%
-    \begin{Tables}{\backTableHeight}%
+\begin{PageBackLandscape}%
+    \begin{TablesHalf}{\backTableHeight}%
         \begin{Table}{Misc Tables}[][Most of these tables are for reference: Remember to consult your \GM.]%
             \vspace{0.3mm}%
             \newcommand{\nodeDist}{2mm}
             \begin{tikzpicture}[node distance=\nodeDist,every node/.style={inner sep=0,outer sep=0}]
-                \node at (0, 0) (DCs) {\input{Pages/SqureTables/DCsByLevel}};
+                \node at (0, 0) (DCs) {\input{Player/Pages/SqureTables/DCsByLevel}};
 
-                \node[right=of DCs.north east, anchor=north west] (SDC) {\input{Pages/SqureTables/SimpleDCs}};
-                \node[right=of SDC.north east, anchor=north west] (DCA) {\input{Pages/SqureTables/DCAdjustment}};
-                \node[right=of DCA.north east, anchor=north west] (ED) {\input{Pages/SqureTables/Enviromental Damage}};
-                \node[right=of ED.north east, anchor=north west] (RW) {\input{Pages/SqureTables/WatchesAndRest}};
+                \node[right=of DCs.north east, anchor=north west] (SDC) {\input{Player/Pages/SqureTables/SimpleDCs}};
+                \node[right=of SDC.north east, anchor=north west] (DCA) {\input{Player/Pages/SqureTables/DCAdjustment}};
+                \node[right=of DCA.north east, anchor=north west] (ED) {\input{Player/Pages/SqureTables/Enviromental Damage}};
+                \node[right=of ED.north east, anchor=north west] (RW) {\input{Player/Pages/SqureTables/WatchesAndRest}};
 
 
                 \node[anchor=north west, shift={(\nodeDist,-\nodeDist)}] (TEMP) at (DCs.east |- DCA.south){\input{
-                    Pages/SqureTables/Temperature}};
-                \node[right=of TEMP.north east, anchor=north west] (TS) {\input{Pages/SqureTables/Travel Speed}};
+                    Player/Pages/SqureTables/Temperature}};
+                \node[right=of TEMP.north east, anchor=north west] (TS) {\input{Player/Pages/SqureTables/Travel Speed}};
 
 
-                \node[below=of TEMP.south west, anchor=north west] (MAT) {\input{Pages/SqureTables/Material}};
-                \node[right=of MAT.north east, anchor=north west] (URB) {\input{Pages/SqureTables/Urban1}};
-                \node[below=of URB.south west, anchor=north west] (FO) {\input{Pages/SqureTables/Forcing Open}};
-                \node[below=of FO.south west, anchor=north west] (COL) {\input{Pages/SqureTables/Costs_of_living}};
+                \node[below=of TEMP.south west, anchor=north west] (MAT) {\input{Player/Pages/SqureTables/Material}};
+                \node[right=of MAT.north east, anchor=north west] (URB) {\input{Player/Pages/SqureTables/Urban1}};
+                \node[below=of URB.south west, anchor=north west] (FO) {\input{Player/Pages/SqureTables/Forcing Open}};
+                \node[below=of FO.south west, anchor=north west] (COL) {\input{Player/Pages/SqureTables/Costs_of_living}};
 
 
-                \node[below=of COL.south west, anchor=north west] (SR) {\input{Pages/SqureTables/Size and reach}};
+                \node[below=of COL.south west, anchor=north west] (SR) {\input{Player/Pages/SqureTables/Size and reach}};
 
-                \node[left=of SR.north west, anchor=north east] (CB) {\input{Pages/SqureTables/CreatureBulk}};
-                \node[left=of CB.north west, anchor=north east] (BC) {\input{Pages/SqureTables/BulkConversions}};
+                \node[left=of SR.north west, anchor=north east] (CB) {\input{Player/Pages/SqureTables/CreatureBulk}};
+                \node[left=of CB.north west, anchor=north east] (BC) {\input{Player/Pages/SqureTables/BulkConversions}};
 
 
-                \node[above=of BC.north west, anchor=south west] (CO) {\input{Pages/SqureTables/SizedObjects}};
+                \node[above=of BC.north west, anchor=south west] (CO) {\input{Player/Pages/SqureTables/SizedObjects}};
 
 
                 \scalefont{0.3}
@@ -65,8 +65,8 @@
                 %\node[anchor=north west] at ([shift={(1pt,-4pt)}]ID.north west) {\BodySize\pgbc{xxx}};
             \end{tikzpicture}
         \end{Table}
-    \end{Tables}%
-    \begin{Tables}{\backTableHeight}%
+    \end{TablesHalf}%
+    \begin{TablesHalf}{\backTableHeight}%
         \begin{Table}{Turn}
             \begin{entry}{Rolling initiative}{%
                 align=center seam,
@@ -360,7 +360,7 @@
                 . Adding rooms to urban house cost up to 25\% of house value}
             \end{entry}
         \end{Table}
-    \end{Tables}%
-\end{PageBack}%
+    \end{TablesHalf}%
+\end{PageBackLandscape}%
 
 
