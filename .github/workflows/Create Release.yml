@@ -25,6 +25,7 @@ jobs:
           root_file: |
             CheatSheet_Player.tex
             CheatSheet_Player_LS.tex
+            CheatSheet_GM.tex
 
       - name: Release
         uses: softprops/action-gh-release@v2
@@ -33,3 +34,4 @@ jobs:
           files: |
             src/CheatSheet_Player.pdf
             src/CheatSheet_Player_LS.pdf
+            src/CheatSheet_GM.pdf

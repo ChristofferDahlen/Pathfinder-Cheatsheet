@@ -2,11 +2,377 @@
 \hfuzz=5pt
 \hbadness=1000
 
-\scalefont{1.0}
 \newcommand\backTableHeight{\HeightBody}%
 \newcommand\frontTableHeight{\HeightBody}%
+\renewcommand{\DetailSize}{\scriptsize\scalefont{0.8}}
 
 \newpage
 
-ttt
-\newpage
+\renewcommand{\BodySize}{\scriptsize\scalefont{1}}
+\renewcommand{\ActionSize}{\scriptsize\scalefont{1}}
+
+\RenewDocumentCommand{\PageBottom}{}{%
+    \BodyFont%
+    \begin{minipage}[t][0.015\pageheight][t]{0.49\linewidth}%
+        \tiny%
+        \A{a} \MSC{Single Action} \hfill \A{d} \MSC{Two}\dash\MSC{Action Activity} \hfill \A{t} \MSC{Three}\dash\MSC{
+            Action Activity} \hfill \A{f} \MSC{Free Action} \hfill \A{r} \MSC{Reaction}\\
+        \CSC{\textbf{CS} \edash Critical Success}\;\;
+        \SC{\textbf{S} \edash Success}\;\;
+        \FC{\textbf{F} \edash Failure}\;\;
+        \CFC{\textbf{CF} \edash Critical Failure}\\
+        \pgc{777 = Page reference for Player Core
+        \PageBottomReferences%
+        }%
+    \end{minipage}\hspace{0.01\linewidth}%
+    \begin{minipage}[t][0.015\pageheight][t]{0.49\linewidth}%
+        \tiny
+        \Mental, \Emotion\,\& \Fear\,\dash\,Tags for immunities \hfill
+        \Auditory/\Visual\,\dash\,Doesn't affect targets that can't see/hear\hfill
+        \VariousKnowledge\,\dash\,Relevant Knowledge Skills \hfill \MagicalSkill\,\dash\,Relevant Magic skill \ArcanaT, \NatureT, \OccultismT, \ReligionT\hfill\\
+        \D{All of this material is licensed under either OGL or ORC lisence.}                \hfill\D{\MSC{Voidhawk
+        Cheatsheet} \Numb{\Version}\quad By Voidhawk}\;\dash\; \PageBottomType \;\dash\; Page \Numb{\thePAGE}%
+    \end{minipage}%
+    \stepcounter{PAGE}%
+    \rmfamily%
+}
+
+
+\begin{PageFront}[\SubtitleFillText{\MSC{Creature Abilities}}]
+    \begin{Table}{Chained}[][If the following is listed as part of a damage entry the creature can use the following if a strike has hit.]
+        \begin{entry}{}{%
+            name width=\monsterLength,%
+            action={\entryTitle{Knockdown} \A{a} \\\D{\entryTitle{Improved Knockdown} \A{f}}},
+            page={MC 359}
+        }
+            \Refer{Trip} an creature without \Refer{MAP}: \\\AthleticsReflex \dash Knock an opponent \Prone. \CS{And deal \Numb{1d6}\,\Type{blunt}.}\quad\CF{Fall \Prone.}
+        \end{entry}
+        \begin{entry}{}{%
+            name width=\monsterLength,%
+            action={\entryTitle{Grab} \A{a}\\\D{\entryTitle{Improved Grab} \!\A{f}}},
+            align=center,
+            page={MC 359}
+        }
+            \Refer{Grapple} a creature without \Refer{MAP}. \AthleticsFortitude \dash Grab with the limb used until your next turn ends.\hfill
+            \D{Usable against a creature that is \Grabbed or \Restrained.}\\
+            \F{Release the target if you already had it \Grabbed or \Restrained.}\hfill
+            \CF{And the target can \Grab you or push you \Prone.}
+        \end{entry}
+        \begin{entry}{}{%
+            name width=\monsterLength,%
+            action={\entryTitle{Pull} \A{a}\\\D{\entryTitle{Improved Pull} \!\A{f}}},
+            page={MC 359}
+        }
+            \Refer{Reposition} a creature towards the monster without \Refer{MAP}.\\ \AthleticsFortitude \dash Move creature \Numb{5\CSC{(10)}}\,\Feet within your reach. Not into/through obstacles.\hfill
+            \CF{Target repositions you \Numb{5}\,\Feet}.
+        \end{entry}
+        \begin{entry}{}{%
+            name width=\monsterLength,%
+            action={\entryTitle{Push} \A{a}\\\D{\entryTitle{Improved Push} \!\A{f}}},
+            page={MC 359}
+        }
+            \Refer{Shove} a creature without \Refer{MAP}.\\ \AthleticsFortitude \dash Push an opponent \Numb{5\CSC{(10)}}\,\Feet from you. You can follow. \hfill
+            \CF{Fall \Prone.}
+        \end{entry}
+    \end{Table}
+    \begin{Table}{Offense}
+        \begin{entry}{Constrict}{%
+            name width=\monsterLength,%
+            action={\A{a}},
+            page={MC 358}
+        }
+            The monster deals the listed damage against any creatures \Grabbed or \Restrained with a basic \Fortitude[][before=Listed]
+        \end{entry}
+        \begin{entry}{Greater Constrict}{%
+            name width=\monsterLength,%
+            action={\A{a}},
+            page={MC 359}
+        }
+            Same as \Refer{Constrict} but \F{Fall \Unconscious.}
+        \end{entry}
+        \begin{entry}{Throw Rock}{%
+            name width=\monsterLength,%
+            page={MC 360}
+        }
+            \Refer{Interact} to pick up a rock or retrieve a stowed rock and make a ranged \Refer{Strike} with it.
+        \end{entry}
+        \begin{entry}{Rend}{%
+            name width=\monsterLength,%
+            action={\A{a}},
+            page={MC 360}
+        }
+            \Requirements{Hit the same enemy with two consecutive \Refer{Strikes} of listed type in round.} \hfill
+            \Effect{Deal strike damage to target automatically.}
+        \end{entry}
+        \begin{entry}{Aquatic Ambush}{%
+            name width=\monsterLength,%
+            action={\A{a}},
+            page={MC 358}
+        }
+            \Requirements{Target hasn't detected monster and is reachable.}\hfill
+            \Effect{Move \Numb{\Refer{swim speed} + 10}, on either water or land towards target and \Refer{strike} it. It is \OffGuard.}
+        \end{entry}
+        \begin{entry}{Trample}{%
+            name width=\monsterLength,%
+            action={\A{t}},
+            page={MC 360}
+        }
+            Move \Numb{2\times\Refer{Speed}} through creatures of listed size.\hfill Each creature take damage from listed strike with a basic \Fortitude[][before=Listed].
+        \end{entry}
+    \end{Table}
+    \begin{Table}{Reactions}
+        \begin{entry}{Buck}{%
+            name width=\monsterLength,%
+            action=\A{r},
+            page={MC 358}
+        }
+            Remove unwanted rider: \Trigger{A creature \Refer{Mounts} or uses \Refer{Command an Animal} while riding.}\\
+            \Effect{The triggering creature must succeed \Reflex[][before=Listed] \F{Fall of the creature and land \Prone.} \CF{and take extra \Numb{1d6} bludegoning.}}
+        \end{entry}
+        \begin{entry}{Catch Rock}{%
+            name width=\monsterLength,%
+            action=\A{r},
+            page={B 342}
+        }
+        \Requirements{A free hand but monster can \Refer{Release} held objects.}\hfill \Trigger{The monster is targeted with a \Refer{Thrown rock strike} or a rock would fall on the monster}\\ \Effect{The monster gains a \Numb{+4} \Cirm to \Ac. If it misses then the monster catches the rock and takes no damage.}
+        \end{entry}
+        \begin{entry}{Ferocity}{%
+            name width=\monsterLength,%
+            action=\A{r},
+            page={MC 359}
+        }
+        \Trigger{The monster is reduced to \Numb{0} \HPs}. \\\Effect{The monster avoid being kocked out and remains at \Numb{1 HP}, its \Wounded value increases by \Numb{1}. When at \Wounded\,\Numb{3}, it cannot use this ability.}
+        \end{entry}
+        \begin{entry}{Reactive Strike}{%
+            name width=\monsterLength,%
+            action=\A{r},
+            page={MC 359}
+        }
+            \Refer{Strike} against a creature that uses a \Manipulate\,or \Move\,action, a Ranged Attack or leaves a square during a \Move\,action.\\
+            \D{Doesn't count toward MAP.}\hfill \CS{Disrupt \Manipulate\,actions.}
+        \end{entry}
+        \begin{entry}{Retributive Strike}{%
+            name width=\monsterLength,%
+            action=\A{r},
+            page={B 344}
+        }
+        \Trigger{An monster's ally damaged within \Numb{15}\Feet. }\hfill \Effect{Ally gains 2 + monster's level restistance towards that damage. If foe is within reach monster makes a \Refer{Strike}. }
+        \end{entry}
+        \begin{entry}{Shield Block}{%%
+            name width=\monsterLength,%
+            align=center,%
+            action=\A{r},%
+            page=MC 360,%
+        }
+            Reduces the damage of a \Type{physical} attack by the raised \Refer{shield}'s \Hardness.\\
+            \Focus{Both} \MSC{you} and the \Refer{shield} take any remaining damage.\hfill
+            \D{Objects generally break at half \HPs and are destroyed at \Numb{0} \HPs.}
+        \end{entry}
+    \end{Table}
+    \begin{Table}{Auras}
+        \begin{entry}{Aura}{%
+            name width=\monsterLength,
+            page=MC 358,%
+        }
+        A listed emanation around a monster which has effect at specific times. \D{Use Doesn't require actions.}\\
+        GM determines if the aura affects monsters allies.\hfill \D{A creature can only take damage from a aura once per round.}
+        \end{entry}
+        \begin{entry}{Frightful Presence}{%
+            name width=\monsterLength,
+            page=MC 359,%
+        } \Aura \Emotion\Fear\Mental\;
+        Creatures that enter area makes a \Will[][before=listed]. Creature becomes \Frightened\,\Numb{(\SC{1}/\FC{2}/\CFC{4})}. \CS{No effect.} \hfill Creature is immune for \TimeMin{1}.
+        \end{entry}
+        \begin{entry}{Stench}{%
+            name width=\monsterLength,
+            page=MC 360,%
+        }
+            \Olfactory Creatures entering or starting its turn \Fortitude[][before=listed] \F{\Sickened\,\Numb{1}} \CF{and \Slowed\,\Numb{1} whilst \Sickened.}\hfill \D{A revocerd creature is immune to all stench auras for \TimeMin{1}.}
+        \end{entry}
+        \begin{entry}{Telepathy}{%
+            name width=\monsterLength
+        }
+        \Magical\Mental\; Can communicate with creatures mentally.
+        \end{entry}
+    \end{Table}
+    \begin{Table}{Spellcasting}
+        \begin{entry}{At-Will}{%
+            name width=\monsterLength,
+            page=MC 358,%
+        }
+            The monster can cast its at-will spells any number of times without using up spell slots.
+        \end{entry}
+        \begin{entry}{At-Constant Spells}{%
+            name width=\monsterLength,
+            page=MC 358
+        }
+            Affects the monster without needing to cast it with unlimited duration.\hfill \D{Can be counteracted, is then reactivated by spending the normal spellcasting actions reuqired.}
+        \end{entry}
+
+    \end{Table}
+    \begin{Table}{Healing}
+        \begin{entry}{Fast Healing}{%
+            name width=\monsterLength,
+            page=MC 359,%
+        }
+            Monster regains listed \HPs at the beginning of its turn.
+        \end{entry}
+        \begin{entry}{Regeneration}{name width=\monsterLength}
+            Monster regains listed \HPs at the beginning of its turn. \hfill Its \Dying condition cannot increase above \Numb{3} whilst regeneration is active.\\
+        Is deactivated, until end of its next turn, by taking listed damage. \hfill Can be killed by deactivating damage.
+        \end{entry}
+    \end{Table}
+    \begin{Table}{Traits \& Immunities}
+        \begin{entry}{}{%
+            action=\tagElem{Swarm},
+            name width=\monsterLength,
+            page=MC 363,%
+        }
+            Immune to \Grabbed, \Prone and \Restrained
+        \end{entry}
+        \begin{entry}{}{%
+            action=\tagElem{Incorporeal},
+            name width=\monsterLength,
+            page=MC 362,%
+        }
+            Can pass through objects. Whilst inside an object it can't perceive, attack or interact outside the object and if it starts it turn there it is \Slowed \Numb{1}.\\
+            It can pass though corporeal creatures but can't share space. \hfill Can't attempt Strength based checks against physical creatures or objects.
+        \end{entry}
+        \begin{entry}{}{%
+            action=\tagElem{Mindless},%
+            name width=\monsterLength,%
+            page=MC 363,%
+        }
+            Creature is immune to \Mental effects.
+        \end{entry}
+        \begin{entry}{Swarm Mind}{%
+            name width=\monsterLength,
+            page=MC 360,%
+        }
+            Is immune to \Mental effects that only target a specific number of creatures.
+        \end{entry}
+        \begin{entry}{Void Healing}{%
+            name width=\monsterLength,
+            page=MC 360,%
+        }
+            Creature is damaged by \Vitality\,damage and is not healed by \Healing\Vitality\,effects. Doesn't take \Void\,damage and is healed by \Void\,effects.
+        \end{entry}
+    \end{Table}
+    \begin{Table}{Senses}
+        \begin{entry}{All-\! Around Vision}{%
+            name width=\monsterLength,
+            page=MC 358,%
+        }
+            Can see in all directions cannot be \Refer{Flanked}.
+        \end{entry}
+        \begin{entry}{Darkvision}{%
+            name width=\monsterLength,
+            page=MC 359,%
+        }
+            Can see perfectly well in areas of darkness and dim light. \hfill Creates with Greater darkvision can seen through magical darkness.
+        \end{entry}
+        \begin{entry}{Lifesense}{%
+            name width=\monsterLength,
+            page=MC 359,%
+        }
+            Can see vital essence of living and undead creatures within listed range. Can distinguish creatures by animating source.
+        \end{entry}
+        \begin{entry}{Light Blindness}{%
+            name width=\monsterLength,
+            page=MC 359%
+        }
+            When first exposed to \Refer{Bright Light} the monster in blinded until the end of its next turn (Immune until \TimeHour{1} in darkness).\hfill
+            Whilst in \Refer{Bright Light} it is \Refer{dazzled}.
+        \end{entry}
+        \begin{entry}{Low-\! Light Vision}{%
+            name width=\monsterLength,
+            page=MC 359%
+        }
+            Can see in \Refer{dim light} as if its was \Refer{bright light}.
+        \end{entry}
+        \begin{entry}{Scent}{%
+            name width=\monsterLength,
+            page=MC 360,%
+        }
+            Can sense Creatures or objects by smell. Range is listed in ability. Only works against creatures that emits an aroma.
+        \end{entry}
+        \begin{entry}{Tremorsense}{%
+            name width=\monsterLength,
+            page=MC 360%
+        }
+            Can feel vibrations through a solid surface. Usually \Refer{imprecise} sense with listed range.\hfill Only works if creatures are on the same surface and subject is moving.
+        \end{entry}
+        \begin{entry}{Wavesense}{%
+            name width=\monsterLength,
+            page=MC 360%
+        }
+            Can feel vibrations cause by movement through a liquid. Usually \Refer {imprecise} sense with listed range. \hfill Only works if creatures are in the same body of liquid and if the subject is moving.
+        \end{entry}
+    \end{Table}
+    \begin{Table}{Troops}
+        \begin{entry}{Form Up}{%
+            action=\A{a},
+            name width=\monsterLength,
+            page={B3 304}
+        }
+            resubstitute the squares within \Numb{15} \Feet from a square it currently occupies. Has to be contiguous.
+        \end{entry}
+        \begin{entry}{Troop Defenses}{%
+            name width=\monsterLength,
+            page={B3 306}%
+        }
+            Composed of many individuals. Shrinks in size at certain thresholds where its max \HPs are replaced.\hfill
+            \D{Any single target effect cannot reduce the troop by more than one threshold.}\\
+            If an effect targets four creatures (or squares) making them unable to act as a troop causes reduce the troop one threshold.\hfill \D{If damage and effect, apply damage first.}
+        \end{entry}
+    \end{Table}
+    \begin{Table}{Eating players}
+        \begin{entry}{Engulf}{%
+            action=\A{d},
+            name width=\monsterLength,%
+            page=MC 359,%
+        }
+            Swallow creatures. Stride up to \Numb{2}*\Refer{Speed} through creatures spaces. They make \Reflex[][before={}][] to avoid. \hfill \D{If unable to act then \CFC{CF}.}\\
+            \SU{Instead pushed aside or in front of the creature.}
+            \quad\F{\Refer{Eaten whole}.}\hfill \D{At death all creatures are released.}
+        \end{entry}
+        \begin{entry}{Swallow Whole}{%
+            action=\A{a},
+            name width=\monsterLength,
+            page=MC 360,%
+        }
+            Usable against a creature of listed a size or smalled that is \Grabbed or \Restrained in its mouth.\\
+            Monster makes a \AthleticsReflex. \SU{Creature is \Refer{eaten whole} (and leaves its jaws).} \hfill \D{The eaten creture cannot be attacked by the monster}\\
+            \D{If the creature dies: You can cut the creature open with \A{t} using a weapon on unarmed attack with \Refer{Slashing} or \Refer{Piercing}.}
+        \end{entry}
+        \begin{entry}{Eaten whole}{%
+            name width=\monsterLength,
+            page=MC 359/360,%
+        }
+            \Focus{Take listed damage:} \Focus{1.} When eaten. \Focus{2.} at end of eaten creature's turn. \hfill Eaten creatures are \Grabbed,\,\Slowed\,\Numb{1} and have to hold it's breath or \Refer{Suffocate}.\\
+            Use \Refer{Escape} to leave. \hfill If the eater takes \Refer{Slashing} or \Refer{Piercing} above \Refer{Rupture} from a single attack creature is freed.\\
+            Eaten creatures can attack with \Refer{Unarmed} or \LightBulk. It is \OffGuard.
+        \end{entry}
+
+    \end{Table}
+    \begin{Table}{Other}
+        \begin{entry}{Coven}{%
+            name width=\monsterLength,
+            page=MC 358,%
+        }
+            Can form a coven with two or more other creatures with a \TimeHour{8} ritual. \hfill Can sense other members locations and conditions using \A{a} or share senses \A{d} \Concentrate.\\
+            Members gains \Refer{Elite} adjustment and coven spells. \hfill \D{If less then 3 members adjustment remains for \TimeHour{24}.} \\
+            If two other members have contributed to the coven spell (using \A{a} \Concentrate) within the last round it can be cast with \A{d} \Concentrate.
+        \end{entry}
+        \begin{entry}{Change Shape}{%
+            action=\A{a},
+            name width=\monsterLength,
+            page=MC 358,%
+        }
+            \Concentrate \Polymorph Change shape. Counts as creating a disguise for \Refer{Impersonate}.\hfill  Defeats \Perception to determine its original ancestry or creature type.\\
+            Gains \Numb{+4} \Cirm to its \Deception to see through its disguise. Doesn't gain any special abilities of new changes unless listed. \hfill
+            \D{Normally cannot appear as a specific individual.}
+        \end{entry}
+    \end{Table}
+
+\end{PageFront}
