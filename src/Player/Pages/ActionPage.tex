@@ -1,5 +1,5 @@
 \renewcommand{\PageBottomReferences}{%
-    \hfill APG = Advanced Players Guide
+    \hfill PC2 = Player Core 2
     \hfill GMC = GM Core\\
     \hfill SoM = Secrets of Magic
     \hfill TV = Treasure Vault
@@ -21,8 +21,8 @@
                 page=138,
                 uses=\Feat
             }
-                \Refer{Strike} against a creature that uses a \Manipulate\,or \Move\,action or a Ranged Attack.\hfill
-                \CS{Disrupt \Manipulate\,actions.}
+                \Refer{Strike} against a creature that uses a \Manipulate\,or \Move\,action, a Ranged Attack or leaves a square during a \Move\,action.\\
+                \D{Doesn't count toward MAP.}\hfill \CS{Disrupt \Manipulate\,actions.}
             \end{entry}
             \begin{entry}{Feint}{%action=\A{a},
                 align=center,
@@ -63,6 +63,14 @@
                     \raggedleft
                     \CS{Target drops the object.}\\\CF{You become \OffGuard.}
                 \end{minipage}
+            \end{entry}
+            \begin{entry}{Dirty Trick}{%%
+                action=\A{a},
+                page=235,
+                tags=\Attack\Manipulate,
+                uses=\ThieveryReflex\Feat,
+            }
+                Play a trick on foe. \Clumsy for 1 round. \CS{Until \Refer{interact}.} \CF{Fall Prone}.
             \end{entry}
             \begin{entry}{Grapple}{%%
                 align=center,
@@ -216,7 +224,7 @@
             \begin{entry}{Battle Medicine}{%%
                 align=center,
                 action=\A{a},
-                page=253,
+                page=PC2 229,
                 tags=\Manipulate,
                 uses=\Medicine\Feat,
             }
