@@ -26,6 +26,7 @@ jobs:
           root_file: |
             CheatSheet_Player.tex
             CheatSheet_Player_LS.tex
+            CheatSheet_GM.tex
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
