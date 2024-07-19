@@ -15,7 +15,7 @@ jobs:
 
       - name: Update Version Number
         run:
-          echo "\newcommand{\Version}{${{ github.ref_name }}}" > src/Version.tex
+          echo "\newcommand{\Version}{${{ github.ref_name }}}" > src/Settings/Version.tex
 
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
@@ -23,13 +23,13 @@ jobs:
           working_directory: src
           latexmk_use_lualatex: true
           root_file: |
-            CheatSheet.tex
-            CheatSheet-LS.tex
+            CheatSheet_Player.tex
+            CheatSheet_Player_LS.tex
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           make_latest: true
           files: |
-            src/CheatSheet.pdf
-            src/CheatSheet-LS.pdf
+            src/CheatSheet_Player.pdf
+            src/CheatSheet_Player_LS.pdf

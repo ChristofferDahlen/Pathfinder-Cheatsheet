@@ -1,4 +1,3 @@
-\input{Version}
 
 \hfuzz=5pt
 \hbadness=1000
@@ -12,22 +11,22 @@
 \RenewDocumentCommand{\PageBottomType}{}{\MSC{Activities \& Actions}}
 \renewcommand{\BodySize}{\scriptsize\scalefont{0.8}}
 \renewcommand{\ActionSize}{\scriptsize\scalefont{0.8}}
-\include{Pages/ActivityPage}
-\include{Pages/ActionPage}
+\input{Player/Pages/ActivityPage}
+\input{Player/Pages/ActionPage}
 
 \RenewDocumentCommand{\PageBottomType}{}{\MSC{Conditions, Rules, \& Tables}}
 \renewcommand{\BodySize}{\scriptsize\scalefont{0.8}}
 \renewcommand{\ActionSize}{\scriptsize\scalefont{0.8}}
-\include{Pages/ConditionPage}
-\include{Pages/GMPage}
+\input{Player/Pages/ConditionPage}
+\input{Player/Pages/UtilPage}
 
 \RenewDocumentCommand{\PageBottomType}{}{Traits}
 \renewcommand{\BodySize}{\scriptsize\scalefont{0.7}}
 \renewcommand{\ActionSize}{\scriptsize\scalefont{1.1}}
 \renewcommand{\conditionLength}{0.14}
-\include{Pages/OtherTagsPage}
-\include{Pages/ItemTagsPage}
+\input{Player/Pages/OtherTagsPage}
+\input{Player/Pages/ItemTagsPage}
 
 \UpdateActionTrackerColors
-\include{Pages/IconPage}
+\input{Player/Pages/IconPage}
 
