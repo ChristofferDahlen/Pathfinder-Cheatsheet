@@ -1,5 +1,5 @@
 \renewcommand{\PageBottomReferences}{%
-    \hfill APG = Advanced Players Guide
+    \hfill PC2 = Player Core 2
     \hfill GMC = GM Core\\
     \hfill SoM = Secrets of Magic
     \hfill TV = Treasure Vault
@@ -21,8 +21,8 @@
                 page=138,
                 uses=\Feat
             }
-                \Refer{Strike} against a creature that uses a \Manipulate\,or \Move\,action or a Ranged Attack.\hfill
-                \CS{Disrupt \Manipulate\,actions.}
+                \Refer{Strike} against a creature that uses a \Manipulate\,or \Move\,action, a Ranged Attack or leaves a square during a \Move\,action.\\
+                \D{Doesn't count toward MAP.}\hfill \CS{Disrupt \Manipulate\,actions.}
             \end{entry}
             \begin{entry}{Feint}{%action=\A{a},
                 align=center,
@@ -63,6 +63,14 @@
                     \raggedleft
                     \CS{Target drops the object.}\\\CF{You become \OffGuard.}
                 \end{minipage}
+            \end{entry}
+            \begin{entry}{Dirty Trick}{%%
+                action=\A{a},
+                page=PC2 ???,
+                tags=\Attack\Manipulate,
+                uses=\ThieveryReflex\Feat,
+            }
+                Play a trick on foe. Foe is \Clumsy\,\CS{Until \Refer{interact}} \SU{for 1 Round.} \CF{Fall Prone}.
             \end{entry}
             \begin{entry}{Grapple}{%%
                 align=center,
@@ -169,7 +177,7 @@
             \breakLine
             \begin{entry}{Raise a shield / Parry}{%%
                 action=\A{a},
-                page=419/282,
+                page=419 / 282,
             }
                 Put up a \Refer{shield} (or \Refer{parry weapon}) to get its bonus to \Ac. \hfill
                 \D{\Numb{+2}\,\Ac for most \Refer{shields}; \Numb{+1}\,\Ac for \Refer{parry weapons}.}
@@ -187,12 +195,10 @@
             \breakLine
             \begin{entry}{Assisted Recovery}{%%
                 action={\,\sffamily\scalefont{0.8}\DColor{\,Usually}}\A{d},
-                page=445,
-                uses=\DCBoxX{val=15},
-            }
-                Help you/ally recover from persistent damage in \Focus{relevant} way. \hfill
-                \D{GM can adjust DC/effectiveness.} \hfill
-                \D{Creature gain 1 Round CD.}
+                page=445}
+                Help you/ally recover from persistent damage in \Focus{relevant} way. Gain additional flat check. \hfill
+                \D{GM decides req./effect/DC.} \hfill
+                Target: 1 Round CD.
             \end{entry}
         \end{Table}
         \TableSpace
@@ -216,7 +222,7 @@
             \begin{entry}{Battle Medicine}{%%
                 align=center,
                 action=\A{a},
-                page=253,
+                page=PC 253,
                 tags=\Manipulate,
                 uses=\Medicine\Feat,
             }
@@ -582,12 +588,12 @@
             \begin{entry}{Bon Mot}{%%
                 align=center,
                 action=\A{a},
-                tags=\parbox{0.5\linewidth}{\raggedleft\pg{APG 231}\,\Concentrate\\\Auditory\Linguistic},
+                tags=\parbox{0.5\linewidth}{\raggedleft\pg{PC2 ???}\,\Concentrate\\\Auditory\Linguistic},
                 uses={\DiplomacyWill[tags={T}]\Feat},
             }
                 Distract a foe with a witty quip. \Emotion\Mental\hfill \D{Target can retort.}\\
                 Targets takes a \Numb{-2\CSC{(-3)}}\,\Status penalty to \PerceptionT and \WillT \Type{saves} for \TimeMin{1}.
-                \hfill \CF{Get the \Numb{-2} penalty instead.}
+                \hfill \CF{Get the \Numb{-2} penalty until \TimeMin{1} or successful \Refer{Bon Mot}.}
             \end{entry}
             \breakLine
             \begin{entry}{Request}{%%
